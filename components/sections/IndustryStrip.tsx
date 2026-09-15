@@ -45,7 +45,7 @@ export function IndustryStrip({
           <StaggerItem as="li" key={industry.slug}>
             <Link
               href={`/industries#${industry.slug}`}
-              className="group/sector relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-card border border-line"
+              className="group/sector relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-card border border-line"
             >
               <Image
                 src={`/images/industries/${industry.slug}.jpg`}
@@ -60,12 +60,12 @@ export function IndustryStrip({
                 className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"
               />
 
-              <span className="relative p-6">
+              <span className="relative p-5">
                 <span className="block font-display text-lg font-semibold leading-tight text-paper">
                   {industry.name}
                 </span>
 
-                <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-lime">
+                <span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-lime">
                   View roles
                   <span
                     aria-hidden="true"
