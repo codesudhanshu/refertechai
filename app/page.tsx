@@ -37,10 +37,11 @@ export default function Home() {
       <main id="main">
         <HeroCarousel slides={heroSlides} />
 
-        <ServicePillars tone="surface" />
-
         {/* recruitment services */}
         <ServiceGrid items={services} tone="paper" />
+
+        <ServicePillars tone="surface" />
+
 
         {/* 4 — differentiators on a dark band */}
         <WhyChooseUs items={differentiators} />
@@ -49,9 +50,10 @@ export default function Home() {
         <IndustryStrip items={industries} tone="paper" />
 
         {/* 7 — selected work */}
-        <CaseStudyGrid items={caseStudies} limit={3} tone="surface" />
+        <Partners tone="surface" />
 
-        <Partners tone="paper" />
+        <CaseStudyGrid items={caseStudies} limit={3} tone="paper" />
+
 
         {/* proof and questions */}
         <Testimonials items={testimonials} tone="surface" />

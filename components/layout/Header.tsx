@@ -93,14 +93,37 @@ export function Header() {
     setOpenGroup(null);
   }
 
-  // Lock background scroll only while the drawer is open, and always restore
-  // the previous value rather than assuming it was "".
+  // Lock background scroll while the drawer is open.
+  //
+  // `overflow: hidden` on body is not enough: it makes body the scroll
+  // container, which breaks `position: sticky` on the header — scrolled down,
+  // the header snapped back to its document position and left page content
+  // showing through the top of the screen. Pinning the body with a negative
+  // top offset holds the scroll position instead, and restores it exactly on
+  // close so the page does not jump.
   useEffect(() => {
     if (!drawerOpen) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+
+    const { body } = document;
+    const scrollY = window.scrollY;
+    const previous = {
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = previous;
+      body.style.position = previous.position;
+      body.style.top = previous.top;
+      body.style.width = previous.width;
+      body.style.overflow = previous.overflow;
+      window.scrollTo(0, scrollY);
     };
   }, [drawerOpen]);
 
@@ -331,21 +354,44 @@ export function Header() {
       {/* Mobile drawer — sibling of <header>, see note above */}
       {drawerOpen ? (
         <div className="lg:hidden">
-          <div
-            className="fixed inset-0 top-20 z-40 bg-ink/40"
-            onClick={() => {
-              closeDrawer();
-              triggerRef.current?.focus();
-            }}
-          />
+          {/* Covers the whole viewport, including behind the header. The drawer
+              carries its own brand row and close button, so it does not depend
+              on the sticky header staying put underneath it. */}
           <div
             ref={drawerRef}
             id="mobile-nav"
             role="dialog"
             aria-modal="true"
             aria-label="Main navigation"
-            className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto border-t border-line bg-paper px-6 py-6"
+            className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-paper"
           >
+            <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-line bg-paper px-6">
+              <Link
+                href="/"
+                className="flex items-center gap-2.5"
+                aria-label="ReferTech AI home"
+              >
+                <Mark />
+                <Wordmark />
+              </Link>
+
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => {
+                  closeDrawer();
+                  triggerRef.current?.focus();
+                }}
+                className="flex h-11 w-11 items-center justify-center rounded-btn border border-line text-ink"
+              >
+                <span aria-hidden="true" className="relative block h-3 w-5">
+                  <span className="absolute left-0 top-[5px] block h-[2px] w-5 rotate-45 bg-current" />
+                  <span className="absolute left-0 top-[5px] block h-[2px] w-5 -rotate-45 bg-current" />
+                </span>
+              </button>
+            </div>
+
+            <div className="px-6 py-6">
             <ul className="flex flex-col">
               {NAV.map((item) => (
                 <li key={item.label} className="border-b border-line">
@@ -419,6 +465,7 @@ export function Header() {
               >
                 {company.email}
               </a>
+            </div>
             </div>
           </div>
         </div>
