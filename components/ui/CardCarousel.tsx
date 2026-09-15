@@ -5,14 +5,23 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 // Scroll-snap carousel. The track is a real horizontally scrollable list, so
 // touch swipe, trackpad and keyboard all work without extra handling — the
 // buttons and dots just drive scrollLeft.
+// perView controls how many cards a desktop page shows. The track gap is
+// gap-5 (1.25rem), so n cards leave (n - 1) gaps to subtract from the width.
+const WIDTHS = {
+  3: "w-[82%] shrink-0 snap-start sm:w-[47%] lg:w-[calc((100%-2.5rem)/3)]",
+  4: "w-[82%] shrink-0 snap-start sm:w-[47%] lg:w-[calc((100%-3.75rem)/4)]",
+} as const;
+
 export function CardCarousel({
   label,
   children,
   invert = false,
+  perView = 4,
 }: {
   label: string;
   children: ReactNode[];
   invert?: boolean;
+  perView?: keyof typeof WIDTHS;
 }) {
   const trackRef = useRef<HTMLUListElement>(null);
   const [page, setPage] = useState(0);
@@ -71,10 +80,7 @@ export function CardCarousel({
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {children.map((child, i) => (
-          <li
-            key={i}
-            className="w-[82%] shrink-0 snap-start sm:w-[47%] lg:w-[calc((100%-3.75rem)/4)]"
-          >
+          <li key={i} className={WIDTHS[perView]}>
             {child}
           </li>
         ))}

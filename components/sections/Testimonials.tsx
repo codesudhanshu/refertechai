@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Stagger, StaggerItem } from "@/components/ui/Motion";
+import { CardCarousel } from "@/components/ui/CardCarousel";
 import type { Testimonial } from "@/content/testimonials";
 
 function Stars({ rating }: { rating: number }) {
@@ -51,10 +51,13 @@ export function Testimonials({
         lead="What hiring managers say once the person we placed has been in the role a while."
       />
 
-      <Stagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
-          <StaggerItem key={item.name} className="h-full">
-            <figure className="flex h-full flex-col rounded-card border border-line bg-paper p-7 shadow-card">
+      <div className="mt-14">
+        <CardCarousel label="Client reviews" perView={3}>
+          {items.map((item) => (
+            <figure
+              key={item.name}
+              className="flex h-full flex-col rounded-card border border-line bg-paper p-7 shadow-card"
+            >
               <Stars rating={item.rating} />
 
               <blockquote className="mt-5 flex-1 leading-relaxed text-body">
@@ -92,9 +95,9 @@ export function Testimonials({
                 </span>
               </figcaption>
             </figure>
-          </StaggerItem>
-        ))}
-      </Stagger>
+          ))}
+        </CardCarousel>
+      </div>
     </Section>
   );
 }
