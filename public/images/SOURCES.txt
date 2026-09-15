@@ -11,13 +11,13 @@
 # required). engineering.jpg and network.jpg predate this file and are not
 # from Pexels.
 
-hero/recruitment.jpg                    1358534
+hero/recruitment.jpg                    12048264
 hero/contract.jpg                       1181471
 hero/executive.jpg                      11045731
 hero/candidates.jpg                     11507606
 
 pillars/search-shortlist.jpg            1181370
-pillars/verify-assess.jpg               11591912
+pillars/verify-assess.jpg               10059345
 pillars/place-stay-close.jpg            12903192
 
 sections/why.jpg                        18848926
