@@ -17,11 +17,11 @@
 # them with Pexels or your own photography before launch, or obtain a licence.
 #
 #   hero/recruitment.jpg
-#     https://bidxperts.com/wp-content/uploads/2024/10/how-to-choose-the-best-digital-marketing-company.webp
+#     https://www.bankequip.com/wp-content/uploads/2017/11/home_employment_pic20.jpg
 #   pillars/verify-assess.jpg
 #     https://framerusercontent.com/images/sLEnLeGQ6we4J8qh6reZMwhwKM.png
 
-hero/recruitment.jpg                    EXTERNAL  bidxperts.com (see note)
+hero/recruitment.jpg                    EXTERNAL  bankequip.com (see note)
 hero/contract.jpg                       1181471
 hero/executive.jpg                      11045731
 hero/candidates.jpg                     11507606
