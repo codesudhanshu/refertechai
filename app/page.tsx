@@ -7,8 +7,6 @@ import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { IndustryStrip } from "@/components/sections/IndustryStrip";
 import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { VisionMission } from "@/components/sections/VisionMission";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -19,7 +17,7 @@ import { caseStudies } from "@/content/caseStudies";
 import { testimonials } from "@/content/testimonials";
 import { generalFaqs } from "@/content/faqs";
 import { heroSlides } from "@/content/heroSlides";
-import { differentiators, process } from "@/content/about";
+import { differentiators } from "@/content/about";
 
 // The brand is written in here rather than left to the layout's title
 // template: the template applies only to child route segments, and this page
@@ -54,18 +52,6 @@ export default function Home() {
         <CaseStudyGrid items={caseStudies} limit={3} tone="surface" />
 
         <Partners tone="paper" />
-
-        {/* 8 — delivery process */}
-        <ProcessTimeline
-          steps={process.map((step) => ({
-            name: step.title,
-            detail: step.detail,
-          }))}
-          tone="surface"
-        />
-
-        {/* 9 — vision and mission */}
-        <VisionMission tone="paper" />
 
         {/* proof and questions */}
         <Testimonials items={testimonials} tone="surface" />

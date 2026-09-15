@@ -8,10 +8,12 @@ export function CaseStudyGrid({
   items,
   limit,
   tone = "paper",
+  showAction = true,
 }: {
   items: readonly CaseStudy[];
   limit?: number;
   tone?: "paper" | "surface";
+  showAction?: boolean;
 }) {
   const shown = typeof limit === "number" ? items.slice(0, limit) : items;
   if (shown.length === 0) return null;
@@ -25,14 +27,17 @@ export function CaseStudyGrid({
             <span className="text-lime-text">took on.</span>
           </>
         }
+        lead="What was being hired, what made it hard, and what came out the other end."
         action={
-          <Button href="/work" variant="ghost">
-            All work
-          </Button>
+          showAction ? (
+            <Button href="/work" variant="ghost">
+              All mandates
+            </Button>
+          ) : undefined
         }
       />
 
-      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-5 lg:grid-cols-3">
         {shown.map((item) => (
           <CaseStudyCard key={item.slug} item={item} />
         ))}

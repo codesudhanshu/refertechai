@@ -2,7 +2,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Leadership } from "@/components/sections/Leadership";
-import { VisionMission } from "@/components/sections/VisionMission";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -12,22 +11,25 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "ReferTech AI is an independent technology partner for companies creating meaningful digital change.",
+    "ReferTech AI is an IT recruitment and staffing firm placing permanent, contract and executive technology talent.",
   path: "/about",
 });
 
 const VALUES = [
   {
-    name: "Useful over novel",
-    detail: "We choose technology for the value it creates, not the buzz it generates.",
+    name: "Shorter, not longer",
+    detail:
+      "Three or four names, each one screened. A recruiter who sends thirty CVs has forwarded them, not assessed them.",
   },
   {
-    name: "Clear is kind",
-    detail: "Direct communication, visible progress and decisions you can understand.",
+    name: "Straight with both sides",
+    detail:
+      "Candidates get the real salary band and the real reason the role is open. Clients get told when a role is priced or scoped wrong.",
   },
   {
-    name: "Built to last",
-    detail: "Thoughtful architecture gives your next good idea room to grow.",
+    name: "We stay past the offer",
+    detail:
+      "Notice periods, counter-offers and a check-in after they start. The guarantee period only means something if people actually stay.",
   },
 ];
 
@@ -39,11 +41,11 @@ export default function About() {
         <PageHero
           title={
             <>
-              Ambitious ideas need{" "}
-              <span className="text-lime-text">solid ground.</span>
+              A shortlist is only useful{" "}
+              <span className="text-lime-text">if it is short.</span>
             </>
           }
-          lead="ReferTech AI is an independent technology partner for companies creating meaningful digital change."
+          lead="ReferTech AI is an IT recruitment and staffing firm. We place technology talent — permanent, contract and executive — for companies that need the hire to be right the first time."
         />
 
         <Section>
@@ -51,36 +53,33 @@ export default function About() {
             <SectionHeading
               title={
                 <>
-                  Great technology should feel{" "}
-                  <span className="text-lime-text">inevitable</span> — not
-                  complicated.
+                  Most recruiters cannot tell{" "}
+                  <span className="text-lime-text">a good engineer from a good interviewee.</span>
                 </>
               }
             />
             <div className="max-w-2xl">
               <p className="text-lg leading-relaxed text-body">
-                Our work lives at the intersection of emerging technology and
-                practical delivery. We help founders and established teams turn
-                a hard question into a product, a platform, or an intelligent
-                way of working.
+                That is the whole problem with technology hiring. A recruiter
+                matching keywords on a CV cannot assess whether someone is
+                actually good at the work, so the filtering gets pushed onto
+                your engineers — who then lose a day a week to first-round
+                screens that were never going to go anywhere.
               </p>
               <p className="mt-5 leading-relaxed text-body">
-                That means we pair sharp product thinking with serious
-                engineering. Most of what we do is not inventing something
-                nobody has seen; it is making complex technology useful,
-                reliable and ready for the real world — and then handing it over
-                in a state your team can actually own.
+                We are built the other way round. Our recruiters specialise by
+                technology area rather than covering the whole market, and the
+                screening happens before anyone reaches your panel. Three names
+                instead of thirty, each one worth the hour.
               </p>
               <div className="mt-8">
                 <Button href="/services" variant="outline">
-                  See what we do
+                  How we hire
                 </Button>
               </div>
             </div>
           </div>
         </Section>
-
-        <VisionMission tone="surface" />
 
         <Section bordered>
           <SectionHeading
@@ -114,23 +113,23 @@ export default function About() {
             <SectionHeading
               title={
                 <>
-                  Senior people,{" "}
-                  <span className="text-lime-text">on the actual work.</span>
+                  No account managers{" "}
+                  <span className="text-lime-text">between you and the recruiter.</span>
                 </>
               }
             />
             <div className="max-w-2xl">
               <p className="leading-relaxed text-body">
-                There is no layer of account managers between you and the
-                people building your system. The engineers and designers on your
-                project are the ones in the room, and the person who scoped the
-                work is the person accountable for delivering it.
+                You talk to the recruiter running your mandate, not to someone
+                relaying messages. The person who took the brief is the person
+                sourcing, screening and calling you with the bad news when
+                there is any.
               </p>
               <p className="mt-5 leading-relaxed text-body">
-                Teams are staffed small and kept stable. That is partly about
-                quality and partly about honesty — a small team cannot quietly
-                absorb a bad decision, so problems surface while they are still
-                cheap to fix.
+                Recruiters carry fewer mandates than the industry norm, on
+                purpose. It is the only way the screening stays real — someone
+                running twenty roles at once is forwarding CVs, whatever they
+                tell you.
               </p>
             </div>
           </div>
