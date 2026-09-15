@@ -2,9 +2,7 @@ import type { CaseStudy } from "@/content/caseStudies";
 import { industries } from "@/content/industries";
 
 // A recruitment mandate reads as: who the client was, what was being hired,
-// what made it hard, what we did, and the numbers that came out. The metric
-// strip is the part buyers actually compare, so it gets its own band rather
-// than a single figure buried in the body.
+// what made it hard, and what we did about it.
 export function CaseStudyCard({ item }: { item: CaseStudy }) {
   const industry = industries.find((entry) => entry.slug === item.industry);
 
@@ -41,21 +39,6 @@ export function CaseStudyCard({ item }: { item: CaseStudy }) {
           </div>
         </div>
       </div>
-
-      {/* Metric strip. Values are "—" until real ATS figures replace them —
-          see content/caseStudies.ts. */}
-      <dl className="on-dark grid grid-cols-3 gap-px border-t border-line bg-line-invert">
-        {item.metrics.map((metric) => (
-          <div key={metric.label} className="bg-teal px-4 py-5 text-center">
-            <dd className="font-display text-2xl font-bold tabular-nums text-lime">
-              {metric.value}
-            </dd>
-            <dt className="mt-1.5 text-xs leading-snug text-body-invert">
-              {metric.label}
-            </dt>
-          </div>
-        ))}
-      </dl>
     </article>
   );
 }
