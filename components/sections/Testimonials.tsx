@@ -1,12 +1,13 @@
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CardCarousel } from "@/components/ui/CardCarousel";
+import { Stagger, StaggerItem } from "@/components/ui/Motion";
 import type { Testimonial } from "@/content/testimonials";
 
 function Stars({ rating }: { rating: number }) {
   const rounded = Math.round(rating);
   return (
-    <p className="flex items-center gap-1" aria-label={`${rounded} out of 5`}>
+    <p className="flex items-center gap-0.5" aria-label={`${rounded} out of 5`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
@@ -20,10 +21,10 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function initials(source: string) {
-  return source
+function initials(name: string) {
+  return name
     .split(/\s+/)
-    .filter((w) => /^[A-Za-z]/.test(w))
+    .filter(Boolean)
     .slice(0, 2)
     .map((w) => w[0]?.toUpperCase())
     .join("");
@@ -31,7 +32,7 @@ function initials(source: string) {
 
 export function Testimonials({
   items,
-  tone = "paper",
+  tone = "surface",
 }: {
   items: readonly Testimonial[];
   tone?: "paper" | "surface";
@@ -50,42 +51,50 @@ export function Testimonials({
         lead="What hiring managers say once the person we placed has been in the role a while."
       />
 
-      <div className="mt-14">
-        <CardCarousel label="Client reviews">
-          {items.map((item) => {
-            const label = item.name || item.role;
-            return (
-              <figure
-                key={item.quote.slice(0, 40)}
-                className="flex h-full flex-col rounded-card border border-line bg-paper p-7 shadow-card"
-              >
-                <Stars rating={item.rating} />
+      <Stagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
+          <StaggerItem key={item.name} className="h-full">
+            <figure className="flex h-full flex-col rounded-card border border-line bg-paper p-7 shadow-card">
+              <Stars rating={item.rating} />
 
-                <blockquote className="mt-5 flex-1 leading-relaxed text-body">
-                  &ldquo;{item.quote}&rdquo;
-                </blockquote>
+              <blockquote className="mt-5 flex-1 leading-relaxed text-body">
+                &ldquo;{item.quote}&rdquo;
+              </blockquote>
 
-                <figcaption className="mt-7 flex items-center gap-4 border-t border-line pt-5">
+              <figcaption className="mt-7 flex items-center gap-4 border-t border-line pt-6">
+                {item.image ? (
+                  <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
+                    <Image
+                      src={item.image}
+                      alt=""
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </span>
+                ) : (
                   <span
                     aria-hidden="true"
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-lime font-display text-sm font-bold text-teal"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-lime font-display text-sm font-bold text-teal"
                   >
-                    {initials(label)}
+                    {initials(item.name)}
                   </span>
-                  <span className="min-w-0">
-                    <span className="block truncate text-sm font-semibold text-ink">
-                      {item.name || item.role}
-                    </span>
-                    <span className="block truncate text-sm text-body">
-                      {item.company || item.industry}
-                    </span>
+                )}
+
+                <span className="min-w-0">
+                  <span className="block truncate font-display text-base font-semibold text-ink">
+                    {item.name}
                   </span>
-                </figcaption>
-              </figure>
-            );
-          })}
-        </CardCarousel>
-      </div>
+                  <span className="block truncate text-sm text-body">
+                    {item.role}
+                    {item.company ? `, ${item.company}` : ""}
+                  </span>
+                </span>
+              </figcaption>
+            </figure>
+          </StaggerItem>
+        ))}
+      </Stagger>
     </Section>
   );
 }

@@ -39,8 +39,8 @@ const PILLARS = [
 export function ServicePillars({
   tone = "surface",
   image = {
-    src: "/images/about.jpg",
-    alt: "Recruitment consultants reviewing candidates with a hiring manager",
+    src: "/images/sections/pillars-intro.jpg",
+    alt: "A recruitment consultant meeting a client",
   },
 }: {
   tone?: "paper" | "surface";
@@ -48,7 +48,7 @@ export function ServicePillars({
 }) {
   return (
     <Section tone={tone} bordered>
-      <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div>
           <h2 className="text-h2 text-balance">
             Specialist IT recruitment that fills the role
@@ -96,7 +96,7 @@ export function ServicePillars({
         </div>
       </div>
 
-      <Stagger className="mt-14 grid gap-5 md:grid-cols-3">
+      <Stagger className="mt-16 grid gap-5 md:grid-cols-3">
         {PILLARS.map((pillar) => (
           <StaggerItem key={pillar.title} className="h-full">
           <Link

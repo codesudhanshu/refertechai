@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { CardCarousel } from "@/components/ui/CardCarousel";
 import Image from "next/image";
 import type { Service } from "@/content/services";
+import { SectionAction } from "@/components/ui/SectionAction";
 
 export function ServiceGrid({
   items,
@@ -23,11 +24,6 @@ export function ServiceGrid({
           </>
         }
         lead="Permanent, contract and executive search, plus the programmes for when hiring volume or risk outgrows a single role."
-        action={
-          <Button href="/services" variant="ghost">
-            All services
-          </Button>
-        }
       />
 
       <div className="mt-14">
@@ -67,6 +63,12 @@ export function ServiceGrid({
           ))}
         </CardCarousel>
       </div>
+
+      <SectionAction>
+        <Button href="/services" variant="outline">
+          All services
+        </Button>
+      </SectionAction>
     </Section>
   );
 }

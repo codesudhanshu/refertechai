@@ -2,7 +2,7 @@
 
 ## Licence
 
-Everything in `services/`, `pillars/`, `hero/`, `industries/` and `about.jpg` came from
+Everything in `services/`, `pillars/`, `hero/`, `industries/`, `sections/`, `people/` and `about.jpg` came from
 **Pexels**. The Pexels Licence allows free use including commercial use,
 modification, and use without attribution.
 
@@ -24,5 +24,7 @@ nothing in the code needs to change.
 | `pillars/` | the three cards under the split intro | referenced in `components/sections/ServicePillars.tsx` |
 | `hero/` | homepage carousel slides | referenced in `content/heroSlides.ts` |
 | `industries/` | sector cards on the home page and `/industries` | must match the industry `slug` in `content/industries.ts` |
+| `sections/` | the split images in Why our shortlist is short, and the services intro | referenced in those components |
+| `people/` | ⚠️ testimonial portraits — stock photos of people with **no connection to this business**. See the warning at the top of `content/testimonials.ts` before launch. | referenced in `content/testimonials.ts` |
 
 Recommended: 900×640 or larger, JPEG, under ~150 KB after compression.

@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import type { Industry } from "@/content/industries";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
+import { SectionAction } from "@/components/ui/SectionAction";
 
 // Sector cards: the photograph carries the card and the title sits on top of
 // it, over a gradient that runs from transparent to near-black at the bottom.
@@ -27,17 +28,11 @@ export function IndustryStrip({
 
   return (
     <Section tone={tone} bordered>
-      <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-        <h2 className="max-w-xl text-h2 text-balance">
+      <Reveal>
+        <h2 className="max-w-2xl text-h2 text-balance">
           Sector context changes{" "}
           <span className="text-lime-text">what good looks like.</span>
         </h2>
-
-        <p className="max-w-md leading-relaxed text-body lg:pb-1">
-          Clearance requirements, domain knowledge and what a candidate has to
-          have touched before all differ by sector. These are the ones we know
-          well enough to be useful in from the first call.
-        </p>
       </Reveal>
 
       <Stagger as="ul" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -81,11 +76,11 @@ export function IndustryStrip({
       </Stagger>
 
       {showAction ? (
-        <div className="mt-10">
+        <SectionAction>
           <Button href="/industries" variant="outline">
             All industries
           </Button>
-        </div>
+        </SectionAction>
       ) : null}
     </Section>
   );
