@@ -16,7 +16,22 @@ export interface SocialLink {
   href: string;
 }
 
-export const company = {
+export interface Company {
+  name: string;
+  legalName: string;
+  tagline: string;
+  email: string;
+  phone: string;
+  url: string;
+  responseTime: string;
+  offices: readonly Office[];
+  social: readonly SocialLink[];
+}
+
+// Annotated rather than `as const`: with a const assertion, `phone: ""` narrows
+// to the literal type `""`, and every `company.phone ? ...` branch in the UI
+// collapses to `never`.
+export const company: Company = {
   name: "ReferTech AI",
   legalName: "ReferTech AI",
   tagline: "Technology that moves business forward",
@@ -24,6 +39,6 @@ export const company = {
   phone: "",
   url: "https://refertechai.com",
   responseTime: "within one business day",
-  offices: [] as readonly Office[],
-  social: [] as readonly SocialLink[],
-} as const;
+  offices: [],
+  social: [],
+};

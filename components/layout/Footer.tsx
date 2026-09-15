@@ -1,0 +1,146 @@
+import Link from "next/link";
+import { Container } from "@/components/layout/Container";
+import { Mark } from "@/components/layout/Mark";
+import { Arrow } from "@/components/ui/Button";
+import { company } from "@/content/company";
+import { services } from "@/content/services";
+import { industries } from "@/content/industries";
+
+const COMPANY_LINKS = [
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+  { label: "Technologies", href: "/technologies" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+];
+
+function Column({
+  title,
+  links,
+}: {
+  title: string;
+  links: readonly { label: string; href: string }[];
+}) {
+  return (
+    <div>
+      <h3 className="text-eyebrow font-semibold uppercase text-muted">
+        {title}
+      </h3>
+      <ul className="mt-5 flex flex-col gap-3">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className="text-sm text-paper/75 transition-colors duration-150 hover:text-paper"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className="bg-ink text-paper">
+      <Container className="py-16 lg:py-20">
+        <div className="flex flex-col gap-10 border-b border-paper/10 pb-12 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-sm">
+            <div className="flex items-center gap-2.5">
+              <Mark />
+              <span className="font-display text-sm font-bold tracking-[0.06em] text-paper">
+                REFERTECH<span className="text-accent">AI</span>
+              </span>
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-paper/70">
+              Technology partners for teams building what&apos;s next.
+            </p>
+          </div>
+
+          <a
+            href={`mailto:${company.email}`}
+            className="group/btn inline-flex items-center gap-3 self-start font-display text-xl font-semibold text-paper transition-colors duration-150 hover:text-accent lg:text-2xl"
+          >
+            {company.email}
+            <Arrow />
+          </a>
+        </div>
+
+        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+          <Column
+            title="Services"
+            links={services.map((service) => ({
+              label: service.title,
+              href: `/services/${service.slug}`,
+            }))}
+          />
+          <Column
+            title="Industries"
+            links={industries.slice(0, 6).map((industry) => ({
+              label: industry.name,
+              href: `/industries#${industry.slug}`,
+            }))}
+          />
+          <Column title="Company" links={COMPANY_LINKS} />
+
+          <div>
+            <h3 className="text-eyebrow font-semibold uppercase text-muted">
+              Get in touch
+            </h3>
+            <ul className="mt-5 flex flex-col gap-3 text-sm text-paper/75">
+              <li>
+                <a
+                  href={`mailto:${company.email}`}
+                  className="transition-colors duration-150 hover:text-paper"
+                >
+                  {company.email}
+                </a>
+              </li>
+              {company.phone ? (
+                <li>
+                  <a
+                    href={`tel:${company.phone.replace(/\s+/g, "")}`}
+                    className="transition-colors duration-150 hover:text-paper"
+                  >
+                    {company.phone}
+                  </a>
+                </li>
+              ) : null}
+              {company.offices.map((office) => (
+                <li key={`${office.city}-${office.country}`}>
+                  {office.city}, {office.country}
+                </li>
+              ))}
+              <li className="pt-1 text-paper/50">
+                We reply {company.responseTime}.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-paper/10 pt-8 text-sm text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            &copy; {new Date().getFullYear()} {company.name}. All rights
+            reserved.
+          </span>
+          <div className="flex gap-6">
+            <Link
+              href="/privacy-policy"
+              className="transition-colors duration-150 hover:text-paper"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-and-conditions"
+              className="transition-colors duration-150 hover:text-paper"
+            >
+              Terms &amp; Conditions
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+}

@@ -1,0 +1,362 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Mark, Wordmark } from "@/components/layout/Mark";
+import { Button } from "@/components/ui/Button";
+import { services } from "@/content/services";
+import { industries } from "@/content/industries";
+import { company } from "@/content/company";
+
+interface NavLink {
+  label: string;
+  href: string;
+  hint?: string;
+}
+
+interface NavItem {
+  label: string;
+  href: string;
+  children?: readonly NavLink[];
+  columns?: 1 | 2;
+}
+
+const NAV: readonly NavItem[] = [
+  {
+    label: "Services",
+    href: "/services",
+    columns: 2,
+    children: services.map((service) => ({
+      label: service.title,
+      href: `/services/${service.slug}`,
+      hint: service.summary,
+    })),
+  },
+  {
+    label: "Industries",
+    href: "/industries",
+    columns: 2,
+    children: industries.map((industry) => ({
+      label: industry.name,
+      href: `/industries#${industry.slug}`,
+    })),
+  },
+  { label: "Work", href: "/work" },
+  { label: "Technologies", href: "/technologies" },
+  {
+    label: "Company",
+    href: "/about",
+    columns: 1,
+    children: [
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+export function Header() {
+  const pathname = usePathname();
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const closeDrawer = useCallback(() => {
+    setDrawerOpen(false);
+    setOpenGroup(null);
+  }, []);
+
+  // Close everything on navigation. Without this the drawer would survive a
+  // route change and cover the page the user just asked for.
+  //
+  // Adjusted during render rather than in an effect: React re-runs this
+  // component before committing, so there is no flash of the open drawer and
+  // no cascading second render.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setDrawerOpen(false);
+    setOpenMenu(null);
+    setOpenGroup(null);
+  }
+
+  // Lock background scroll only while the drawer is open, and always restore
+  // the previous value rather than assuming it was "".
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [drawerOpen]);
+
+  // Escape closes whichever layer is open, and focus returns to the trigger
+  // that opened the drawer.
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        if (drawerOpen) {
+          closeDrawer();
+          triggerRef.current?.focus();
+        } else if (openMenu) {
+          setOpenMenu(null);
+        }
+        return;
+      }
+
+      if (event.key !== "Tab" || !drawerOpen) return;
+
+      const nodes = drawerRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE);
+      if (!nodes || nodes.length === 0) return;
+
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [drawerOpen, openMenu, closeDrawer]);
+
+  // Move focus into the drawer when it opens so a keyboard user is not left
+  // behind it.
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const first = drawerRef.current?.querySelector<HTMLElement>(FOCUSABLE);
+    first?.focus();
+  }, [drawerOpen]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+      <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5"
+          aria-label="ReferTech AI home"
+        >
+          <Mark />
+          <Wordmark />
+        </Link>
+
+        {/* Desktop navigation */}
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-1">
+            {NAV.map((item) => (
+              <li
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.children && setOpenMenu(item.label)}
+                onMouseLeave={() => item.children && setOpenMenu(null)}
+                onFocus={() => item.children && setOpenMenu(item.label)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setOpenMenu(null);
+                  }
+                }}
+              >
+                <Link
+                  href={item.href}
+                  aria-haspopup={item.children ? "true" : undefined}
+                  aria-expanded={
+                    item.children ? openMenu === item.label : undefined
+                  }
+                  className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
+                    isActive(item.href)
+                      ? "text-primary"
+                      : "text-ink hover:text-primary"
+                  }`}
+                >
+                  {item.label}
+                  {item.children ? (
+                    <span aria-hidden="true" className="text-[10px] opacity-60">
+                      &#9662;
+                    </span>
+                  ) : null}
+                </Link>
+
+                {item.children && openMenu === item.label ? (
+                  <div
+                    className={`absolute left-0 top-full z-50 pt-3 ${
+                      item.columns === 2 ? "w-[540px]" : "w-60"
+                    }`}
+                  >
+                    <ul
+                      className={`grid gap-1 rounded-card border border-line bg-paper p-3 shadow-card-hover ${
+                        item.columns === 2 ? "grid-cols-2" : "grid-cols-1"
+                      }`}
+                    >
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="block rounded-btn p-3 transition-colors duration-150 hover:bg-surface"
+                          >
+                            <span className="block text-sm font-medium text-ink">
+                              {child.label}
+                            </span>
+                            {child.hint ? (
+                              <span className="mt-1 block line-clamp-2 text-xs leading-relaxed text-body">
+                                {child.hint}
+                              </span>
+                            ) : null}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="hidden lg:block">
+          <Button href="/contact">Start a project</Button>
+        </div>
+
+        {/* Mobile trigger */}
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-expanded={drawerOpen}
+          aria-controls="mobile-nav"
+          aria-label={drawerOpen ? "Close menu" : "Open menu"}
+          onClick={() => setDrawerOpen((value) => !value)}
+          className="flex h-11 w-11 items-center justify-center rounded-btn border border-line text-ink lg:hidden"
+        >
+          <span aria-hidden="true" className="relative block h-3 w-5">
+            <span
+              className={`absolute left-0 block h-[2px] w-5 bg-current transition-transform duration-150 ${
+                drawerOpen ? "top-[5px] rotate-45" : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[5px] block h-[2px] w-5 bg-current transition-opacity duration-150 ${
+                drawerOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 block h-[2px] w-5 bg-current transition-transform duration-150 ${
+                drawerOpen ? "top-[5px] -rotate-45" : "top-[10px]"
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+
+      {/* Mobile drawer */}
+      {drawerOpen ? (
+        <div className="lg:hidden">
+          <div
+            className="fixed inset-0 top-20 z-40 bg-ink/40"
+            onClick={() => {
+              closeDrawer();
+              triggerRef.current?.focus();
+            }}
+          />
+          <div
+            ref={drawerRef}
+            id="mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Main navigation"
+            className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto border-t border-line bg-paper px-6 py-6"
+          >
+            <ul className="flex flex-col">
+              {NAV.map((item) => (
+                <li key={item.label} className="border-b border-line">
+                  {item.children ? (
+                    <>
+                      <button
+                        type="button"
+                        aria-expanded={openGroup === item.label}
+                        aria-controls={`group-${item.label}`}
+                        onClick={() =>
+                          setOpenGroup(
+                            openGroup === item.label ? null : item.label,
+                          )
+                        }
+                        className="flex w-full items-center justify-between py-4 text-left font-display text-base font-semibold text-ink"
+                      >
+                        {item.label}
+                        <span
+                          aria-hidden="true"
+                          className={`text-primary transition-transform duration-150 ${
+                            openGroup === item.label ? "rotate-180" : ""
+                          }`}
+                        >
+                          &#9662;
+                        </span>
+                      </button>
+                      <ul
+                        id={`group-${item.label}`}
+                        hidden={openGroup !== item.label}
+                        className="pb-4"
+                      >
+                        <li>
+                          <Link
+                            href={item.href}
+                            className="block py-2.5 text-sm text-primary"
+                          >
+                            All {item.label.toLowerCase()}
+                          </Link>
+                        </li>
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="block py-2.5 text-sm text-body"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block py-4 font-display text-base font-semibold text-ink"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col gap-4">
+              <Button href="/contact" size="lg" className="w-full">
+                Start a project
+              </Button>
+              <a
+                href={`mailto:${company.email}`}
+                className="text-center text-sm text-body"
+              >
+                {company.email}
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </header>
+  );
+}
