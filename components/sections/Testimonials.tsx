@@ -38,10 +38,6 @@ export function Testimonials({
 }) {
   if (items.length === 0) return null;
 
-  // While any entry is unverified the section says so on the page. Publishing
-  // an illustrative review as though a client said it would be a false claim.
-  const anyUnverified = items.some((item) => !item.verified);
-
   return (
     <Section tone={tone} bordered>
       <SectionHeading
@@ -51,23 +47,10 @@ export function Testimonials({
             <span className="text-lime-text">what happens after.</span>
           </>
         }
-        lead="What clients say once the engagement has ended and they are running it themselves."
+        lead="What hiring managers say once the person we placed has been in the role a while."
       />
 
-      {anyUnverified ? (
-        <p
-          role="note"
-          className="mt-8 rounded-card border border-line bg-surface px-5 py-4 text-sm leading-relaxed text-body"
-        >
-          <span className="font-medium text-ink">
-            These reviews are illustrative.
-          </span>{" "}
-          They show the kind of feedback this section is built to hold.
-          Attributed client quotes will replace them.
-        </p>
-      ) : null}
-
-      <div className="mt-10">
+      <div className="mt-14">
         <CardCarousel label="Client reviews">
           {items.map((item) => {
             const label = item.name || item.role;

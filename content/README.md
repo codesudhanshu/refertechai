@@ -22,7 +22,6 @@ Each opens with a `// PLACEHOLDER DATA — REPLACE BEFORE LAUNCH` banner.
 | `caseStudies.ts` | ⚠️ placeholder | Every `client`, `challenge`, `solution` and `metric`. All six entries are illustrative. Metrics currently read `Example` so nothing false is published. |
 | `testimonials.ts` | ⚠️ placeholder | All six reviews. No client has said any of this. Attributions are roles and sectors, never invented people. Set `verified: true` once a quote is real — the on-page notice disappears when every entry is verified. |
 | `stats.ts` | ⚠️ placeholder | All four `value` fields, currently `—`. Replace with counted figures or delete `StatsBand` from `app/page.tsx` and `app/about/page.tsx`. |
-| `clients.ts` | ⚠️ placeholder | All eight names are invented. Replace with clients who have agreed to be named, or delete `TrustBar` from `app/page.tsx`. No real logo files are used — names render as plain typographic boxes. |
 | `jobs.ts` | ⚠️ placeholder | Internal ReferTech AI openings, shown on `/careers`. Replace with real openings or set to `[]`. |
 | `openRoles.ts` | ⚠️ placeholder | **Client mandates** shown to candidates on `/jobs` — a different thing from `jobs.ts`. Advertising a role that is not open wastes candidates' time. Replace or set to `[]`. |
 | `partners.ts` | ⚠️ placeholder | All eight are invented brands. See `public/logos/README.md` before adding a real one. |

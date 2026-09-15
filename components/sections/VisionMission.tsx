@@ -8,8 +8,8 @@ import { vision, mission } from "@/content/about";
 export function VisionMission({
   tone = "surface",
   image = {
-    src: "/images/network.jpg",
-    alt: "Consultants reviewing a system architecture together",
+    src: "/images/hero/candidates.jpg",
+    alt: "A recruiter and a candidate in conversation",
   },
   showAction = true,
 }: {

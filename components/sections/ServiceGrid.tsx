@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { CardCarousel } from "@/components/ui/CardCarousel";
-import { ServiceIllustration } from "@/components/ui/ServiceIllustration";
+import Image from "next/image";
 import type { Service } from "@/content/services";
 
 export function ServiceGrid({
@@ -38,10 +38,14 @@ export function ServiceGrid({
               href={`/services/${service.slug}`}
               className="group/card flex h-full flex-col overflow-hidden rounded-card border border-line bg-paper shadow-card transition-[box-shadow,border-color,transform] duration-150 ease-out hover:-translate-y-0.5 hover:border-lime-text hover:shadow-card-hover"
             >
-              <div className="border-b border-line bg-surface p-5">
-                <div className="aspect-[10/7] w-full">
-                  <ServiceIllustration slug={service.slug} />
-                </div>
+              <div className="relative aspect-[10/7] w-full overflow-hidden border-b border-line">
+                <Image
+                  src={`/images/services/${service.slug}.jpg`}
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) 82vw, (max-width: 1024px) 47vw, 300px"
+                  className="object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]"
+                />
               </div>
 
               <div className="flex flex-1 flex-col p-6">

@@ -1,9 +1,9 @@
 // Hero carousel slides for an IT recruitment firm. Each describes an offering,
 // not a claim about a past mandate, so no placeholder banner is needed.
 //
-// `image` points at files in /public/images. Only two stock photos exist in
-// this repo, so slides reuse them until real photography is supplied —
-// content/README.md tracks that.
+// `image` points at files in /public/images/hero. These are Pexels stock
+// photos (Pexels License: free for commercial use, no attribution required).
+// Replace with your own photography when you have it.
 
 export interface HeroSlide {
   id: string;
@@ -24,8 +24,8 @@ export const heroSlides: readonly HeroSlide[] = [
     primary: { label: "Hire talent", href: "/hire" },
     secondary: { label: "Our services", href: "/services" },
     image: {
-      src: "/images/engineering.jpg",
-      alt: "Technology team working together in an office",
+      src: "/images/hero/recruitment.jpg",
+      alt: "A hiring manager interviewing a candidate",
     },
   },
   {
@@ -36,8 +36,8 @@ export const heroSlides: readonly HeroSlide[] = [
     primary: { label: "Talk to us", href: "/contact" },
     secondary: { label: "Contract staffing", href: "/services/contract-staffing" },
     image: {
-      src: "/images/network.jpg",
-      alt: "Distributed technology team connected across locations",
+      src: "/images/hero/contract.jpg",
+      alt: "Developers working together in an office",
     },
   },
   {
@@ -48,8 +48,8 @@ export const heroSlides: readonly HeroSlide[] = [
     primary: { label: "Start a search", href: "/contact" },
     secondary: { label: "Executive search", href: "/services/executive-search" },
     image: {
-      src: "/images/engineering.jpg",
-      alt: "Senior technology leaders in discussion",
+      src: "/images/hero/executive.jpg",
+      alt: "Senior leaders in a boardroom discussion",
     },
   },
   {
@@ -60,8 +60,8 @@ export const heroSlides: readonly HeroSlide[] = [
     primary: { label: "See open roles", href: "/jobs" },
     secondary: { label: "Send your CV", href: "/contact" },
     image: {
-      src: "/images/network.jpg",
-      alt: "Candidate reviewing opportunities",
+      src: "/images/hero/candidates.jpg",
+      alt: "A professional reviewing opportunities on a laptop",
     },
   },
 ];
