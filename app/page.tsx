@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroCarousel } from "@/components/sections/HeroCarousel";
 import { TrustBar } from "@/components/sections/TrustBar";
+import { Partners } from "@/components/sections/Partners";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { HiringModels } from "@/components/sections/HiringModels";
@@ -59,6 +60,8 @@ export default function Home() {
 
         {/* 7 — selected work */}
         <CaseStudyGrid items={caseStudies} limit={3} tone="surface" />
+
+        <Partners tone="paper" />
 
         {/* 8 — delivery process */}
         <ProcessTimeline
