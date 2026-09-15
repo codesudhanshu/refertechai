@@ -2,6 +2,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { StatsBand } from "@/components/sections/StatsBand";
+import { Leadership } from "@/components/sections/Leadership";
+import { VisionMission } from "@/components/sections/VisionMission";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -82,7 +84,9 @@ export default function About() {
           </div>
         </Section>
 
-        <StatsBand items={stats} tone="surface" eyebrow="Where we stand" />
+        <VisionMission tone="surface" />
+
+        <StatsBand items={stats} tone="paper" eyebrow="Where we stand" />
 
         <Section bordered>
           <SectionHeading
@@ -139,6 +143,8 @@ export default function About() {
             </div>
           </div>
         </Section>
+
+        <Leadership tone="paper" />
 
         <CtaBand
           eyebrow="Have a hard problem?"
