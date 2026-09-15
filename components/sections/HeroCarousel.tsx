@@ -20,19 +20,24 @@ const COPY_PADDING =
 
 export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  // Auto-advance stops for good once the viewer drives the carousel
+  // themselves. Hovering or focusing no longer pauses it.
+  const [userTook, setUserTook] = useState(false);
   const regionRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
 
   const go = useCallback(
-    (next: number) =>
-      setIndex(((next % slides.length) + slides.length) % slides.length),
+    (next: number) => {
+      setUserTook(true);
+      setIndex(((next % slides.length) + slides.length) % slides.length);
+    },
     [slides.length],
   );
 
-  // Auto-advance, skipped under reduced motion and while hovered or focused.
+  // Auto-advance, skipped under reduced motion and once the viewer has taken
+  // control of the carousel.
   useEffect(() => {
-    if (slides.length < 2 || paused) return;
+    if (slides.length < 2 || userTook) return;
     if (
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -45,7 +50,7 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
       INTERVAL_MS,
     );
     return () => window.clearInterval(timer);
-  }, [slides.length, paused]);
+  }, [slides.length, userTook]);
 
   useEffect(() => {
     const node = regionRef.current;
@@ -54,9 +59,11 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "ArrowLeft") {
         event.preventDefault();
+        setUserTook(true);
         setIndex((i) => (i - 1 + slides.length) % slides.length);
       } else if (event.key === "ArrowRight") {
         event.preventDefault();
+        setUserTook(true);
         setIndex((i) => (i + 1) % slides.length);
       }
     }
@@ -74,10 +81,6 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
       aria-roledescription="carousel"
       aria-label="What we do"
       className="on-dark relative isolate overflow-hidden bg-teal"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
     >
       <div className="grid lg:grid-cols-[1fr_1fr]">
         {/* Copy */}
