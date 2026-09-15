@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import type { Industry } from "@/content/industries";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 
 // Sector cards: the photograph carries the card and the title sits on top of
 // it, over a gradient that runs from transparent to near-black at the bottom.
@@ -26,7 +27,7 @@ export function IndustryStrip({
 
   return (
     <Section tone={tone} bordered>
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <h2 className="max-w-xl text-h2 text-balance">
           Sector context changes{" "}
           <span className="text-lime-text">what good looks like.</span>
@@ -37,11 +38,11 @@ export function IndustryStrip({
           have touched before all differ by sector. These are the ones we know
           well enough to be useful in from the first call.
         </p>
-      </div>
+      </Reveal>
 
-      <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger as="ul" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {shown.map((industry) => (
-          <li key={industry.slug}>
+          <StaggerItem as="li" key={industry.slug}>
             <Link
               href={`/industries#${industry.slug}`}
               className="group/sector relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-card border border-line"
@@ -75,9 +76,9 @@ export function IndustryStrip({
                 </span>
               </span>
             </Link>
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </Stagger>
 
       {showAction ? (
         <div className="mt-10">

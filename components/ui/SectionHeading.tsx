@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/ui/Motion";
 
 // No eyebrow / kicker above the heading — sections open with the heading and
 // then a paragraph. This is a standing rule, so the prop does not exist here
@@ -19,7 +20,7 @@ export function SectionHeading({
   const centered = align === "center";
 
   return (
-    <div
+    <Reveal
       className={[
         "flex flex-col gap-6",
         action ? "lg:flex-row lg:items-end lg:justify-between" : "",
@@ -43,6 +44,6 @@ export function SectionHeading({
         ) : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}
-    </div>
+    </Reveal>
   );
 }

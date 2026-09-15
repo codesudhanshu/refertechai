@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Stagger, StaggerItem } from "@/components/ui/Motion";
 
 // Split intro with a headline, a coloured strapline under a hand-drawn
 // underline, a short paragraph and a call to action, with the image alongside —
@@ -95,10 +96,10 @@ export function ServicePillars({
         </div>
       </div>
 
-      <div className="mt-14 grid gap-5 md:grid-cols-3">
+      <Stagger className="mt-14 grid gap-5 md:grid-cols-3">
         {PILLARS.map((pillar) => (
+          <StaggerItem key={pillar.title} className="h-full">
           <Link
-            key={pillar.title}
             href={pillar.href}
             className="group/card on-dark flex flex-col overflow-hidden rounded-card bg-teal transition-[background-color,transform] duration-150 ease-out hover:-translate-y-0.5 hover:bg-ink"
           >
@@ -132,8 +133,9 @@ export function ServicePillars({
               </span>
             </span>
           </Link>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

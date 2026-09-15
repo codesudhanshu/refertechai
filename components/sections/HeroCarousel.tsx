@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import type { HeroSlide } from "@/content/heroSlides";
@@ -21,6 +22,7 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const regionRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
 
   const go = useCallback(
     (next: number) =>
@@ -85,7 +87,15 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
             className="grid-lines pointer-events-none absolute inset-0 -z-10 text-paper"
           />
 
-          <div key={slide.id} className="reveal max-w-xl">
+          <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={slide.id}
+            className="max-w-xl"
+            initial={reduce ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0, y: -12 }}
+            transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
+          >
             <h1 className="text-hero text-balance text-paper">
               {slide.title} <span className="text-lime">{slide.highlight}</span>
             </h1>
@@ -106,7 +116,8 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
                 {slide.secondary.label}
               </Button>
             </div>
-          </div>
+          </motion.div>
+          </AnimatePresence>
 
           {slides.length > 1 ? (
             <div className="mt-12 flex items-center gap-3">
@@ -139,15 +150,25 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
         {/* Image — full bleed to top, right and bottom. No padding, no radius,
             no border. On mobile it stacks underneath at a fixed height. */}
         <div className="relative order-first h-64 w-full sm:h-80 lg:order-none lg:h-auto lg:min-h-[560px]">
-          <Image
-            key={slide.image.src + slide.id}
-            src={slide.image.src}
-            alt={slide.image.alt}
-            fill
-            priority={index === 0}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
+          <AnimatePresence initial={false}>
+            <motion.span
+              key={slide.id}
+              className="absolute inset-0"
+              initial={reduce ? false : { opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={reduce ? undefined : { opacity: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+            >
+              <Image
+                src={slide.image.src}
+                alt={slide.image.alt}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.span>
+          </AnimatePresence>
         </div>
       </div>
     </section>

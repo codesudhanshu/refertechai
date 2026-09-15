@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import type { CaseStudy } from "@/content/caseStudies";
+import { Stagger, StaggerItem } from "@/components/ui/Motion";
 
 export function CaseStudyGrid({
   items,
@@ -37,11 +38,13 @@ export function CaseStudyGrid({
         }
       />
 
-      <div className="mt-14 grid gap-5 lg:grid-cols-3">
+      <Stagger className="mt-14 grid gap-5 lg:grid-cols-3">
         {shown.map((item) => (
-          <CaseStudyCard key={item.slug} item={item} />
+          <StaggerItem key={item.slug} className="h-full">
+            <CaseStudyCard item={item} />
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

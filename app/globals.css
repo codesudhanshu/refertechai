@@ -93,15 +93,6 @@
 }
 
 @layer utilities {
-  /* Visible by default; motion is added only where it is welcome. */
-  .reveal {
-    opacity: 1;
-  }
-
-  .marquee-track {
-    animation: none;
-  }
-
   /* Hairline grid used behind the hero and dark bands. */
   .grid-lines {
     background-image: linear-gradient(
@@ -111,39 +102,5 @@
     );
     background-size: 88px 100%;
     opacity: 0.08;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  @layer utilities {
-    .reveal {
-      opacity: 0;
-      transform: translateY(6px);
-      animation: reveal-in 0.45s ease-out forwards;
-    }
-
-    .marquee-track {
-      animation: marquee 42s linear infinite;
-    }
-
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
-  }
-
-  @keyframes reveal-in {
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
   }
 }

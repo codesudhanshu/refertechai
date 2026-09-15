@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Mark, Wordmark } from "@/components/layout/Mark";
 import { Button } from "@/components/ui/Button";
@@ -73,6 +74,7 @@ export function Header() {
   const drawerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
 
   const closeDrawer = useCallback(() => {
     setDrawerOpen(false);
@@ -263,9 +265,14 @@ export function Header() {
                     </span>
                   </button>
 
-                  <div
+                  <AnimatePresence>
+                    {expanded ? (
+                  <motion.div
                     id={`menu-${item.label}`}
-                    hidden={!expanded}
+                    initial={reduce ? false : { opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                    transition={{ duration: 0.16, ease: [0.22, 0.61, 0.36, 1] }}
                     className={`absolute left-0 top-full z-50 pt-2 ${
                       item.columns === 2 ? "w-[540px]" : "w-60"
                     }`}
@@ -308,7 +315,9 @@ export function Header() {
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </motion.div>
+                    ) : null}
+                  </AnimatePresence>
                 </li>
               );
             })}
@@ -352,17 +361,22 @@ export function Header() {
       </header>
 
       {/* Mobile drawer — sibling of <header>, see note above */}
+      <AnimatePresence>
       {drawerOpen ? (
         <div className="lg:hidden">
           {/* Covers the whole viewport, including behind the header. The drawer
               carries its own brand row and close button, so it does not depend
               on the sticky header staying put underneath it. */}
-          <div
+          <motion.div
             ref={drawerRef}
             id="mobile-nav"
             role="dialog"
             aria-modal="true"
             aria-label="Main navigation"
+            initial={reduce ? false : { opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={reduce ? undefined : { opacity: 0, x: "100%" }}
+            transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}
             className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-paper"
           >
             <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-line bg-paper px-6">
@@ -467,9 +481,10 @@ export function Header() {
               </a>
             </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       ) : null}
+      </AnimatePresence>
     </>
   );
 }

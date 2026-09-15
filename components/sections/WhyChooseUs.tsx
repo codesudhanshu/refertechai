@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/Section";
 import type { Pillar } from "@/content/about";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 
 // Big numbered statements on a dark band — the differentiator block that
 // enterprise IT sites use between the services grid and the proof sections.
@@ -12,15 +13,15 @@ export function WhyChooseUs({
 }) {
   return (
     <Section tone="teal">
-      <div className="max-w-3xl">
+      <Reveal className="max-w-3xl">
         <h2 className="text-h2 text-balance text-paper">
           {title ?? "Why our shortlist is short."}
         </h2>
-      </div>
+      </Reveal>
 
-      <ol className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-2">
+      <Stagger as="ol" className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-2">
         {items.map((item, index) => (
-          <li key={item.title} className="border-t border-line-invert pt-7">
+          <StaggerItem as="li" key={item.title} className="border-t border-line-invert pt-7">
             <span className="font-display text-sm font-semibold tabular-nums text-lime">
               {String(index + 1).padStart(2, "0")}
             </span>
@@ -30,9 +31,9 @@ export function WhyChooseUs({
             <p className="mt-3 max-w-md leading-relaxed text-body-invert">
               {item.detail}
             </p>
-          </li>
+          </StaggerItem>
         ))}
-      </ol>
+      </Stagger>
     </Section>
   );
 }
