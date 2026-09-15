@@ -1,5 +1,8 @@
-// IT Consulting Solutions. These describe advisory, delivery and managed
-// service offerings — not claims about past engagements — so no placeholder
+// IT recruitment services. ReferTech AI places technology talent — it does
+// not build software, run migrations or deliver IT projects. Nothing here
+// should describe technical delivery work.
+//
+// These describe what is offered, not who has been placed, so no placeholder
 // banner is needed.
 
 export interface ServiceFaq {
@@ -13,274 +16,199 @@ export interface Service {
   summary: string;
   description: string;
   includes: readonly string[];
+  /** Roles and skills this service typically covers. */
   technologies: readonly string[];
   faqs: readonly ServiceFaq[];
 }
 
 export const services: readonly Service[] = [
   {
-    slug: "it-strategy-advisory",
-    title: "IT Strategy & Advisory",
+    slug: "permanent-it-recruitment",
+    title: "Permanent IT Recruitment",
     summary:
-      "Independent technical direction for leadership teams making decisions they cannot easily reverse.",
+      "Full-time technology hires, screened against your stack before they reach your panel.",
     description:
-      "Most costly technology decisions get made with incomplete information and a vendor in the room. We come in without a product to sell, assess what you actually have, and give you a written position you can act on — including the option of doing nothing.",
+      "Most recruiters match keywords on a CV. Ours are specialists who understand the difference between someone who has used a technology and someone who is good at it. You get a short list with honest notes instead of a long list that wastes your engineers' afternoons.",
     includes: [
-      "Current-state architecture and application portfolio review",
-      "Technology roadmap sequenced against business milestones",
-      "Build, buy or partner analysis with real cost modelling",
-      "Vendor and platform selection, run as a fair evaluation",
-      "IT budget review with the largest line items explained",
-      "Written report your team can execute without us",
+      "Role scoping against your actual stack, team and seniority need",
+      "Targeted sourcing across active and passive candidates",
+      "Screening by recruiters who specialise in that technology area",
+      "Structured interview kits so your panel assesses consistently",
+      "Offer negotiation, notice-period management and counter-offer handling",
+      "Replacement guarantee inside the agreed window",
     ],
     technologies: [
-      "Architecture review",
-      "TCO modelling",
-      "Vendor evaluation",
-      "Roadmapping",
-      "Due diligence",
-      "Governance",
+      "Software engineering",
+      "DevOps & SRE",
+      "Data & analytics",
+      "Cloud & infrastructure",
+      "Cybersecurity",
+      "QA & testing",
     ],
     faqs: [
       {
-        q: "How long does an advisory engagement take?",
-        a: "Most run two to six weeks depending on the size of the estate. Findings reach you as they emerge rather than only in a final presentation.",
+        q: "How many candidates will we see?",
+        a: "Usually three to five for a standard role. Sending twenty means we have not screened them. If we cannot fill a role we will tell you rather than pad the pipeline.",
       },
       {
-        q: "Will you recommend your own delivery services?",
-        a: "Only where it is genuinely the right answer, and we will say so explicitly. The report is written so another vendor or your own team can execute it.",
+        q: "What is the fee model?",
+        a: "A percentage of fixed annual salary, payable on joining, with a replacement guarantee. The exact rate depends on seniority and volume and is agreed in writing before we start.",
       },
       {
-        q: "Do you work with our incumbent vendors?",
-        a: "Yes. Replacing a working vendor is expensive and disruptive, so it is a recommendation of last resort rather than an opening position.",
+        q: "What if the hire leaves quickly?",
+        a: "Inside the agreed guarantee window we replace the role at no additional fee. The window is stated in the terms, not left vague.",
       },
     ],
   },
   {
-    slug: "digital-transformation",
-    title: "Digital Transformation",
+    slug: "contract-staffing",
+    title: "Contract & Temporary Staffing",
     summary:
-      "Modernisation programmes that change how work actually happens, not just which software it happens in.",
+      "Technology contractors for a defined period, with contracting and compliance handled end to end.",
     description:
-      "Transformation fails when it is treated as a software rollout. We start with the processes people actually follow, decide what should change and what should simply be automated, and sequence the work so the business keeps running while it happens.",
+      "For a delivery push, a migration, a parental-leave gap or a budget that will not carry permanent headcount. We place contractors on our payroll or yours, handle the paperwork so they can start rather than wait, and manage extensions and exits cleanly.",
     includes: [
-      "Process discovery across the teams doing the work today",
-      "Legacy application assessment and modernisation sequencing",
-      "Target operating model and integration architecture",
-      "Phased migration plan with rollback at every stage",
-      "Change management, training and adoption tracking",
-      "Benefits measurement against the case that funded it",
+      "Availability within days for common technology skills",
+      "Contracting, invoicing and statutory compliance managed for you",
+      "Time-zone and working-hours overlap agreed before placement",
+      "Timesheet and approval workflow, with consolidated invoicing",
+      "Extension, conversion to permanent or clean exit at term end",
+      "Cover arranged if a contractor becomes unavailable mid-term",
     ],
     technologies: [
-      "Process mapping",
-      "Legacy modernisation",
-      "Integration architecture",
-      "Change management",
-      "Migration planning",
-      "Adoption analytics",
+      "Project-based engineering",
+      "Migration & upgrade teams",
+      "Support & maintenance",
+      "Specialist short-term skills",
+      "Backfill cover",
+      "Peak-season capacity",
     ],
     faqs: [
       {
-        q: "Can this happen without stopping the business?",
-        a: "That is the constraint every plan is built around. Work runs in phases with a rollback at each one, so a bad phase costs a sprint rather than a quarter.",
+        q: "Who employs the contractor?",
+        a: "Either us or you, depending on how you want to run it. On our payroll we carry the employment obligations, statutory contributions and compliance.",
       },
       {
-        q: "What usually goes wrong?",
-        a: "Adoption, not technology. Systems get delivered and people keep using the spreadsheet. That is why training and adoption tracking are part of the programme rather than an afterthought.",
+        q: "How quickly can someone start?",
+        a: "For mainstream skills, days rather than weeks. Narrow specialisms take longer and we will say so before you plan around a date.",
       },
       {
-        q: "How do we know it worked?",
-        a: "The measures are agreed before the work starts and reported against afterwards. If a phase does not move them, that is worth knowing early.",
+        q: "Can a contractor convert to permanent?",
+        a: "Yes, and it is common. Conversion terms are agreed at the start so there is no argument about it later.",
       },
     ],
   },
   {
-    slug: "cloud-infrastructure",
-    title: "Cloud & Infrastructure",
+    slug: "contract-to-hire",
+    title: "Contract-to-Hire",
     summary:
-      "Cloud strategy, migration and infrastructure management built so the deploy is boring and the bill is predictable.",
+      "A working trial period before either side commits to a permanent offer.",
     description:
-      "Cloud work is judged on the day something breaks and on the day the invoice arrives. We design foundations where environments are defined in code rather than remembered, rollback is one command, and the three largest cost lines are ones you can explain.",
+      "Interviews are a poor predictor of how someone works. Contract-to-hire puts the candidate in the real role for an agreed period, so the permanent decision is made on evidence rather than on how well they interviewed.",
     includes: [
-      "Cloud readiness assessment and migration strategy",
-      "Infrastructure as code, with staging that matches production",
-      "CI/CD pipelines with automated checks and one-command rollback",
-      "Monitoring, logging and alerting that pages on symptoms not noise",
-      "Cost optimisation and ongoing FinOps review",
-      "Runbooks and handover so your team can operate it",
+      "Agreed trial length and conversion terms set before day one",
+      "Candidate briefed that the role is contract-to-hire, never sprung on them",
+      "Contractor payroll and compliance handled during the trial",
+      "Structured check-ins at the midpoint and before conversion",
+      "Pre-agreed conversion fee with no surprise uplift",
+      "Clean exit and replacement if either side decides against it",
     ],
     technologies: [
-      "AWS",
-      "Azure",
-      "Google Cloud",
-      "Terraform",
-      "Kubernetes",
-      "OpenTelemetry",
+      "Engineering roles",
+      "Platform & DevOps",
+      "Data roles",
+      "Security roles",
+      "Technical leads",
+      "Support functions",
     ],
     faqs: [
       {
-        q: "Do we have to move to the cloud?",
-        a: "No. Some workloads are cheaper and safer where they are. Migration is proposed only when there is a specific cost or capability reason, and we show the numbers first.",
+        q: "How long is the trial?",
+        a: "Three to six months is typical. Long enough to see real work, short enough that a good candidate does not walk away over the uncertainty.",
       },
       {
-        q: "Can you take over an environment nobody documented?",
-        a: "That is a common starting point. The first deliverable is usually a written map of what exists and what is at risk, before anything is changed.",
+        q: "Does the candidate know?",
+        a: "Always, from the first conversation. Placing someone into a trial they were not told about is how you lose good people and your reputation with them.",
       },
       {
-        q: "Who runs it afterwards?",
-        a: "Whoever you want. We hand over with runbooks and working sessions, and can stay on for managed support if you would rather we did.",
+        q: "What does conversion cost?",
+        a: "A fee agreed up front, usually reducing the longer the contract period runs. It is in the terms before anyone starts.",
       },
     ],
   },
   {
-    slug: "cybersecurity-consulting",
-    title: "Cybersecurity Consulting",
+    slug: "executive-search",
+    title: "Executive & Leadership Search",
     summary:
-      "Risk assessment, compliance readiness and security architecture for teams that cannot afford to find out the hard way.",
+      "CTOs, engineering directors and heads of platform — roles where a wrong hire costs a year.",
     description:
-      "Security advice is only useful if it is specific. We assess your actual systems and your actual obligations, rank what we find by likelihood and cost rather than by severity label, and give you a remediation plan with an order of work.",
+      "Senior technology hires are rarely found on job boards. They are approached, discreetly, by someone who can hold a credible conversation about the role. The process is slower and more thorough because the cost of getting it wrong is measured in quarters.",
     includes: [
-      "Security posture and vulnerability assessment",
-      "Threat modelling against your real architecture",
-      "Identity, access and least-privilege review",
-      "Compliance readiness for ISO 27001, SOC 2 and GDPR",
-      "Incident response planning and tabletop exercises",
-      "Remediation roadmap ranked by risk and cost to fix",
+      "Confidential mapping of the relevant leadership market",
+      "Direct, discreet approach rather than advertising the role",
+      "Assessment against your actual technical and organisational challenges",
+      "Structured referencing with prior peers and direct reports",
+      "Support through offer, notice period and counter-offer",
+      "Onboarding check-ins through the first six months",
     ],
     technologies: [
-      "Threat modelling",
-      "IAM review",
-      "Penetration testing",
-      "ISO 27001",
-      "SOC 2",
-      "GDPR",
+      "CTO & VP Engineering",
+      "Engineering Director",
+      "Head of Platform",
+      "Head of Data",
+      "CISO & security leadership",
+      "Delivery & programme leadership",
     ],
     faqs: [
       {
-        q: "Do you do the remediation as well as the assessment?",
-        a: "We can, but the report is written to stand alone so your team or another provider can act on it. An assessment only we can fix is a sales document, not advice.",
+        q: "How long does a search take?",
+        a: "Eight to sixteen weeks from brief to offer for most leadership roles. Anyone promising a CTO in three weeks is sending you their existing bench.",
       },
       {
-        q: "We need a certification for a client. Can you get us there?",
-        a: "We can run the readiness work — gap analysis, control design, evidence collection — up to the point of audit. The certificate itself comes from an accredited auditor, not from us.",
+        q: "Is the search confidential?",
+        a: "Yes, including from the market. Where the role is a replacement, the mandate can run without naming you until a candidate is under NDA.",
       },
       {
-        q: "How disruptive is the assessment?",
-        a: "The review itself is mostly documentation and interviews. Anything that touches production is scheduled with you and scoped in writing first.",
+        q: "Do you work on retainer?",
+        a: "For leadership search, usually. Retained work buys dedicated research time, which is what actually finds people who are not looking.",
       },
     ],
   },
   {
-    slug: "data-ai-analytics",
-    title: "Data, AI & Analytics",
+    slug: "rpo",
+    title: "Recruitment Process Outsourcing",
     summary:
-      "Data platforms, reporting and applied AI that answer questions the business is actually asking.",
+      "Recruiters embedded with your team when hiring volume outgrows internal capacity.",
     description:
-      "Most organisations have more data than insight. We build the pipelines and models that turn it into something decisions can rest on — and we are direct about where AI genuinely helps versus where a well-built report would do the job for a fraction of the cost.",
+      "When you are hiring twenty engineers rather than two, agency-by-agency fees stop making sense. RPO puts dedicated recruiters inside your process, using your employer brand and your tone, and involves your engineers only where their judgment is genuinely needed.",
     includes: [
-      "Data platform and warehouse architecture",
-      "Pipeline engineering, quality checks and lineage",
-      "Reporting and self-service analytics for business teams",
-      "Applied AI and machine learning where it earns its cost",
-      "Document extraction and process automation",
-      "Model evaluation, monitoring and governance",
+      "Dedicated recruiters working as an extension of your team",
+      "Your employer brand and tone of voice, not ours",
+      "Sourcing, screening, scheduling and candidate communication",
+      "Interview-loop design and panel training",
+      "Pipeline and funnel reporting you can actually act on",
+      "Monthly review against agreed hiring targets",
     ],
     technologies: [
-      "Snowflake",
-      "Postgres",
-      "dbt",
-      "Airflow",
-      "Power BI",
-      "Applied AI",
+      "Volume engineering hiring",
+      "Multi-location hiring",
+      "Campus & early careers",
+      "Niche skill campaigns",
+      "Employer brand support",
+      "Hiring process design",
     ],
     faqs: [
       {
-        q: "Do we need AI, or just better reporting?",
-        a: "Usually better reporting first. AI on top of unreliable data produces confident wrong answers, which is worse than no answer. We will tell you which one you need.",
+        q: "When does RPO make more sense than per-role fees?",
+        a: "Usually past eight to ten hires in a period, or when the coordination load is the bottleneck rather than the sourcing.",
       },
       {
-        q: "Does our data need cleaning before we start?",
-        a: "No. Messy input is the normal case and the pipeline is built to handle it. Waiting for clean data is how these projects stall indefinitely.",
+        q: "Do candidates know they are talking to an agency?",
+        a: "They know they are talking to a recruiter working for you. We represent your brand, and we do not misrepresent who we are if asked.",
       },
       {
-        q: "How do you keep a model honest over time?",
-        a: "Evaluation sets drawn from your real cases, plus monitoring on drift and cost. You get a pass rate you can track, not a demo that worked once.",
-      },
-    ],
-  },
-  {
-    slug: "system-integration",
-    title: "System Integration",
-    summary:
-      "Connecting the systems you already run so data stops being re-keyed between them.",
-    description:
-      "Most of the time lost inside a business goes to moving information from one screen into another. We build the connective tissue between your ERP, CRM, finance and support systems so records stay consistent without anyone maintaining them by hand.",
-    includes: [
-      "Integration architecture and middleware selection",
-      "API design, development and lifecycle management",
-      "ERP, CRM and finance system integration",
-      "Legacy system interfacing where no API exists",
-      "Error handling, retries and reconciliation reporting",
-      "Monitoring so a failed sync is noticed before month end",
-    ],
-    technologies: [
-      "REST",
-      "GraphQL",
-      "Message queues",
-      "ETL",
-      "Webhooks",
-      "Middleware",
-    ],
-    faqs: [
-      {
-        q: "Our legacy system has no API. Is it still possible?",
-        a: "Usually. Database-level integration, file exchange and screen-level automation are all options. Which one is right depends on how often the data changes and how much it matters if a sync fails.",
-      },
-      {
-        q: "What happens when an integration breaks?",
-        a: "It stops and alerts rather than silently writing bad data. Every run is logged, so you can see which step failed and what was left half-done.",
-      },
-      {
-        q: "Do you replace our existing systems?",
-        a: "No. The point of integration is to make what you have work together, which is nearly always cheaper than replacing any of it.",
-      },
-    ],
-  },
-  {
-    slug: "managed-it-support",
-    title: "Managed IT Support",
-    summary:
-      "Ongoing support, monitoring and optimisation for the systems that have to be up tomorrow morning.",
-    description:
-      "Once something is live it needs someone accountable for it at eight in the morning. We provide that cover with defined response times, proper escalation, and a monthly review that tells you what broke, what was fixed and what is likely to break next.",
-    includes: [
-      "Service desk with agreed response and resolution times",
-      "Proactive monitoring and patch management",
-      "Application and infrastructure support",
-      "Backup, disaster recovery and restore testing",
-      "Monthly service review with an actual trend line",
-      "Continuous improvement backlog, not just ticket closing",
-    ],
-    technologies: [
-      "Service desk",
-      "SLA management",
-      "Monitoring",
-      "Patch management",
-      "Backup & DR",
-      "ITIL practices",
-    ],
-    faqs: [
-      {
-        q: "What response times do you offer?",
-        a: "They are agreed per engagement against how much downtime actually costs you. We would rather commit to a time we can hold than quote one that looks good on a proposal.",
-      },
-      {
-        q: "Do you support systems you did not build?",
-        a: "Yes. That starts with a discovery period so we understand the estate before taking accountability for it.",
-      },
-      {
-        q: "Is this just ticket closing?",
-        a: "No. A support contract that only closes tickets guarantees the same tickets next month. The monthly review exists to reduce them.",
+        q: "What happens at the end of the engagement?",
+        a: "You keep the process, the templates, the interview kits and the pipeline. The point is to leave your team more capable of hiring, not dependent on us.",
       },
     ],
   },
@@ -288,68 +216,151 @@ export const services: readonly Service[] = [
     slug: "staff-augmentation",
     title: "Staff Augmentation",
     summary:
-      "Vetted engineers who join your team, work your process and ship in your codebase.",
+      "Technology professionals who join your team, work your process and report to your leads.",
     description:
-      "Sometimes you know exactly what needs building and simply need more hands that are already good at it. We place engineers into your existing team — your standups, your repo, your review process — rather than running a parallel project on the side. You keep the roadmap.",
+      "You keep the roadmap and the standards; we supply the people. Augmented staff sit in your standups, your repositories and your review process rather than working as a separate outsourced unit with its own agenda.",
     includes: [
-      "Role scoping against your actual stack, not a generic JD",
-      "Technical screening by people who do the work themselves",
-      "Shortlist in days, not weeks, with honest notes on each candidate",
-      "Trial period before anyone becomes a long-term commitment",
+      "Skills matched to your existing stack and ways of working",
       "Direct reporting into your leads, no account-manager layer",
+      "Ramp-up support through the first weeks",
+      "Flexible scaling up or down as the work changes",
+      "Payroll, compliance and contracting handled by us",
       "Replacement cover if a placement is not working out",
     ],
-    technologies: ["React", "Node.js", "Python", "Java", "AWS", "Kubernetes"],
+    technologies: [
+      "Engineering capacity",
+      "Platform & infrastructure",
+      "Data engineering",
+      "QA & automation",
+      "Support engineering",
+      "Technical writing",
+    ],
     faqs: [
       {
-        q: "How fast can someone start?",
-        a: "A shortlist usually reaches you within a week for common stacks, longer for narrow specialisms. We would rather be slow and right than fast and wrong.",
+        q: "How is this different from contract staffing?",
+        a: "Mostly in how it is managed. Augmented staff are embedded in your team long-term against a capability gap; contractors are usually engaged against a defined piece of work and a date.",
       },
       {
-        q: "Do they work our hours?",
-        a: "Yes. Overlap with your team is agreed before placement, not negotiated afterwards.",
+        q: "Who manages them day to day?",
+        a: "Your leads. We handle the employment relationship and step in only if something needs resolving on that side.",
       },
       {
-        q: "What if the fit is wrong?",
-        a: "There is a trial window on every placement. If it is not working, we replace at our cost rather than asking you to absorb it.",
+        q: "Can we scale the team down?",
+        a: "Yes, with the notice period agreed in the contract. Flexibility in both directions is the reason people use this model.",
       },
     ],
   },
   {
-    slug: "tech-talent-staffing",
-    title: "Tech Talent & Staffing",
+    slug: "background-verification",
+    title: "Background Verification",
     summary:
-      "Permanent, contract and leadership hiring for teams that run technical systems.",
+      "Employment, education, identity and reference checks completed before an offer is signed.",
     description:
-      "Hiring for technology roles is hard because most recruiters cannot tell a strong engineer from a strong interviewee. We can, because we work in these systems ourselves. That means fewer, better candidates and far less of your team's time spent screening people who were never going to make it.",
+      "Most bad hires that make it through were verifiable beforehand. We check what a candidate has claimed — previous employment, qualifications, identity, references — and report anything unresolved plainly rather than burying it.",
     includes: [
-      "Permanent, contract and contract-to-hire placements",
-      "Leadership and executive search for technology roles",
-      "Recruitment process outsourcing when hiring volume spikes",
-      "Background and reference verification before an offer goes out",
-      "Structured interview kits so your panel assesses consistently",
-      "Market and salary intelligence for the roles you are opening",
+      "Employment history and dates verified with prior employers",
+      "Education and professional qualification checks",
+      "Identity and address verification",
+      "Reference calls with former managers, not just nominated referees",
+      "Criminal record and database checks where legally permitted",
+      "Written report with every discrepancy flagged clearly",
     ],
     technologies: [
-      "Engineering hiring",
-      "Leadership search",
-      "Contract staffing",
-      "RPO",
-      "Background verification",
-      "Interview design",
+      "Employment verification",
+      "Education verification",
+      "Identity checks",
+      "Reference checks",
+      "Database screening",
+      "Compliance reporting",
     ],
     faqs: [
       {
-        q: "How is this different from a normal recruitment agency?",
-        a: "Our screening is done by people who work in these systems. A candidate reaches your panel having already been assessed technically, so your team spends time only on the ones worth meeting.",
+        q: "How long does verification take?",
+        a: "Three to seven working days for a standard check. International history takes longer, and we give you an expected date rather than a vague estimate.",
       },
       {
-        q: "Do you handle volume hiring?",
-        a: "Yes, through RPO. We take on the sourcing, screening and coordination load and keep your team involved only where their judgment is needed.",
+        q: "Is candidate consent required?",
+        a: "Yes, always, in writing before any check begins. Verification run without consent is not usable and not lawful.",
       },
       {
-        q: "Can you help us design the interview itself?",
-        a: "Often the fastest win. A badly designed loop rejects good people and passes bad ones, and that is fixable in a week.",
+        q: "What if something comes back unclear?",
+        a: "It is reported as unclear rather than as a pass or a fail. The hiring decision is yours; our job is to make sure you have the facts.",
+      },
+    ],
+  },
+  {
+    slug: "diversity-hiring",
+    title: "Diversity Hiring",
+    summary:
+      "Widening the pipeline and removing the parts of a process that quietly filter people out.",
+    description:
+      "Most diversity hiring stalls because the funnel is measured at the top and the process is never examined. We source beyond the usual referral networks and then look at where candidates actually drop out — which is often the job description or the interview loop, not the sourcing.",
+    includes: [
+      "Sourcing beyond referral networks and the same few employers",
+      "Job descriptions rewritten to stop capable people self-deselecting",
+      "Structured, consistently scored interviews",
+      "Diverse interview panels where you have the people for it",
+      "Funnel reporting by stage, so drop-off is visible",
+      "Measured on who gets hired, not on who was sourced",
+    ],
+    technologies: [
+      "Inclusive sourcing",
+      "Job description review",
+      "Structured interviewing",
+      "Panel training",
+      "Returnship programmes",
+      "Funnel analytics",
+    ],
+    faqs: [
+      {
+        q: "Does this mean lowering the bar?",
+        a: "No. It means removing the things that reject capable people for reasons unrelated to the job. A structured interview raises the bar because it stops decisions being made on rapport.",
+      },
+      {
+        q: "Where do most programmes fail?",
+        a: "At the interview stage, not sourcing. Plenty of companies bring in a diverse pipeline and then hire the same profile they always have.",
+      },
+      {
+        q: "How do we know it is working?",
+        a: "Stage-by-stage funnel data. If the mix at offer does not differ from the mix at application, the process is doing the filtering.",
+      },
+    ],
+  },
+  {
+    slug: "hire-train-deploy",
+    title: "Hire, Train & Deploy",
+    summary:
+      "Screened graduates trained on your stack, then deployed into your team.",
+    description:
+      "For roles where experienced talent is scarce or expensive, and the actual requirement is aptitude. We hire for capability, train on the specific technologies you use, and deploy people who are productive from the start rather than learning your stack on your time.",
+    includes: [
+      "Aptitude-based screening and technical assessment",
+      "Training curriculum built around your stack and standards",
+      "Trainer-led delivery with project work, not video courses",
+      "Assessment gates before anyone is deployed to you",
+      "Deployment with a defined ramp-up and mentoring period",
+      "Conversion to your payroll after the agreed term",
+    ],
+    technologies: [
+      "Graduate engineering",
+      "Java & .NET",
+      "JavaScript & frontend",
+      "Cloud & DevOps foundations",
+      "Data & analytics",
+      "Testing & QA",
+    ],
+    faqs: [
+      {
+        q: "How long is the training?",
+        a: "Typically eight to sixteen weeks depending on the stack and how far from job-ready the intake is.",
+      },
+      {
+        q: "What if a trainee does not make the grade?",
+        a: "They do not get deployed. Assessment gates exist so you are not the one discovering it.",
+      },
+      {
+        q: "Who pays during training?",
+        a: "We do. You pay on deployment, which is the point at which you get value.",
       },
     ],
   },

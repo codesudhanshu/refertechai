@@ -5,7 +5,6 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { Partners } from "@/components/sections/Partners";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { HiringModels } from "@/components/sections/HiringModels";
 import { IndustryStrip } from "@/components/sections/IndustryStrip";
 import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
@@ -32,7 +31,7 @@ import { differentiators, process } from "@/content/about";
 export const metadata = buildMetadata({
   title: "ReferTech AI — Technology that moves business forward",
   description:
-    "IT consulting, cloud, cybersecurity and data solutions — plus the technical staffing to run them. Independent advice and delivery from one accountable partner.",
+    "IT recruitment and staffing — permanent, contract and executive hiring for technology teams, plus RPO, background verification and hire-train-deploy.",
   path: "/",
 });
 
@@ -46,14 +45,11 @@ export default function Home() {
         {/* 2 — client logo strip */}
         <TrustBar names={clientNames} />
 
-        {/* 3 — consulting services, staffing folded in at the end */}
+        {/* 3 — recruitment services */}
         <ServiceGrid items={services} tone="paper" />
 
         {/* 4 — differentiators on a dark band */}
         <WhyChooseUs items={differentiators} />
-
-        {/* 5 — staffing models */}
-        <HiringModels tone="surface" limit={3} />
 
         {/* 6 — industries */}
         <IndustryStrip items={industries} tone="paper" />

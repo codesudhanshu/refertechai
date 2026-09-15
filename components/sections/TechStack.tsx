@@ -17,8 +17,8 @@ export function TechStack({
         <SectionHeading
           title={
             <>
-              A stack chosen for the job,{" "}
-              <span className="text-lime-text">not for the CV.</span>
+              The roles we{" "}
+              <span className="text-lime-text">actually recruit for.</span>
             </>
           }
         />

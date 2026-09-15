@@ -24,7 +24,7 @@ function Frame({ children }: { children: React.ReactNode }) {
 
 const SCENES: Record<string, React.ReactNode> = {
   // Strategy — ascending path with a flag
-  "it-strategy-advisory": (
+  "hire-train-deploy": (
     <>
       <path d="M20 112h160" stroke={MID} strokeWidth="2" opacity="0.25" />
       <path
@@ -49,7 +49,7 @@ const SCENES: Record<string, React.ReactNode> = {
   ),
 
   // Transformation — old blocks morphing into new
-  "digital-transformation": (
+  "contract-to-hire": (
     <>
       <rect x="22" y="48" width="28" height="28" rx="3" fill={MID} opacity="0.35" />
       <rect x="22" y="82" width="28" height="28" rx="3" fill={MID} opacity="0.35" />
@@ -61,39 +61,26 @@ const SCENES: Record<string, React.ReactNode> = {
     </>
   ),
 
-  // Cloud — cloud over stacked infrastructure
-  "cloud-infrastructure": (
+  // RPO — embedded recruiters feeding one pipeline
+  "rpo": (
     <>
-      <path
-        d="M62 62a20 20 0 0 1 39-6 16 16 0 0 1 22 15 14 14 0 0 1-3 27H68a18 18 0 0 1-6-36z"
-        fill={LIME}
-        stroke={TEAL}
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-      {[0, 1, 2].map((i) => (
-        <rect
-          key={i}
-          x="56"
-          y={104 + i * 0}
-          width="88"
-          height="12"
-          rx="3"
-          fill={i === 0 ? SOFT : MID}
-          stroke={TEAL}
-          strokeWidth="2.5"
-          transform={`translate(0 ${i * -0})`}
-          opacity={i === 0 ? 1 : 0}
-        />
+      <rect x="66" y="40" width="68" height="60" rx="8" fill={SOFT} stroke={TEAL} strokeWidth="3" />
+      <circle cx="100" cy="62" r="11" fill={LIME} stroke={TEAL} strokeWidth="3" />
+      <path d="M86 88v-4a14 14 0 0 1 28 0v4z" fill={LIME} stroke={TEAL} strokeWidth="3" strokeLinejoin="round" />
+      {[28, 172].map((x) => (
+        <g key={x}>
+          <path d={`M${x} 70 H${x < 100 ? 62 : 138}`} stroke={TEAL} strokeWidth="3" strokeDasharray="5 5" />
+          <circle cx={x} cy="70" r="14" fill={MID} stroke={TEAL} strokeWidth="3" />
+          <circle cx={x} cy="66" r="4.5" fill={LIME} />
+          <path d={`M${x - 7} 79v-2a7 7 0 0 1 14 0v2z`} fill={LIME} />
+        </g>
       ))}
-      <rect x="56" y="104" width="88" height="13" rx="3" fill={SOFT} stroke={TEAL} strokeWidth="2.5" />
-      <circle cx="68" cy="110.5" r="2.5" fill={TEAL} />
-      <path d="M100 98v6" stroke={TEAL} strokeWidth="3" strokeLinecap="round" />
+      <path d="M100 108v14M86 122h28" stroke={TEAL} strokeWidth="3" strokeLinecap="round" />
     </>
   ),
 
   // Security — shield with a check
-  "cybersecurity-consulting": (
+  "background-verification": (
     <>
       <path
         d="M100 22l44 16v34c0 26-19 42-44 50-25-8-44-24-44-50V38l44-16z"
@@ -118,62 +105,50 @@ const SCENES: Record<string, React.ReactNode> = {
     </>
   ),
 
-  // Data — bar chart with a trend line
-  "data-ai-analytics": (
+  // Diversity hiring — a ring of different figures
+  "diversity-hiring": (
     <>
-      <path d="M26 114h148" stroke={TEAL} strokeWidth="3" strokeLinecap="round" />
-      <path d="M26 114V32" stroke={TEAL} strokeWidth="3" strokeLinecap="round" />
+      <circle cx="100" cy="70" r="44" stroke={TEAL} strokeWidth="2.5" fill="none" strokeDasharray="4 6" opacity="0.5" />
       {[
-        [44, 82],
-        [74, 62],
-        [104, 92],
-        [134, 46],
-      ].map(([x, y], i) => (
-        <rect
-          key={x}
-          x={x}
-          y={y}
-          width="22"
-          height={114 - y}
-          rx="3"
-          fill={i % 2 ? SOFT : LIME}
-          stroke={TEAL}
-          strokeWidth="2.5"
-        />
+        [100, 26, LIME],
+        [144, 70, SOFT],
+        [100, 114, LIME],
+        [56, 70, SOFT],
+        [131, 39, SOFT],
+        [69, 101, LIME],
+      ].map(([cx, cy, fill]) => (
+        <g key={`${cx}-${cy}`}>
+          <circle cx={cx as number} cy={cy as number} r="9" fill={fill as string} stroke={TEAL} strokeWidth="2.5" />
+          <path
+            d={`M${(cx as number) - 13} ${(cy as number) + 21}v-6a13 13 0 0 1 26 0v6z`}
+            fill={fill as string}
+            stroke={TEAL}
+            strokeWidth="2.5"
+            strokeLinejoin="round"
+          />
+        </g>
       ))}
-      <path
-        d="M55 74 L85 54 L115 84 L145 38"
-        stroke={TEAL}
-        strokeWidth="3"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeDasharray="6 5"
-      />
     </>
   ),
 
-  // Integration — nodes joined to a hub
-  "system-integration": (
+  // Executive search — a magnifier over one standout profile
+  "executive-search": (
     <>
-      {[
-        [40, 40],
-        [160, 40],
-        [40, 104],
-        [160, 104],
-      ].map(([x, y]) => (
-        <g key={`${x}-${y}`}>
-          <path d={`M${x} ${y} L100 72`} stroke={TEAL} strokeWidth="2.5" opacity="0.5" />
-          <rect x={x - 15} y={y - 12} width="30" height="24" rx="5" fill={SOFT} stroke={TEAL} strokeWidth="2.5" />
+      {[40, 66].map((x) => (
+        <g key={x} opacity="0.4">
+          <circle cx={x} cy="58" r="10" fill={MID} />
+          <path d={`M${x - 15} 96v-7a15 15 0 0 1 30 0v7z`} fill={MID} strokeLinejoin="round" />
         </g>
       ))}
-      <circle cx="100" cy="72" r="22" fill={LIME} stroke={TEAL} strokeWidth="3.5" />
-      <path d="M92 72h16M100 64v16" stroke={TEAL} strokeWidth="3.5" strokeLinecap="round" />
+      <circle cx="104" cy="52" r="14" fill={LIME} stroke={TEAL} strokeWidth="3" />
+      <path d="M84 100v-9a20 20 0 0 1 40 0v9z" fill={LIME} stroke={TEAL} strokeWidth="3" strokeLinejoin="round" />
+      <circle cx="104" cy="70" r="40" stroke={TEAL} strokeWidth="4" fill="none" />
+      <path d="M133 99l26 26" stroke={TEAL} strokeWidth="7" strokeLinecap="round" />
     </>
   ),
 
   // Support — headset and a pulse line
-  "managed-it-support": (
+  "contract-staffing": (
     <>
       <path
         d="M58 84V70a42 42 0 0 1 84 0v14"
@@ -224,7 +199,7 @@ const SCENES: Record<string, React.ReactNode> = {
   ),
 
   // Hiring — a profile card passing a check
-  "tech-talent-staffing": (
+  "permanent-it-recruitment": (
     <>
       <rect x="34" y="32" width="96" height="76" rx="8" fill={SOFT} stroke={TEAL} strokeWidth="3" />
       <circle cx="62" cy="58" r="12" fill={LIME} stroke={TEAL} strokeWidth="3" />
@@ -237,6 +212,6 @@ const SCENES: Record<string, React.ReactNode> = {
 };
 
 export function ServiceIllustration({ slug }: { slug: string }) {
-  const scene = SCENES[slug] ?? SCENES["it-strategy-advisory"];
+  const scene = SCENES[slug] ?? SCENES["permanent-it-recruitment"];
   return <Frame>{scene}</Frame>;
 }

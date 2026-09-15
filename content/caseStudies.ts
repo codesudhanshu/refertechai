@@ -1,8 +1,8 @@
 // PLACEHOLDER DATA — REPLACE BEFORE LAUNCH
 // Verify before this file ships: every `client`, `challenge`, `solution` and
-// `metric` below. Client names are deliberately generic descriptors rather than
-// real organisations, and no metric here has been measured.
-// Nothing in this file has been confirmed against real engagements.
+// `metric` below. Client names are generic descriptors rather than real
+// organisations, and no metric here has been measured.
+// Nothing in this file has been confirmed against real mandates.
 
 export interface CaseStudyMetric {
   value: string;
@@ -21,69 +21,69 @@ export interface CaseStudy {
 
 export const caseStudies: readonly CaseStudy[] = [
   {
-    slug: "payments-fraud-triage",
+    slug: "platform-team-buildout",
     client: "Regional payments platform",
     industry: "financial-services",
     challenge:
-      "Every flagged transaction went to a human reviewer, and the queue grew faster than the team could clear it.",
+      "A platform team of four needed to reach fourteen in two quarters, and internal recruiters were spending their week scheduling rather than sourcing.",
     solution:
-      "An agent that gathers the context a reviewer would collect manually, drafts a recommendation with its reasoning, and escalates anything it is not confident about.",
+      "Embedded RPO recruiters running sourcing, screening and coordination, with the engineering panel involved only at final stage.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["data-ai-analytics", "cloud-infrastructure"],
+    services: ["rpo", "permanent-it-recruitment"],
   },
   {
-    slug: "clinic-intake-automation",
-    client: "Multi-site clinic group",
+    slug: "cto-search",
+    client: "Healthcare software provider",
     industry: "healthcare",
     challenge:
-      "Patient intake forms arrived as scans and were re-typed into the records system by hand.",
+      "A confidential leadership replacement that could not be advertised while the incumbent was still in post.",
     solution:
-      "A document pipeline that extracts and validates each field, flags anything ambiguous for review, and writes clean records to the existing system.",
+      "Retained executive search with a mapped market, direct approach and candidates under NDA before the client was named.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["system-integration"],
+    services: ["executive-search"],
   },
   {
-    slug: "commerce-replatform",
-    client: "Specialty retail brand",
+    slug: "peak-season-contractors",
+    client: "Specialty retail group",
     industry: "retail-ecommerce",
     challenge:
-      "The storefront slowed sharply under campaign traffic and the merchandising team could not change anything without a developer.",
+      "Engineering capacity needed to double for a four-month peak, with no appetite for permanent headcount afterwards.",
     solution:
-      "A rebuilt storefront with a performance budget enforced in CI, plus merchandising tools the commercial team runs without engineering.",
+      "Contract staffing on our payroll with contracting and compliance handled, and a clean exit at term end.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["digital-transformation", "cloud-infrastructure"],
+    services: ["contract-staffing", "staff-augmentation"],
   },
   {
-    slug: "freight-visibility",
-    client: "Freight forwarding operator",
+    slug: "graduate-intake",
+    client: "Logistics technology operator",
     industry: "logistics",
     challenge:
-      "Shipment status was scattered across partner portals and email, so customers called to ask where their freight was.",
+      "Experienced engineers on their stack were scarce and expensive, but the actual requirement was aptitude rather than years.",
     solution:
-      "A visibility platform that pulls partner feeds into one timeline and raises an exception alert before a delivery misses its window.",
+      "Hire, train and deploy: aptitude screening, a twelve-week curriculum on their stack, then deployment behind assessment gates.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["system-integration", "digital-transformation"],
+    services: ["hire-train-deploy"],
   },
   {
-    slug: "line-quality-inspection",
+    slug: "security-hiring",
     client: "Components manufacturer",
     industry: "manufacturing",
     challenge:
-      "Surface defects were caught at final inspection, after the cost of the part had already been incurred.",
+      "A first security hire, in a team with nobody able to assess security candidates technically.",
     solution:
-      "Camera-based inspection on the line itself, with borderline cases routed to an operator rather than auto-rejected.",
+      "Specialist screening plus an interview loop designed for the client's panel to use on every subsequent security hire.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["data-ai-analytics", "cloud-infrastructure"],
+    services: ["permanent-it-recruitment", "background-verification"],
   },
   {
-    slug: "archive-search",
-    client: "Broadcast archive holder",
+    slug: "inclusive-pipeline",
+    client: "Broadcast media group",
     industry: "media",
     challenge:
-      "Decades of footage was stored but effectively unsearchable, so it was rarely reused.",
+      "A diverse application pipeline that produced the same hiring profile every time it reached offer stage.",
     solution:
-      "Automated transcription and tagging across the archive, behind a search interface producers can actually use.",
+      "Job descriptions rewritten, structured scoring introduced, and stage-by-stage funnel reporting to show where candidates were dropping out.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["system-integration", "digital-transformation"],
+    services: ["diversity-hiring", "rpo"],
   },
 ];

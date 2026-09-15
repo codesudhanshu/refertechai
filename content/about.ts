@@ -1,5 +1,5 @@
-// Vision, mission, differentiators and process. These describe how the team
-// works and what it believes — no claims about clients or results — so no
+// Vision, mission, differentiators and process for an IT recruitment firm.
+// Describes how the team works — no client or placement claims — so no
 // placeholder banner is needed.
 
 export interface Pillar {
@@ -9,54 +9,57 @@ export interface Pillar {
 
 export const vision = {
   heading: "Our Vision",
-  body: "A market where technology advice comes without a vendor agenda attached, and where the organisation receiving it is left more capable than it was — not more dependent on the consultancy that gave it.",
+  body: "A technology hiring market where a shortlist means something — where the three CVs on your desk have all been assessed by someone who understands the work, and where candidates are told the truth about the role before they leave the one they have.",
 };
 
 export const mission = {
   heading: "Our Mission",
-  body: "To give organisations both halves of what they actually need: advice that survives contact with implementation, and the people to keep it running after we leave. Recommend it, build it, then staff the team that owns it.",
+  body: "To make technology hiring shorter and more accurate for employers, and more honest for candidates. Fewer CVs, better matched, with nothing hidden on either side of the table.",
 };
 
-// Four differentiators, written as flat statements rather than adjectives.
 export const differentiators: readonly Pillar[] = [
   {
-    title: "We advise, deliver and staff",
+    title: "Technical recruiters, not keyword matchers",
     detail:
-      "Most consultancies stop at the recommendation. We implement what we advise and can staff the team that runs it afterwards, so nobody hands you a report and walks away.",
+      "Our recruiters specialise by technology area. They can tell the difference between someone who has listed a skill and someone who is good at it, which is why the shortlist is three names rather than thirty.",
   },
   {
-    title: "Senior people on the real work",
+    title: "We tell you when we cannot fill it",
     detail:
-      "No account-manager layer between you and the consultants. The person who scoped the engagement is accountable for delivering it.",
+      "Some roles are priced wrong, scoped wrong or simply rare. We will say so early instead of running a search for six weeks to look busy.",
   },
   {
-    title: "Independent of the vendors",
+    title: "Candidates hear the truth",
     detail:
-      "We hold no reseller margin on any platform, so a recommendation is a recommendation. Where doing nothing is the right answer, we will say that too.",
+      "The real salary band, the real team situation, the real reason the role is open. Candidates who join knowing what they are joining stay, which is what the guarantee period actually depends on.",
   },
   {
-    title: "Handover is the deliverable",
+    title: "Both sides of the table",
     detail:
-      "Runbooks, documentation and a team that can operate the system without us. We plan for your independence from day one.",
+      "Employers get a shorter, better-assessed pipeline. Candidates get roles that match what they said they wanted, not whatever mandate we are trying to close this month.",
   },
 ];
 
-// Four-step delivery process.
+// Four-step hiring process.
 export const process: readonly Pillar[] = [
   {
-    title: "Discover",
-    detail: "Start with the business, the people and the opportunity.",
+    title: "Brief",
+    detail:
+      "A conversation about the team, the stack and what the person will actually do — not a form.",
   },
   {
-    title: "Design",
-    detail: "Turn the right idea into a clear product and technical path.",
+    title: "Source",
+    detail:
+      "Targeted search across active and passive candidates, approached directly.",
   },
   {
-    title: "Deliver",
-    detail: "Build in focused cycles, with visibility at every step.",
+    title: "Assess",
+    detail:
+      "Technical and motivational screening, so your panel only meets people worth their time.",
   },
   {
-    title: "Evolve",
-    detail: "Measure, learn and keep moving after launch.",
+    title: "Close",
+    detail:
+      "Offer, notice period, counter-offer handling, and a check-in after they start.",
   },
 ];

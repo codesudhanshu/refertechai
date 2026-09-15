@@ -9,7 +9,7 @@ import { industries } from "@/content/industries";
 export const metadata = buildMetadata({
   title: "Industries",
   description:
-    "Financial services, healthcare, retail, logistics, manufacturing, real estate, education and media — what we build in each and why the constraints differ.",
+    "Financial services, healthcare, retail, logistics, manufacturing, real estate, education and media — who we recruit in each and why the hiring constraints differ.",
   path: "/industries",
 });
 
@@ -21,11 +21,11 @@ export default function Industries() {
         <PageHero
           title={
             <>
-              The engineering transfers.{" "}
+              The roles transfer.{" "}
               <span className="text-lime-text">The constraints do not.</span>
             </>
           }
-          lead="Regulation, data shape and the real cost of breaking production differ by sector. These are the ones we know well enough to be useful in from the first conversation."
+          lead="Clearance requirements, domain knowledge and what a candidate has to have touched before differ by sector. These are the ones we know well enough to be useful in from the first call."
         />
 
         <Section>
@@ -58,10 +58,10 @@ export default function Industries() {
                   </div>
                   <div>
                     <dt className="text-eyebrow font-semibold uppercase text-lime-text">
-                      What we build
+                      Who we recruit
                     </dt>
                     <dd className="mt-2 text-sm leading-relaxed text-body">
-                      {industry.weBuild}
+                      {industry.weRecruit}
                     </dd>
                   </div>
                   <div className="border-t border-line pt-5">

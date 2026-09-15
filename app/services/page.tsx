@@ -11,7 +11,7 @@ import { services } from "@/content/services";
 export const metadata = buildMetadata({
   title: "Services",
   description:
-    "AI agents, AI workflows, web and product engineering, cloud and DevOps, blockchain, and technology consulting.",
+    "Permanent, contract and executive IT recruitment, RPO, staff augmentation, background verification, diversity hiring and hire-train-deploy.",
   path: "/services",
 });
 
@@ -19,22 +19,22 @@ export const metadata = buildMetadata({
 // section. It is promoted on its second use, not its first.
 const ENGAGEMENT_MODELS = [
   {
-    name: "Dedicated team",
+    name: "Contingency",
     detail:
-      "A standing team that works as part of yours, for product work with no fixed end date. Best when the roadmap is still moving.",
-    fit: "Ongoing product development",
+      "You pay a percentage of fixed annual salary when the candidate joins, and nothing if they do not. Best for roles with a reasonable candidate pool.",
+    fit: "Most permanent roles",
   },
   {
-    name: "Fixed scope",
+    name: "Retained",
     detail:
-      "An agreed deliverable, timeline and price. Best when the requirements are settled enough to write down and unlikely to shift mid-flight.",
-    fit: "Well-defined projects",
+      "A staged fee that buys dedicated research time. Best for leadership roles and scarce skills, where finding people who are not looking is the actual work.",
+    fit: "Leadership and scarce skills",
   },
   {
-    name: "Staff augmentation",
+    name: "Monthly retainer",
     detail:
-      "Specific skills added to your existing team for a defined period. Best when you know what to build and need capacity to build it.",
-    fit: "Capacity and specialist skills",
+      "Recruiters embedded in your team for an agreed period. Best once hiring volume makes per-role fees the more expensive option.",
+    fit: "Volume hiring and RPO",
   },
 ];
 
@@ -46,10 +46,11 @@ export default function Services() {
         <PageHero
           title={
             <>
-              Technology with <span className="text-lime-text">a job to do.</span>
+              Every way we{" "}
+              <span className="text-lime-text">fill a technology role.</span>
             </>
           }
-          lead="We bring strategy, design and engineering together to create useful systems that solve real business problems."
+          lead="Permanent, contract and executive search, plus the programmes for when hiring volume or risk outgrows a single role."
         />
 
         <Section>
@@ -109,13 +110,11 @@ export default function Services() {
           <SectionHeading
             title={
               <>
-                Not a menu of deliverables.{" "}
-                <span className="text-lime-text">
-                  A team that owns the outcome.
-                </span>
+                Three ways to pay for it.{" "}
+                <span className="text-lime-text">All agreed in writing first.</span>
               </>
             }
-            lead="Every engagement is shaped around your goals, constraints and existing technology. We can lead the work end-to-end or fit into your team where the momentum is needed most."
+            lead="Which model fits depends on how scarce the skill is and how many roles you are filling. We will tell you which one costs you least, even when it is not the one that pays us most."
           />
 
           <div className="mt-14 grid gap-5 md:grid-cols-3">

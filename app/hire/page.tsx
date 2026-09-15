@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { HiringModels } from "@/components/sections/HiringModels";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FAQ } from "@/components/sections/FAQ";
 import { Section } from "@/components/ui/Section";
@@ -11,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Hire Talent",
   description:
-    "Permanent, contract and executive hiring for technical teams, plus RPO and background verification — screened by engineers, not keyword matchers.",
+    "Permanent, contract and executive IT recruitment, plus RPO, background verification and hire-train-deploy — screened by specialist recruiters, not keyword matchers.",
   path: "/hire",
 });
 
@@ -19,12 +18,12 @@ const STEPS = [
   {
     name: "Brief",
     detail:
-      "A call with someone technical, not a form. We want the stack, the team shape and what the person will actually be doing in month one.",
+      "A call with a recruiter who knows the technology, not a form. We want the stack, the team shape and what the person will actually be doing in month one.",
   },
   {
     name: "Screen",
     detail:
-      "Sourcing and technical assessment by engineers. Candidates who cannot do the work do not reach your panel.",
+      "Targeted sourcing and technical screening by a specialist in that area. Candidates who cannot do the work do not reach your panel.",
   },
   {
     name: "Shortlist",
@@ -41,7 +40,7 @@ const STEPS = [
 const HIRE_FAQS = [
   {
     q: "Why use you instead of a general recruitment agency?",
-    a: "Because our screening is technical. A recruiter matching keywords cannot tell whether someone can actually build what you need. We can, because the same company builds software. That means fewer candidates reach you, and more of them are worth meeting.",
+    a: "Our recruiters specialise by technology area instead of covering every role in the market. A keyword match cannot tell whether someone is actually good at what you need. That is why fewer candidates reach you, and more of them are worth meeting.",
   },
   {
     q: "How quickly will we see candidates?",
@@ -53,15 +52,15 @@ const HIRE_FAQS = [
   },
   {
     q: "Can you hire for roles we cannot assess ourselves?",
-    a: "Yes, and it is a common reason people call us. If you are hiring your first engineer or first engineering lead, we can run the technical assessment and help design the interview loop your team will use afterwards.",
+    a: "Yes, and it is a common reason people call us. If you are making your first engineering or security hire, we can run the technical screening and help design the interview loop your team will use for every hire after it.",
   },
   {
     q: "Do you handle contracts and compliance?",
     a: "For contract and temporary placements, yes — contracting, invoicing and compliance are handled end to end so the engineer can start rather than wait on paperwork.",
   },
   {
-    q: "Can you both build a system and staff the team that runs it?",
-    a: "That is the combination we are set up for. We can deliver the first version and then hire the permanent team to own it, with the engineers who built it involved in assessing the people taking it over.",
+    q: "Can you take on a whole hiring programme, not just one role?",
+    a: "Yes — that is what RPO is for. Dedicated recruiters work inside your process under your employer brand, and you keep the templates, interview kits and pipeline when the engagement ends.",
   },
 ];
 
@@ -73,14 +72,12 @@ export default function Hire() {
         <PageHero
           title={
             <>
-              Engineers screened by{" "}
-              <span className="text-lime-text">engineers.</span>
+              A shortlist of three,{" "}
+              <span className="text-lime-text">not a stack of thirty.</span>
             </>
           }
-          lead="Permanent, contract and executive hiring for technical teams — plus RPO and background verification when the volume or the risk justifies it."
+          lead="Permanent, contract and executive IT recruitment — plus RPO, background verification and hire-train-deploy when the volume or the risk justifies it."
         />
-
-        <HiringModels tone="paper" showAction={false} />
 
         <Section tone="teal">
           <div className="max-w-3xl">
@@ -111,24 +108,23 @@ export default function Hire() {
             <SectionHeading
               title={
                 <>
-                  The combination most firms{" "}
-                  <span className="text-lime-text">cannot offer.</span>
+                  Why the shortlist is{" "}
+                  <span className="text-lime-text">short.</span>
                 </>
               }
             />
             <div className="max-w-2xl">
               <p className="text-lg leading-relaxed text-body">
-                Most companies either build software or place people. Doing both
-                changes each one. We scope projects knowing what it actually
-                takes to staff them, and we assess candidates against the
-                systems we have had to maintain ourselves.
+                Our recruiters specialise by technology area rather than
+                covering everything. That is the whole reason three names reach
+                you instead of thirty: someone has already had the conversation
+                that separates a candidate who has used a technology from one
+                who is genuinely good at it.
               </p>
               <p className="mt-5 leading-relaxed text-body">
-                In practice that often means delivering a first version with our
-                own engineers, then hiring the permanent team to take it over —
-                with the people who built it helping assess the people
-                inheriting it. The handover is a real one rather than a
-                document.
+                It also means we can tell you when a role is priced wrong,
+                scoped wrong or simply rare in your market — early, rather than
+                after six weeks of looking busy.
               </p>
             </div>
           </div>

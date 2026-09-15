@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: `%s — ${company.name}`,
   },
   description:
-    "ReferTech AI builds AI systems, software products, cloud infrastructure and blockchain applications.",
+    "ReferTech AI is an IT recruitment and staffing firm — permanent, contract and executive hiring for technology teams.",
 };
 
 const organizationLd = {

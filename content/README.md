@@ -3,6 +3,15 @@
 Every string the site renders lives here. Pages and components hold no copy of
 their own, so changing wording never means editing JSX.
 
+## What this business is
+
+ReferTech AI is an **IT recruitment and staffing firm**. It places technology
+talent. It does not build software, run migrations or deliver IT projects.
+
+Before writing any service, headline or capability claim, check whether it
+describes placing people or doing technical work. If it is technical work, it
+does not belong on this site.
+
 ## Before launch
 
 Five files carry claims about the business that have **not** been verified.
@@ -11,10 +20,12 @@ Each opens with a `// PLACEHOLDER DATA — REPLACE BEFORE LAUNCH` banner.
 | File | Status | What must be replaced |
 |---|---|---|
 | `caseStudies.ts` | ⚠️ placeholder | Every `client`, `challenge`, `solution` and `metric`. All six entries are illustrative. Metrics currently read `Example` so nothing false is published. |
-| `testimonials.ts` | ⚠️ placeholder | All three quotes. No client has said any of this. Replace with quotes you have written permission to publish, or delete the `Testimonials` section from `app/page.tsx`. |
+| `testimonials.ts` | ⚠️ placeholder | All six reviews. No client has said any of this. Attributions are roles and sectors, never invented people. Set `verified: true` once a quote is real — the on-page notice disappears when every entry is verified. |
 | `stats.ts` | ⚠️ placeholder | All four `value` fields, currently `—`. Replace with counted figures or delete `StatsBand` from `app/page.tsx` and `app/about/page.tsx`. |
 | `clients.ts` | ⚠️ placeholder | All eight names are invented. Replace with clients who have agreed to be named, or delete `TrustBar` from `app/page.tsx`. No real logo files are used — names render as plain typographic boxes. |
-| `jobs.ts` | ⚠️ placeholder | All five roles. Replace with real openings, or set the array to `[]` — the careers page handles an empty list. |
+| `jobs.ts` | ⚠️ placeholder | Internal ReferTech AI openings, shown on `/careers`. Replace with real openings or set to `[]`. |
+| `openRoles.ts` | ⚠️ placeholder | **Client mandates** shown to candidates on `/jobs` — a different thing from `jobs.ts`. Advertising a role that is not open wastes candidates' time. Replace or set to `[]`. |
+| `partners.ts` | ⚠️ placeholder | All eight are invented brands. See `public/logos/README.md` before adding a real one. |
 | `presence.ts` | ⚠️ placeholder | Team only. Offices and certifications are no longer rendered anywhere — the sections were removed — but the data is kept in case they return. |
 
 Three further values need confirming rather than replacing:
@@ -53,7 +64,7 @@ publishing anything false:
 
 ## Files that need no review
 
-`services.ts`, `industries.ts`, `technologies.ts`, `about.ts`, `hiring.ts` and
+`services.ts`, `industries.ts`, `technologies.ts`, `about.ts`, `faqs.ts` and
 `heroSlides.ts`
 describe capabilities, beliefs and engagement models — not past engagements.
 They assert nothing that requires verification.

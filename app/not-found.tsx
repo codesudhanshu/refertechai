@@ -5,9 +5,9 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 
 const DESTINATIONS = [
-  { label: "Services", href: "/services", detail: "What we build" },
+  { label: "Services", href: "/services", detail: "How we hire" },
   { label: "Industries", href: "/industries", detail: "Where we work" },
-  { label: "Work", href: "/work", detail: "Selected engagements" },
+  { label: "Open roles", href: "/jobs", detail: "For candidates" },
   { label: "Contact", href: "/contact", detail: "Start a conversation" },
 ];
 

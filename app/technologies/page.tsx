@@ -9,7 +9,7 @@ import { technologyGroups } from "@/content/technologies";
 export const metadata = buildMetadata({
   title: "Technologies",
   description:
-    "The AI, frontend, backend, cloud, data and Web3 stack we build production systems on.",
+    "The engineering, cloud, data, security, product and leadership roles we recruit for.",
   path: "/technologies",
 });
 
@@ -21,11 +21,11 @@ export default function Technologies() {
         <PageHero
           title={
             <>
-              A stack chosen for the job,{" "}
-              <span className="text-lime-text">not for the CV.</span>
+              The roles we{" "}
+              <span className="text-lime-text">actually recruit for.</span>
             </>
           }
-          lead="We are deliberately conventional about infrastructure and deliberately current about AI. Boring where boring is a feature, new where new actually buys something."
+          lead="Our recruiters specialise by area rather than covering the whole market. If a skill is not here, we will say so instead of taking the mandate anyway."
         />
 
         <TechStack groups={technologyGroups} tone="paper" heading={false} />

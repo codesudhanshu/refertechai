@@ -18,11 +18,11 @@ export function ServiceGrid({
       <SectionHeading
         title={
           <>
-            Deep expertise.{" "}
-            <span className="text-lime-text">One accountable team.</span>
+            Every way we{" "}
+            <span className="text-lime-text">fill a technology role.</span>
           </>
         }
-        lead="Advisory, delivery and managed services across the estate — plus the staffing to keep it running."
+        lead="Permanent, contract and executive search, plus the programmes for when hiring volume or risk outgrows a single role."
         action={
           <Button href="/services" variant="ghost">
             All services

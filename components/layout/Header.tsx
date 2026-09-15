@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/Button";
 import { services } from "@/content/services";
 import { industries } from "@/content/industries";
 import { company } from "@/content/company";
-import { hiringModels } from "@/content/hiring";
 
 interface NavLink {
   label: string;
@@ -46,16 +45,8 @@ const NAV: readonly NavItem[] = [
       href: `/industries#${industry.slug}`,
     })),
   },
-  {
-    label: "Hire Talent",
-    href: "/hire",
-    columns: 1,
-    allLabel: "How hiring works",
-    children: hiringModels.map((model) => ({
-      label: model.name,
-      href: `/hire#${model.slug}`,
-    })),
-  },
+  { label: "For Employers", href: "/hire" },
+  { label: "For Candidates", href: "/jobs" },
   { label: "Work", href: "/work" },
   {
     label: "Company",

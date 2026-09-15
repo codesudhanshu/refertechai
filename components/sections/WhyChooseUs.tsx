@@ -14,7 +14,7 @@ export function WhyChooseUs({
     <Section tone="teal">
       <div className="max-w-3xl">
         <h2 className="text-h2 text-balance text-paper">
-          {title ?? "One partner. Two disciplines. No handoff in between."}
+          {title ?? "Why our shortlist is short."}
         </h2>
       </div>
 

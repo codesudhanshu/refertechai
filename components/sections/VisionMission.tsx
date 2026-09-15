@@ -32,8 +32,8 @@ export function VisionMission({
 
         <div>
           <h2 className="text-h2 text-balance">
-            Independent advice,{" "}
-            <span className="text-lime-text">then the work to back it.</span>
+            Fewer CVs,{" "}
+            <span className="text-lime-text">better matched.</span>
           </h2>
 
           <div className="mt-8 flex flex-col gap-8 border-t border-line pt-8">

@@ -21,7 +21,8 @@ export function CaseStudyGrid({
       <SectionHeading
         title={
           <>
-            Problems worth <span className="text-lime-text">solving properly.</span>
+            Mandates we{" "}
+            <span className="text-lime-text">took on.</span>
           </>
         }
         action={

@@ -1,5 +1,6 @@
-// Stack the team builds on. Capability statement, not a client claim, so no
-// placeholder banner is needed.
+// Roles and skill areas ReferTech AI recruits for. This is a statement of
+// recruiting coverage, not a claim that the company builds in these
+// technologies — it places the people who do.
 
 export interface TechGroup {
   name: string;
@@ -8,81 +9,81 @@ export interface TechGroup {
 
 export const technologyGroups: readonly TechGroup[] = [
   {
-    name: "AI & ML",
+    name: "Software Engineering",
     items: [
-      "Claude",
-      "Model Context Protocol",
-      "LangGraph",
-      "PyTorch",
-      "Hugging Face",
-      "Vector search",
-      "RAG pipelines",
-      "Computer vision",
-    ],
-  },
-  {
-    name: "Frontend",
-    items: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "React Native",
-      "Vite",
-      "Playwright",
-      "Storybook",
-    ],
-  },
-  {
-    name: "Backend",
-    items: [
-      "Node.js",
+      "Java",
       "Python",
+      ".NET / C#",
+      "Node.js",
       "Go",
-      "FastAPI",
-      "GraphQL",
-      "gRPC",
-      "Temporal",
-      "REST",
+      "PHP",
+      "Ruby",
+      "C++",
+    ],
+  },
+  {
+    name: "Frontend & Mobile",
+    items: [
+      "React",
+      "Angular",
+      "Vue",
+      "TypeScript",
+      "React Native",
+      "Flutter",
+      "iOS / Swift",
+      "Android / Kotlin",
     ],
   },
   {
     name: "Cloud & DevOps",
     items: [
       "AWS",
-      "Google Cloud",
       "Azure",
-      "Terraform",
-      "Docker",
+      "Google Cloud",
       "Kubernetes",
-      "GitHub Actions",
-      "OpenTelemetry",
+      "Docker",
+      "Terraform",
+      "CI/CD",
+      "Site Reliability",
     ],
   },
   {
-    name: "Data",
+    name: "Data & AI",
     items: [
-      "Postgres",
-      "MongoDB",
-      "Redis",
-      "ClickHouse",
+      "Data Engineering",
+      "Data Science",
+      "Machine Learning",
       "Snowflake",
-      "dbt",
-      "Kafka",
-      "Airflow",
+      "Databricks",
+      "Power BI",
+      "Tableau",
+      "ETL / dbt",
     ],
   },
   {
-    name: "Web3",
+    name: "Security & Infrastructure",
     items: [
-      "Solidity",
-      "Foundry",
-      "EVM chains",
-      "ethers.js",
-      "The Graph",
-      "IPFS",
-      "Wallet integration",
-      "Contract auditing",
+      "Cybersecurity",
+      "SOC Analysts",
+      "IAM",
+      "Network Engineering",
+      "Penetration Testing",
+      "GRC & Compliance",
+      "Systems Administration",
+      "IT Support",
+    ],
+  },
+  {
+    name: "Product, QA & Leadership",
+    items: [
+      "Product Management",
+      "Business Analysis",
+      "QA & Automation",
+      "Scrum Masters",
+      "Delivery Managers",
+      "Engineering Managers",
+      "Solution Architects",
+      "CTO & VP Engineering",
     ],
   },
 ];
