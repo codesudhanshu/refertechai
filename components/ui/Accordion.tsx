@@ -11,14 +11,17 @@ export function Accordion({
   const baseId = useId();
 
   return (
-    <div className="border-t border-line">
+    <div>
       {items.map((item, index) => {
         const isOpen = open === index;
         const buttonId = `${baseId}-button-${index}`;
         const panelId = `${baseId}-panel-${index}`;
 
         return (
-          <div key={item.q} className="border-b border-line">
+          <div
+            key={item.q}
+            className="group/faq border-b border-line last:border-b-0"
+          >
             <h3>
               <button
                 type="button"
@@ -26,7 +29,7 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? null : index)}
-                className="flex w-full items-start justify-between gap-6 py-6 text-left"
+                className="flex w-full items-start justify-between gap-6 py-6 text-left group-first/faq:pt-0"
               >
                 <span className="font-display text-lg font-semibold text-ink">
                   {item.q}

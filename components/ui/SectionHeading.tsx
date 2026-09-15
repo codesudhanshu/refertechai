@@ -23,7 +23,7 @@ export function SectionHeading({
     <Reveal
       className={[
         "flex flex-col gap-6",
-        action ? "lg:flex-row lg:items-end lg:justify-between" : "",
+        action ? "lg:flex-row lg:items-start lg:justify-between" : "",
         centered ? "items-center text-center" : "",
       ]
         .filter(Boolean)
@@ -43,7 +43,9 @@ export function SectionHeading({
           </p>
         ) : null}
       </div>
-      {action ? <div className="shrink-0">{action}</div> : null}
+      {/* Nudged down so the button's optical centre lines up with the
+          heading's first line rather than its cap height. */}
+      {action ? <div className="shrink-0 lg:mt-1.5">{action}</div> : null}
     </Reveal>
   );
 }
