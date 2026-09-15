@@ -175,7 +175,13 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+    <>
+      {/* The header carries backdrop-blur, and backdrop-filter establishes a
+          containing block for fixed-position descendants. With the drawer
+          nested inside, its `fixed top-20 bottom-0` resolved against the 80px
+          header box instead of the viewport and collapsed to no height. The
+          drawer is therefore a sibling of <header>, not a child. */}
+      <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
         <Link
           href="/"
@@ -214,7 +220,12 @@ export function Header() {
               }
 
               return (
-                <li key={item.label} className="relative">
+                <li
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenMenu(item.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
+                >
                   <button
                     type="button"
                     aria-haspopup="true"
@@ -241,7 +252,7 @@ export function Header() {
                   <div
                     id={`menu-${item.label}`}
                     hidden={!expanded}
-                    className={`absolute left-0 top-full z-50 pt-3 ${
+                    className={`absolute left-0 top-full z-50 pt-2 ${
                       item.columns === 2 ? "w-[540px]" : "w-60"
                     }`}
                   >
@@ -324,7 +335,9 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
+      </header>
+
+      {/* Mobile drawer — sibling of <header>, see note above */}
       {drawerOpen ? (
         <div className="lg:hidden">
           <div
@@ -419,6 +432,6 @@ export function Header() {
           </div>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }

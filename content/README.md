@@ -15,7 +15,7 @@ Each opens with a `// PLACEHOLDER DATA — REPLACE BEFORE LAUNCH` banner.
 | `stats.ts` | ⚠️ placeholder | All four `value` fields, currently `—`. Replace with counted figures or delete `StatsBand` from `app/page.tsx` and `app/about/page.tsx`. |
 | `clients.ts` | ⚠️ placeholder | All eight names are invented. Replace with clients who have agreed to be named, or delete `TrustBar` from `app/page.tsx`. No real logo files are used — names render as plain typographic boxes. |
 | `jobs.ts` | ⚠️ placeholder | All five roles. Replace with real openings, or set the array to `[]` — the careers page handles an empty list. |
-| `presence.ts` | ⚠️ placeholder | Offices, team and certifications. See the rules below — this file deliberately shows gaps rather than filling them. |
+| `presence.ts` | ⚠️ placeholder | Team only. Offices and certifications are no longer rendered anywhere — the sections were removed — but the data is kept in case they return. |
 
 Three further values need confirming rather than replacing:
 
@@ -26,9 +26,16 @@ Three further values need confirming rather than replacing:
 | `company.ts` | `responseTime` | Currently `within one business day`. This is a commitment — confirm the team can meet it. |
 | `faqs.ts` | engagement and ownership answers | Confirm they match how the business actually contracts. |
 
-No missing assets. The 1200×630 social share card is generated at build time
-by `app/opengraph-image.tsx` from the brand tokens, so there is no static
-image to supply or keep in sync.
+## Images
+
+`public/images/` holds two stock photos. The hero carousel has four slides and
+reuses those two, so the same picture appears twice as it cycles. Supplying
+four distinct images and pointing `heroSlides.ts` at them is the fix — nothing
+else needs changing.
+
+The 1200×630 social share card is generated at build time by
+`app/opengraph-image.tsx` from the brand tokens, so there is no static share
+image to supply.
 
 ## presence.ts — how the gaps are handled
 
@@ -46,7 +53,8 @@ publishing anything false:
 
 ## Files that need no review
 
-`services.ts`, `industries.ts`, `technologies.ts`, `about.ts` and `hiring.ts`
+`services.ts`, `industries.ts`, `technologies.ts`, `about.ts`, `hiring.ts` and
+`heroSlides.ts`
 describe capabilities, beliefs and engagement models — not past engagements.
 They assert nothing that requires verification.
 

@@ -2,7 +2,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { HiringModels } from "@/components/sections/HiringModels";
-import { GlobalOffices } from "@/components/sections/GlobalOffices";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FAQ } from "@/components/sections/FAQ";
 import { Section } from "@/components/ui/Section";
@@ -134,8 +133,6 @@ export default function Hire() {
             </div>
           </div>
         </Section>
-
-        <GlobalOffices tone="paper" />
 
         <FAQ
           items={HIRE_FAQS}

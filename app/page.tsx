@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/sections/Hero";
+import { HeroCarousel } from "@/components/sections/HeroCarousel";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
@@ -10,10 +10,8 @@ import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { VisionMission } from "@/components/sections/VisionMission";
 import { TechStack } from "@/components/sections/TechStack";
-import { GlobalOffices } from "@/components/sections/GlobalOffices";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
-import { Certifications } from "@/components/sections/Certifications";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { buildMetadata } from "@/lib/seo";
 import { services } from "@/content/services";
@@ -22,8 +20,8 @@ import { caseStudies } from "@/content/caseStudies";
 import { technologyGroups } from "@/content/technologies";
 import { testimonials } from "@/content/testimonials";
 import { generalFaqs } from "@/content/faqs";
-import { stats } from "@/content/stats";
 import { clientNames } from "@/content/clients";
+import { heroSlides } from "@/content/heroSlides";
 import { differentiators, process } from "@/content/about";
 
 // The brand is written in here rather than left to the layout's title
@@ -42,23 +40,7 @@ export default function Home() {
     <>
       <Header />
       <main id="main">
-        {/* 1 — hero, dark band, with the stats row folded in */}
-        <Hero
-          title={
-            <>
-              IT consulting that ends in{" "}
-              <span className="text-lime">a working system.</span>
-            </>
-          }
-          lead="Strategy, cloud, security and data advisory — delivered by the same people who implement it, and staffed by the same people who assess the talent."
-          primary={{ label: "Start a project", href: "/contact" }}
-          secondary={{ label: "Hire talent", href: "/hire" }}
-          image={{
-            src: "/images/engineering.jpg",
-            alt: "Software engineer working at a computer",
-          }}
-          stats={stats}
-        />
+        <HeroCarousel slides={heroSlides} />
 
         {/* 2 — client logo strip */}
         <TrustBar names={clientNames} />
@@ -93,13 +75,9 @@ export default function Home() {
         {/* 10 — technology stack */}
         <TechStack groups={technologyGroups} tone="paper" />
 
-        {/* 11 — offices */}
-        <GlobalOffices tone="surface" />
-
-        {/* 12 — proof, questions, compliance */}
+        {/* proof and questions */}
         <Testimonials items={testimonials} tone="paper" />
         <FAQ items={generalFaqs} tone="surface" />
-        <Certifications />
 
         <CtaBand />
       </main>

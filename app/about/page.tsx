@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { StatsBand } from "@/components/sections/StatsBand";
 import { Leadership } from "@/components/sections/Leadership";
 import { VisionMission } from "@/components/sections/VisionMission";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -9,7 +8,6 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { buildMetadata } from "@/lib/seo";
-import { stats } from "@/content/stats";
 
 export const metadata = buildMetadata({
   title: "About",
@@ -83,8 +81,6 @@ export default function About() {
         </Section>
 
         <VisionMission tone="surface" />
-
-        <StatsBand items={stats} tone="paper" />
 
         <Section bordered>
           <SectionHeading
