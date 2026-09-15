@@ -18,7 +18,7 @@ export function Testimonials({
         title={
           <>
             The measure of the work is{" "}
-            <span className="text-primary">what happens after.</span>
+            <span className="text-lime-text">what happens after.</span>
           </>
         }
       />
@@ -31,7 +31,7 @@ export function Testimonials({
           >
             <span
               aria-hidden="true"
-              className="font-display text-4xl leading-none font-bold text-accent-deep"
+              className="font-display text-4xl leading-none font-bold text-lime-text"
             >
               &ldquo;
             </span>

@@ -19,7 +19,7 @@ export function TechStack({
           title={
             <>
               A stack chosen for the job,{" "}
-              <span className="text-primary">not for the CV.</span>
+              <span className="text-lime-text">not for the CV.</span>
             </>
           }
         />
@@ -35,7 +35,7 @@ export function TechStack({
             key={group.name}
             className="rounded-card border border-line bg-paper p-6"
           >
-            <h3 className="text-eyebrow font-semibold uppercase text-primary">
+            <h3 className="text-eyebrow font-semibold uppercase text-lime-text">
               {group.name}
             </h3>
             <ul className="mt-5 flex flex-wrap gap-2">

@@ -23,7 +23,7 @@ export default function Technologies() {
           title={
             <>
               A stack chosen for the job,{" "}
-              <span className="text-primary">not for the CV.</span>
+              <span className="text-lime-text">not for the CV.</span>
             </>
           }
           lead="We are deliberately conventional about infrastructure and deliberately current about AI. Boring where boring is a feature, new where new actually buys something."
@@ -36,7 +36,7 @@ export default function Technologies() {
           title={
             <>
               We work in{" "}
-              <span className="text-primary">your stack, not ours.</span>
+              <span className="text-lime-text">your stack, not ours.</span>
             </>
           }
           lead="This is what we reach for on a clean slate. On an existing system we work with what is already there, and only propose a change when there is a specific reason."

@@ -18,7 +18,7 @@ export function ServiceGrid({
         title={
           <>
             Deep expertise.{" "}
-            <span className="text-primary">One accountable team.</span>
+            <span className="text-lime-text">One accountable team.</span>
           </>
         }
         action={
@@ -31,14 +31,14 @@ export function ServiceGrid({
       <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {items.map((service, index) => (
           <Card key={service.slug} href={`/services/${service.slug}`}>
-            <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
+            <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="mt-5 text-h3 font-semibold">{service.title}</h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-body">
               {service.summary}
             </p>
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+            <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-lime-text">
               Explore
               <span
                 aria-hidden="true"

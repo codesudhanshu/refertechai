@@ -15,6 +15,7 @@ Each opens with a `// PLACEHOLDER DATA — REPLACE BEFORE LAUNCH` banner.
 | `stats.ts` | ⚠️ placeholder | All four `value` fields, currently `—`. Replace with counted figures or delete `StatsBand` from `app/page.tsx` and `app/about/page.tsx`. |
 | `clients.ts` | ⚠️ placeholder | All eight names are invented. Replace with clients who have agreed to be named, or delete `TrustBar` from `app/page.tsx`. No real logo files are used — names render as plain typographic boxes. |
 | `jobs.ts` | ⚠️ placeholder | All five roles. Replace with real openings, or set the array to `[]` — the careers page handles an empty list. |
+| `presence.ts` | ⚠️ placeholder | Offices, team and certifications. See the rules below — this file deliberately shows gaps rather than filling them. |
 
 Three further values need confirming rather than replacing:
 
@@ -29,10 +30,25 @@ No missing assets. The 1200×630 social share card is generated at build time
 by `app/opengraph-image.tsx` from the brand tokens, so there is no static
 image to supply or keep in sync.
 
+## presence.ts — how the gaps are handled
+
+This file follows three rules so the sections can be seen in the design without
+publishing anything false:
+
+- **No invented addresses.** `address` is an empty string; the office card
+  renders the city, country and timezone and omits the street line.
+- **No invented people.** Team entries carry a real role and the literal name
+  `To be confirmed`. A fabricated human on an about page is the most
+  misleading kind of placeholder.
+- **No claimed certifications.** Every entry has `held: false` and renders a
+  visible "Not yet certified" chip plus a footnote saying these are targets.
+  Flip `held` to `true` only when a certificate actually exists.
+
 ## Files that need no review
 
-`services.ts`, `industries.ts` and `technologies.ts` describe capabilities, not
-past engagements. They assert nothing that requires verification.
+`services.ts`, `industries.ts`, `technologies.ts`, `about.ts` and `hiring.ts`
+describe capabilities, beliefs and engagement models — not past engagements.
+They assert nothing that requires verification.
 
 ## Conventions
 

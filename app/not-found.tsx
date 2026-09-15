@@ -17,13 +17,13 @@ export default function NotFound() {
     <>
       <Header />
       <main id="main">
-        <section className="gradient-wash border-b border-line">
+        <section className="border-b border-line bg-surface">
           <Container className="py-24 lg:py-32">
             <div className="max-w-2xl">
               <Eyebrow>Error 404</Eyebrow>
               <h1 className="mt-6 text-h1 text-balance">
                 That page isn&apos;t{" "}
-                <span className="text-primary">here.</span>
+                <span className="text-lime-text">here.</span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-body">
                 The link may be out of date, or the page may have moved. Here is
@@ -43,7 +43,7 @@ export default function NotFound() {
                     href={item.href}
                     className="group/btn flex h-full flex-col bg-paper p-6 transition-colors duration-150 hover:bg-surface"
                   >
-                    <span className="font-display text-base font-semibold text-ink transition-colors duration-150 group-hover/btn:text-primary">
+                    <span className="font-display text-base font-semibold text-ink transition-colors duration-150 group-hover/btn:text-lime-text">
                       {item.label}
                     </span>
                     <span className="mt-2 text-sm text-body">

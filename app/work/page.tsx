@@ -25,7 +25,7 @@ export default function Work() {
           title={
             <>
               Problems worth{" "}
-              <span className="text-primary">solving properly.</span>
+              <span className="text-lime-text">solving properly.</span>
             </>
           }
           lead="A cross-section of the kind of work we take on, and what changed as a result."
@@ -54,7 +54,7 @@ export default function Work() {
           title={
             <>
               Tell us the part that{" "}
-              <span className="text-primary">is not working.</span>
+              <span className="text-lime-text">is not working.</span>
             </>
           }
         />

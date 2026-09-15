@@ -16,7 +16,7 @@ export function Badge({
 }) {
   const classes = [
     BASE,
-    href ? "hover:border-primary hover:text-primary" : "",
+    href ? "hover:border-lime-text hover:text-lime-text" : "",
     className,
   ]
     .filter(Boolean)

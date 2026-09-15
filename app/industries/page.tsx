@@ -23,7 +23,7 @@ export default function Industries() {
           title={
             <>
               The engineering transfers.{" "}
-              <span className="text-primary">The constraints do not.</span>
+              <span className="text-lime-text">The constraints do not.</span>
             </>
           }
           lead="Regulation, data shape and the real cost of breaking production differ by sector. These are the ones we know well enough to be useful in from the first conversation."
@@ -40,7 +40,7 @@ export default function Industries() {
                 className="scroll-mt-28 rounded-card border border-line bg-paper p-7 lg:p-8"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
+                  <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span aria-hidden="true" className="h-px flex-1 bg-line" />
@@ -50,7 +50,7 @@ export default function Industries() {
 
                 <dl className="mt-6 flex flex-col gap-5">
                   <div>
-                    <dt className="text-eyebrow font-semibold uppercase text-primary">
+                    <dt className="text-eyebrow font-semibold uppercase text-lime-text">
                       The challenge
                     </dt>
                     <dd className="mt-2 text-sm leading-relaxed text-body">
@@ -58,7 +58,7 @@ export default function Industries() {
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-eyebrow font-semibold uppercase text-primary">
+                    <dt className="text-eyebrow font-semibold uppercase text-lime-text">
                       What we build
                     </dt>
                     <dd className="mt-2 text-sm leading-relaxed text-body">
@@ -84,7 +84,7 @@ export default function Industries() {
           title={
             <>
               The pattern usually{" "}
-              <span className="text-primary">still applies.</span>
+              <span className="text-lime-text">still applies.</span>
             </>
           }
           lead="Sector experience helps, but most of what makes a system work is not sector-specific. Tell us the problem and we will say honestly whether we are the right team."

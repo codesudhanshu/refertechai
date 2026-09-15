@@ -6,11 +6,18 @@ const BASE =
   "font-medium transition-[background-color,border-color,color,box-shadow] " +
   "duration-150 ease-out disabled:cursor-not-allowed disabled:opacity-60";
 
+// Lime is a FILL, never a text colour on a light ground — measured 1.32:1 on
+// white. Ink text on a lime fill is 14.19:1, so that is the primary button.
 const VARIANTS = {
-  primary: "bg-primary text-white hover:bg-primary-dark shadow-card",
+  primary: "bg-lime text-ink hover:bg-lime-soft",
+  dark: "bg-teal text-paper hover:bg-ink",
   outline:
-    "border border-line bg-paper text-ink hover:border-primary hover:text-primary",
-  ghost: "text-primary hover:text-primary-dark",
+    "border border-line bg-paper text-ink hover:border-lime-text hover:text-lime-text",
+  // For use inside a teal or ink band.
+  outlineInvert:
+    "border border-line-invert bg-transparent text-paper hover:border-lime hover:text-lime",
+  ghost: "text-lime-text hover:text-lime-deep",
+  ghostInvert: "text-lime hover:text-lime-soft",
 } as const;
 
 const SIZES = {
@@ -56,10 +63,11 @@ export function Button({
   onClick?: () => void;
   children: ReactNode;
 }) {
+  const isGhost = variant === "ghost" || variant === "ghostInvert";
   const classes = [
     BASE,
     VARIANTS[variant],
-    variant === "ghost" ? GHOST_SIZES[size] : SIZES[size],
+    isGhost ? GHOST_SIZES[size] : SIZES[size],
     className,
   ]
     .filter(Boolean)

@@ -22,7 +22,7 @@ export function CaseStudyGrid({
         eyebrow="Selected work"
         title={
           <>
-            Problems worth <span className="text-primary">solving properly.</span>
+            Problems worth <span className="text-lime-text">solving properly.</span>
           </>
         }
         action={

@@ -1,45 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b1220;
-  --color-body: #475569;
-  --color-muted: #94a3b8;
-  --color-primary: #4f46e5;
-  --color-primary-dark: #3730a3;
-  /* Bright accent is for non-text marks (rules, dots, the logo bar) and for
-     text on --color-ink, where it reaches 7.71:1. On white it is only 2.43:1,
-     which fails AA at every size — including the 3:1 large-text threshold. */
-  --color-accent: #06b6d4;
-  /* Text-safe accent: 5.36:1 on paper, 5.12:1 on surface. Use this wherever
-     the accent colour carries words on a light background. */
-  --color-accent-deep: #0e7490;
-  --color-surface: #f8fafc;
+  /* Page grounds. White is the dominant ground; teal and lime are full-bleed
+     section bands, the way NLB Services alternates them. */
   --color-paper: #ffffff;
-  --color-line: #e2e8f0;
+  --color-surface: #f4f7f2;
+  --color-teal: #0e2a2e;
+  --color-teal-soft: #16413f;
+  --color-ink: #0a1416;
 
-  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  /* Text */
+  --color-body: #4a5a53;
+  --color-body-invert: #b8ccc4;
+
+  /* Accent.
+     MEASURED: lime on white is 1.32:1 and white on lime is 1.32:1. Both fail
+     AA at every size. So lime is a FILL on light grounds (with ink or teal
+     text on top) and TEXT only on teal/ink grounds, where it is 11.49:1 and
+     14.19:1. For accent-coloured words on white, use lime-text (4.99:1) or
+     lime-deep (7.08:1). */
+  --color-lime: #c7f03d;
+  --color-lime-soft: #e3fba8;
+  --color-lime-text: #4d7c0f;
+  --color-lime-deep: #3f6212;
+
+  --color-line: #e3e8e1;
+  --color-line-invert: #2a4a47;
+
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --text-hero: clamp(2.5rem, 6vw, 4.5rem);
-  --text-hero--line-height: 1.04;
-  --text-hero--letter-spacing: -0.03em;
-  --text-h1: clamp(2.25rem, 5vw, 3.5rem);
-  --text-h1--line-height: 1.08;
-  --text-h1--letter-spacing: -0.025em;
-  --text-h2: clamp(1.75rem, 3.5vw, 2.75rem);
-  --text-h2--line-height: 1.15;
-  --text-h2--letter-spacing: -0.02em;
+  --text-hero: clamp(2.5rem, 6.5vw, 5rem);
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.035em;
+  --text-h1: clamp(2.25rem, 5vw, 3.75rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.75rem, 3.6vw, 2.875rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.025em;
   --text-h3: clamp(1.25rem, 2vw, 1.5rem);
   --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1.2;
-  --text-eyebrow--letter-spacing: 0.12em;
+  --text-eyebrow--letter-spacing: 0.14em;
 
-  --radius-card: 12px;
-  --radius-btn: 8px;
+  --radius-card: 14px;
+  --radius-btn: 999px;
 
-  --shadow-card: 0 1px 2px rgb(11 18 32 / 0.04);
-  --shadow-card-hover: 0 12px 32px rgb(11 18 32 / 0.08);
+  --shadow-card: 0 1px 2px rgb(10 20 22 / 0.04);
+  --shadow-card-hover: 0 14px 36px rgb(10 20 22 / 0.10);
 
   --container-site: 1280px;
 }
@@ -48,6 +59,7 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
   }
 
   body {
@@ -65,33 +77,40 @@
   h4 {
     color: var(--color-ink);
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 600;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-lime-text);
     outline-offset: 3px;
     border-radius: 2px;
+  }
+
+  /* On a dark band the light outline is the readable one. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-lime);
   }
 }
 
 @layer utilities {
-  /* Default to fully visible. Motion is added only for users who have not
-     asked to reduce it, so content is never hidden behind an animation. */
+  /* Visible by default; motion is added only where it is welcome. */
   .reveal {
     opacity: 1;
   }
 
-  .gradient-wash {
-    background-image: linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--color-primary) 8%, transparent),
-      color-mix(in oklab, var(--color-accent) 8%, transparent)
-    );
-  }
-
   .marquee-track {
     animation: none;
+  }
+
+  /* Hairline grid used behind the hero and dark bands. */
+  .grid-lines {
+    background-image: linear-gradient(
+      to right,
+      currentColor 1px,
+      transparent 1px
+    );
+    background-size: 88px 100%;
+    opacity: 0.08;
   }
 }
 
@@ -99,12 +118,12 @@
   @layer utilities {
     .reveal {
       opacity: 0;
-      transform: translateY(4px);
-      animation: reveal-in 0.4s ease-out forwards;
+      transform: translateY(6px);
+      animation: reveal-in 0.45s ease-out forwards;
     }
 
     .marquee-track {
-      animation: marquee 38s linear infinite;
+      animation: marquee 42s linear infinite;
     }
 
     .marquee:hover .marquee-track {

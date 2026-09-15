@@ -24,7 +24,7 @@ export function CaseStudyCard({ item }: { item: CaseStudy }) {
 
       <div className="mt-7 border-t border-line pt-5">
         {/* accent-deep for text on a light card — see Stat.tsx. */}
-        <p className="font-display text-3xl font-bold tabular-nums text-accent-deep">
+        <p className="font-display text-3xl font-bold tabular-nums text-lime-text">
           {item.metric.value}
         </p>
         <p className="mt-1 text-sm text-body">{item.metric.label}</p>

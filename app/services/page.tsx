@@ -47,7 +47,7 @@ export default function Services() {
           eyebrow="Our capabilities"
           title={
             <>
-              Technology with <span className="text-primary">a job to do.</span>
+              Technology with <span className="text-lime-text">a job to do.</span>
             </>
           }
           lead="We bring strategy, design and engineering together to create useful systems that solve real business problems."
@@ -61,7 +61,7 @@ export default function Services() {
                 className="grid gap-8 border-b border-line py-12 first:pt-0 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16"
               >
                 <div>
-                  <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
+                  <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h2 className="mt-4 text-h2">{service.title}</h2>
@@ -70,7 +70,7 @@ export default function Services() {
                   </p>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="group/btn mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors duration-150 hover:text-primary-dark"
+                    className="group/btn mt-7 inline-flex items-center gap-2 text-sm font-medium text-lime-text transition-colors duration-150 hover:text-lime-deep"
                   >
                     {service.title} in detail
                     <span
@@ -94,7 +94,7 @@ export default function Services() {
                       >
                         <span
                           aria-hidden="true"
-                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lime"
                         />
                         {item}
                       </li>
@@ -112,7 +112,7 @@ export default function Services() {
             title={
               <>
                 Not a menu of deliverables.{" "}
-                <span className="text-primary">
+                <span className="text-lime-text">
                   A team that owns the outcome.
                 </span>
               </>
@@ -130,7 +130,7 @@ export default function Services() {
                 <p className="mt-4 flex-1 text-sm leading-relaxed text-body">
                   {model.detail}
                 </p>
-                <p className="mt-6 border-t border-line pt-5 text-eyebrow font-semibold uppercase text-primary">
+                <p className="mt-6 border-t border-line pt-5 text-eyebrow font-semibold uppercase text-lime-text">
                   {model.fit}
                 </p>
               </div>

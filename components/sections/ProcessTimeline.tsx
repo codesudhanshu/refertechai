@@ -14,7 +14,7 @@ export function ProcessTimeline({
         eyebrow="How we work"
         title={
           <>
-            From signal to <span className="text-primary">scale.</span>
+            From signal to <span className="text-lime-text">scale.</span>
           </>
         }
       />
@@ -28,7 +28,7 @@ export function ProcessTimeline({
             }`}
           >
             <div className="flex items-baseline gap-3">
-              <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
+              <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span aria-hidden="true" className="h-px flex-1 bg-line" />

@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 // ornament in the system and is what makes a section start read as deliberate.
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-primary">
-      <span aria-hidden="true" className="h-px w-8 bg-accent" />
+    <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-lime-text">
+      <span aria-hidden="true" className="h-px w-8 bg-lime" />
       {children}
     </p>
   );

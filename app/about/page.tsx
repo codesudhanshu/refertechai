@@ -41,7 +41,7 @@ export default function About() {
           title={
             <>
               Ambitious ideas need{" "}
-              <span className="text-primary">solid ground.</span>
+              <span className="text-lime-text">solid ground.</span>
             </>
           }
           lead="ReferTech AI is an independent technology partner for companies creating meaningful digital change."
@@ -54,7 +54,7 @@ export default function About() {
               title={
                 <>
                   Great technology should feel{" "}
-                  <span className="text-primary">inevitable</span> — not
+                  <span className="text-lime-text">inevitable</span> — not
                   complicated.
                 </>
               }
@@ -90,7 +90,7 @@ export default function About() {
             title={
               <>
                 Three things we{" "}
-                <span className="text-primary">do not trade away.</span>
+                <span className="text-lime-text">do not trade away.</span>
               </>
             }
           />
@@ -100,7 +100,7 @@ export default function About() {
                 key={value.name}
                 className="rounded-card border border-line bg-paper p-7"
               >
-                <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
+                <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-h3 font-semibold">{value.name}</h3>
@@ -119,7 +119,7 @@ export default function About() {
               title={
                 <>
                   Senior people,{" "}
-                  <span className="text-primary">on the actual work.</span>
+                  <span className="text-lime-text">on the actual work.</span>
                 </>
               }
             />
@@ -144,7 +144,7 @@ export default function About() {
           eyebrow="Have a hard problem?"
           title={
             <>
-              Worth <span className="text-primary">solving properly?</span>
+              Worth <span className="text-lime-text">solving properly?</span>
             </>
           }
         />

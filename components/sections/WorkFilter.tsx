@@ -39,8 +39,8 @@ export function WorkFilter({
           onClick={() => setActive(null)}
           className={`rounded-full border px-4 py-2 text-sm transition-colors duration-150 ${
             active === null
-              ? "border-primary bg-primary text-white"
-              : "border-line bg-paper text-ink hover:border-primary hover:text-primary"
+              ? "border-lime-text bg-lime text-ink"
+              : "border-line bg-paper text-ink hover:border-lime-text hover:text-lime-text"
           }`}
         >
           All work
@@ -53,8 +53,8 @@ export function WorkFilter({
             onClick={() => setActive(industry.slug)}
             className={`rounded-full border px-4 py-2 text-sm transition-colors duration-150 ${
               active === industry.slug
-                ? "border-primary bg-primary text-white"
-                : "border-line bg-paper text-ink hover:border-primary hover:text-primary"
+                ? "border-lime-text bg-lime text-ink"
+                : "border-line bg-paper text-ink hover:border-lime-text hover:text-lime-text"
             }`}
           >
             {industry.name}

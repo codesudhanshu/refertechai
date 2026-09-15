@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { Mark } from "@/components/layout/Mark";
+import { Mark, Wordmark } from "@/components/layout/Mark";
 import { Arrow } from "@/components/ui/Button";
 import { company } from "@/content/company";
 import { services } from "@/content/services";
@@ -23,7 +23,7 @@ function Column({
 }) {
   return (
     <div>
-      <h3 className="text-eyebrow font-semibold uppercase text-muted">
+      <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
         {title}
       </h3>
       <ul className="mt-5 flex flex-col gap-3">
@@ -44,15 +44,13 @@ function Column({
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-paper">
+    <footer className="on-dark bg-teal text-paper">
       <Container className="py-16 lg:py-20">
         <div className="flex flex-col gap-10 border-b border-paper/10 pb-12 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <Mark />
-              <span className="font-display text-sm font-bold tracking-[0.06em] text-paper">
-                REFERTECH<span className="text-accent">AI</span>
-              </span>
+              <Mark invert />
+              <Wordmark invert />
             </div>
             <p className="mt-5 text-sm leading-relaxed text-paper/70">
               Technology partners for teams building what&apos;s next.
@@ -61,7 +59,7 @@ export function Footer() {
 
           <a
             href={`mailto:${company.email}`}
-            className="group/btn inline-flex items-center gap-3 self-start font-display text-xl font-semibold text-paper transition-colors duration-150 hover:text-accent lg:text-2xl"
+            className="group/btn inline-flex items-center gap-3 self-start font-display text-xl font-semibold text-paper transition-colors duration-150 hover:text-lime lg:text-2xl"
           >
             {company.email}
             <Arrow />
@@ -86,7 +84,7 @@ export function Footer() {
           <Column title="Company" links={COMPANY_LINKS} />
 
           <div>
-            <h3 className="text-eyebrow font-semibold uppercase text-muted">
+            <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
               Get in touch
             </h3>
             <ul className="mt-5 flex flex-col gap-3 text-sm text-paper/75">

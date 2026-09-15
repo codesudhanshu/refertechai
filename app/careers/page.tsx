@@ -49,7 +49,7 @@ export default function Careers() {
           title={
             <>
               Work on problems that{" "}
-              <span className="text-primary">have not been solved yet.</span>
+              <span className="text-lime-text">have not been solved yet.</span>
             </>
           }
           lead="We are a small team that takes on work larger than it looks. If you want scope and are comfortable being accountable for it, this is a good place to be."
@@ -62,7 +62,7 @@ export default function Careers() {
               title={
                 <>
                   Fewer people,{" "}
-                  <span className="text-primary">more trust.</span>
+                  <span className="text-lime-text">more trust.</span>
                 </>
               }
             />
@@ -89,7 +89,7 @@ export default function Careers() {
             title={
               <>
                 The things that{" "}
-                <span className="text-primary">actually matter.</span>
+                <span className="text-lime-text">actually matter.</span>
               </>
             }
           />
@@ -114,7 +114,7 @@ export default function Careers() {
             title={
               <>
                 Where we are{" "}
-                <span className="text-primary">hiring now.</span>
+                <span className="text-lime-text">hiring now.</span>
               </>
             }
           />
@@ -130,14 +130,14 @@ export default function Careers() {
                     className="group/btn flex flex-col gap-4 py-7 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <div>
-                      <h3 className="text-h3 font-semibold transition-colors duration-150 group-hover/btn:text-primary">
+                      <h3 className="text-h3 font-semibold transition-colors duration-150 group-hover/btn:text-lime-text">
                         {job.title}
                       </h3>
                       <p className="mt-2 text-sm text-body">
                         {job.team} &middot; {job.location} &middot; {job.type}
                       </p>
                     </div>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-lime-text">
                       Apply
                       <span
                         aria-hidden="true"
@@ -171,7 +171,7 @@ export default function Careers() {
           title={
             <>
               Tell us what you{" "}
-              <span className="text-primary">would want to build.</span>
+              <span className="text-lime-text">would want to build.</span>
             </>
           }
           lead="We open roles when we meet someone worth opening one for. If that might be you, write to us."

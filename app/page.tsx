@@ -3,13 +3,17 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
-import { StatsBand } from "@/components/sections/StatsBand";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { HiringModels } from "@/components/sections/HiringModels";
 import { IndustryStrip } from "@/components/sections/IndustryStrip";
 import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
+import { VisionMission } from "@/components/sections/VisionMission";
 import { TechStack } from "@/components/sections/TechStack";
+import { GlobalOffices } from "@/components/sections/GlobalOffices";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
+import { Certifications } from "@/components/sections/Certifications";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { buildMetadata } from "@/lib/seo";
 import { services } from "@/content/services";
@@ -20,6 +24,7 @@ import { testimonials } from "@/content/testimonials";
 import { generalFaqs } from "@/content/faqs";
 import { stats } from "@/content/stats";
 import { clientNames } from "@/content/clients";
+import { differentiators, process } from "@/content/about";
 
 // The brand is written in here rather than left to the layout's title
 // template: the template applies only to child route segments, and this page
@@ -28,69 +33,74 @@ import { clientNames } from "@/content/clients";
 export const metadata = buildMetadata({
   title: "ReferTech AI — Technology that moves business forward",
   description:
-    "We design and engineer AI systems, software products, cloud infrastructure and blockchain applications for teams building what's next.",
+    "We build AI systems, software products and cloud platforms — and staff the teams that run them. Engineering and technical hiring from one accountable partner.",
   path: "/",
 });
-
-// Carried over verbatim from the previous site.
-const PROCESS = [
-  {
-    name: "Discover",
-    detail: "Start with the business, the people and the opportunity.",
-  },
-  {
-    name: "Design",
-    detail: "Turn the right idea into a clear product and technical path.",
-  },
-  {
-    name: "Deliver",
-    detail: "Build in focused cycles, with visibility at every step.",
-  },
-  {
-    name: "Evolve",
-    detail: "Measure, learn and keep moving after launch.",
-  },
-];
 
 export default function Home() {
   return (
     <>
       <Header />
       <main id="main">
+        {/* 1 — hero, dark band, with the stats row folded in */}
         <Hero
-          eyebrow="AI · Software · Cloud · Web3"
+          eyebrow="Build · Ship · Staff"
           title={
             <>
-              Build what&apos;s next.{" "}
-              <span className="text-primary">Better.</span>
+              We build the system.{" "}
+              <span className="text-lime">Then the team that runs it.</span>
             </>
           }
-          lead="We design and engineer intelligent digital products — from AI agents and cloud systems to web platforms that move business forward."
+          lead="AI agents, software products and cloud platforms — engineered by people who also know how to hire the engineers who will own them."
           primary={{ label: "Start a project", href: "/contact" }}
-          secondary={{ label: "Explore capabilities", href: "/services" }}
+          secondary={{ label: "Hire talent", href: "/hire" }}
           image={{
             src: "/images/engineering.jpg",
             alt: "Software engineer working at a computer",
           }}
+          stats={stats}
         />
 
+        {/* 2 — client logo strip */}
         <TrustBar names={clientNames} />
 
-        <ServiceGrid items={services} />
+        {/* 3 — capabilities, now eight with staffing folded in */}
+        <ServiceGrid items={services} tone="paper" />
 
-        <StatsBand items={stats} tone="surface" eyebrow="By the numbers" />
+        {/* 4 — differentiators on a dark band */}
+        <WhyChooseUs items={differentiators} />
 
+        {/* 5 — staffing models */}
+        <HiringModels tone="surface" limit={3} />
+
+        {/* 6 — industries */}
         <IndustryStrip items={industries} tone="paper" />
 
+        {/* 7 — selected work */}
         <CaseStudyGrid items={caseStudies} limit={3} tone="surface" />
 
-        <ProcessTimeline steps={PROCESS} tone="paper" />
+        {/* 8 — delivery process */}
+        <ProcessTimeline
+          steps={process.map((step) => ({
+            name: step.title,
+            detail: step.detail,
+          }))}
+          tone="paper"
+        />
 
-        <TechStack groups={technologyGroups} tone="surface" />
+        {/* 9 — vision and mission */}
+        <VisionMission tone="surface" />
 
+        {/* 10 — technology stack */}
+        <TechStack groups={technologyGroups} tone="paper" />
+
+        {/* 11 — offices */}
+        <GlobalOffices tone="surface" />
+
+        {/* 12 — proof, questions, compliance */}
         <Testimonials items={testimonials} tone="paper" />
-
         <FAQ items={generalFaqs} tone="surface" />
+        <Certifications />
 
         <CtaBand />
       </main>

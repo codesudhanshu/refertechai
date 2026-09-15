@@ -33,7 +33,7 @@ export function Accordion({
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`mt-1 shrink-0 text-primary transition-transform duration-150 ease-out ${
+                  className={`mt-1 shrink-0 text-lime-text transition-transform duration-150 ease-out ${
                     isOpen ? "rotate-180" : ""
                   }`}
                 >

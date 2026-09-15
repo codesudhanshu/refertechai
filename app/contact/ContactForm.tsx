@@ -50,7 +50,7 @@ function Field({
         aria-describedby={error ? `${id}-error` : undefined}
         onChange={(event) => onChange(event.target.value)}
         className={`rounded-btn border bg-paper px-4 py-3 text-sm text-ink transition-colors duration-150 placeholder:text-body/60 ${
-          error ? "border-red-600" : "border-line focus:border-primary"
+          error ? "border-red-600" : "border-line focus:border-lime-text"
         }`}
       />
       {error ? (
@@ -136,7 +136,7 @@ export default function ContactForm() {
       <div className="rounded-card border border-line bg-paper p-8">
         <span
           aria-hidden="true"
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-lg text-white"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-lime text-lg text-ink"
         >
           &#10003;
         </span>
@@ -147,7 +147,7 @@ export default function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-medium text-primary transition-colors duration-150 hover:text-primary-dark"
+          className="mt-6 text-sm font-medium text-lime-text transition-colors duration-150 hover:text-lime-deep"
         >
           Send another enquiry
         </button>
@@ -211,7 +211,7 @@ export default function ContactForm() {
           className={`rounded-btn border bg-paper px-4 py-3 text-sm text-ink transition-colors duration-150 placeholder:text-body/60 ${
             fieldError.description
               ? "border-red-600"
-              : "border-line focus:border-primary"
+              : "border-line focus:border-lime-text"
           }`}
         />
         {fieldError.description ? (

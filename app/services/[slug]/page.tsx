@@ -89,7 +89,7 @@ export default async function ServiceDetail({ params }: Params) {
               title={
                 <>
                   What you actually{" "}
-                  <span className="text-primary">get.</span>
+                  <span className="text-lime-text">get.</span>
                 </>
               }
             />
@@ -99,7 +99,7 @@ export default async function ServiceDetail({ params }: Params) {
                   <p className="flex gap-3 text-sm leading-relaxed text-body">
                     <span
                       aria-hidden="true"
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lime"
                     />
                     {item}
                   </p>
@@ -116,7 +116,7 @@ export default async function ServiceDetail({ params }: Params) {
               title={
                 <>
                   What we{" "}
-                  <span className="text-primary">build it with.</span>
+                  <span className="text-lime-text">build it with.</span>
                 </>
               }
             />
@@ -139,14 +139,14 @@ export default async function ServiceDetail({ params }: Params) {
             title={
               <>
                 Predictable process,{" "}
-                <span className="text-primary">visible progress.</span>
+                <span className="text-lime-text">visible progress.</span>
               </>
             }
           />
           <ol className="mt-14 grid gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
             {DELIVERY.map((step, index) => (
               <li key={step.name} className="flex flex-col bg-paper p-7">
-                <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
+                <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-h3 font-semibold">{step.name}</h3>
@@ -168,7 +168,7 @@ export default async function ServiceDetail({ params }: Params) {
           title={
             <>
               What people ask about{" "}
-              <span className="text-primary">this work.</span>
+              <span className="text-lime-text">this work.</span>
             </>
           }
           tone={related.length > 0 ? "paper" : "surface"}

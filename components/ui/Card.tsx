@@ -6,7 +6,7 @@ const BASE =
   "bg-paper p-6 shadow-card transition-[box-shadow,border-color,transform] " +
   "duration-150 ease-out lg:p-7";
 
-const INTERACTIVE = "hover:-translate-y-0.5 hover:border-primary hover:shadow-card-hover";
+const INTERACTIVE = "hover:-translate-y-0.5 hover:border-lime-text hover:shadow-card-hover";
 
 export function Card({
   href,

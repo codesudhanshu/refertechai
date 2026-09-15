@@ -247,4 +247,80 @@ export const services: readonly Service[] = [
       },
     ],
   },
+  {
+    slug: "staff-augmentation",
+    title: "Staff Augmentation",
+    summary:
+      "Vetted engineers who join your team, work your process and ship in your codebase.",
+    description:
+      "Sometimes you know exactly what to build and simply need more hands that are already good at it. We place engineers into your existing team — your standups, your repo, your review process — rather than running a parallel project on the side. You keep the roadmap; we keep the bench warm.",
+    includes: [
+      "Role scoping against your actual stack, not a generic JD",
+      "Technical screening by engineers who do the work themselves",
+      "Shortlist in days, not weeks, with honest notes on each candidate",
+      "Trial period before anyone becomes a long-term commitment",
+      "Direct reporting into your leads, no account-manager layer",
+      "Replacement cover if a placement is not working out",
+    ],
+    technologies: [
+      "React",
+      "Node.js",
+      "Python",
+      "Java",
+      "AWS",
+      "Kubernetes",
+    ],
+    faqs: [
+      {
+        q: "How fast can someone start?",
+        a: "A shortlist usually reaches you within a week for common stacks, longer for narrow specialisms. We would rather be slow and right than fast and wrong.",
+      },
+      {
+        q: "Do they work our hours?",
+        a: "Yes. Overlap with your team is agreed before placement, not negotiated afterwards.",
+      },
+      {
+        q: "What if the fit is wrong?",
+        a: "There is a trial window on every placement. If it is not working, we replace at our cost rather than asking you to absorb it.",
+      },
+    ],
+  },
+  {
+    slug: "tech-talent-staffing",
+    title: "Tech Talent & Staffing",
+    summary:
+      "Permanent, contract and leadership hiring for teams building technical products.",
+    description:
+      "Hiring engineers is hard because most recruiters cannot tell a good engineer from a good interviewee. We can, because we build software ourselves. That means fewer, better candidates and far less of your team's time spent screening people who were never going to make it.",
+    includes: [
+      "Permanent, contract and contract-to-hire placements",
+      "Leadership and executive search for engineering and product roles",
+      "Recruitment process outsourcing when hiring volume spikes",
+      "Background and reference verification before an offer goes out",
+      "Structured interview kits so your panel assesses consistently",
+      "Market and salary intelligence for the roles you are opening",
+    ],
+    technologies: [
+      "Engineering hiring",
+      "Leadership search",
+      "Contract staffing",
+      "RPO",
+      "Background verification",
+      "Interview design",
+    ],
+    faqs: [
+      {
+        q: "How is this different from a normal recruitment agency?",
+        a: "Our screening is done by people who write code. A candidate reaches your panel having already been assessed technically, so your engineers spend their time on the ones worth meeting.",
+      },
+      {
+        q: "Do you handle volume hiring?",
+        a: "Yes, through RPO. We take on the sourcing, screening and coordination load and keep your team in the loop only where their judgment is needed.",
+      },
+      {
+        q: "Can you help us design the interview itself?",
+        a: "Often the fastest win. A badly designed loop rejects good people and passes bad ones, and that is fixable in a week.",
+      },
+    ],
+  },
 ];

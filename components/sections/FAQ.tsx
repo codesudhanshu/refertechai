@@ -25,7 +25,7 @@ export function FAQ({
             title ?? (
               <>
                 Things people ask{" "}
-                <span className="text-primary">before we start.</span>
+                <span className="text-lime-text">before we start.</span>
               </>
             )
           }

@@ -18,7 +18,7 @@ export function IndustryStrip({
         title={
           <>
             Sector context changes{" "}
-            <span className="text-primary">what good looks like.</span>
+            <span className="text-lime-text">what good looks like.</span>
           </>
         }
         lead="The engineering is transferable. The constraints are not — regulation, data shape and what breaking production actually costs differ by industry."

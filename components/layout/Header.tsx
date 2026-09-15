@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { services } from "@/content/services";
 import { industries } from "@/content/industries";
 import { company } from "@/content/company";
+import { hiringModels } from "@/content/hiring";
 
 interface NavLink {
   label: string;
@@ -45,8 +46,17 @@ const NAV: readonly NavItem[] = [
       href: `/industries#${industry.slug}`,
     })),
   },
+  {
+    label: "Hire Talent",
+    href: "/hire",
+    columns: 1,
+    allLabel: "How hiring works",
+    children: hiringModels.map((model) => ({
+      label: model.name,
+      href: `/hire#${model.slug}`,
+    })),
+  },
   { label: "Work", href: "/work" },
-  { label: "Technologies", href: "/technologies" },
   {
     label: "Company",
     href: "/about",
@@ -193,8 +203,8 @@ export function Header() {
                       href={item.href}
                       className={`flex items-center rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
                         isActive(item.href)
-                          ? "text-primary"
-                          : "text-ink hover:text-primary"
+                          ? "text-lime-text"
+                          : "text-ink hover:text-lime-text"
                       }`}
                     >
                       {item.label}
@@ -213,8 +223,8 @@ export function Header() {
                     onClick={() => setOpenMenu(expanded ? null : item.label)}
                     className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
                       expanded || isActive(item.href)
-                        ? "text-primary"
-                        : "text-ink hover:text-primary"
+                        ? "text-lime-text"
+                        : "text-ink hover:text-lime-text"
                     }`}
                   >
                     {item.label}
@@ -238,7 +248,7 @@ export function Header() {
                     <div className="rounded-card border border-line bg-paper p-3 shadow-card-hover">
                       <Link
                         href={item.href}
-                        className="group/all mb-1 flex items-center justify-between rounded-btn bg-surface px-3 py-2.5 text-sm font-medium text-primary transition-colors duration-150 hover:bg-primary hover:text-white"
+                        className="group/all mb-1 flex items-center justify-between rounded-btn bg-surface px-3 py-2.5 text-sm font-medium text-lime-text transition-colors duration-150 hover:bg-lime hover:text-white"
                       >
                         {item.allLabel ?? `All ${item.label.toLowerCase()}`}
                         <span
@@ -351,7 +361,7 @@ export function Header() {
                         {item.label}
                         <span
                           aria-hidden="true"
-                          className={`text-primary transition-transform duration-150 ${
+                          className={`text-lime-text transition-transform duration-150 ${
                             openGroup === item.label ? "rotate-180" : ""
                           }`}
                         >
@@ -366,7 +376,7 @@ export function Header() {
                         <li>
                           <Link
                             href={item.href}
-                            className="block py-2.5 text-sm text-primary"
+                            className="block py-2.5 text-sm text-lime-text"
                           >
                             {item.allLabel ?? `All ${item.label.toLowerCase()}`}
                           </Link>

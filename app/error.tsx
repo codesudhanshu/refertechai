@@ -18,12 +18,12 @@ export default function Error({
   }, [error]);
 
   return (
-    <main id="main" className="gradient-wash min-h-[70vh]">
+    <main id="main" className="min-h-[70vh] bg-surface">
       <Container className="py-24 lg:py-32">
         <div className="max-w-2xl">
           <Eyebrow>Something went wrong</Eyebrow>
           <h1 className="mt-6 text-h1 text-balance">
-            This page didn&apos;t <span className="text-primary">load.</span>
+            This page didn&apos;t <span className="text-lime-text">load.</span>
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-body">
             The problem is on our side, not yours. Trying again usually works.
@@ -45,7 +45,7 @@ export default function Error({
             </Button>
             <a
               href={`mailto:${company.email}`}
-              className="text-sm font-medium text-body transition-colors duration-150 hover:text-primary"
+              className="text-sm font-medium text-body transition-colors duration-150 hover:text-lime-text"
             >
               {company.email}
             </a>

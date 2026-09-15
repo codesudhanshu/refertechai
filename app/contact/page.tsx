@@ -20,14 +20,14 @@ export default function Contact() {
     <>
       <Header />
       <main id="main">
-        <section className="gradient-wash border-b border-line">
+        <section className="border-b border-line bg-surface">
           <Container className="py-16 lg:py-24">
             <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <div>
                 <Eyebrow>Start a conversation</Eyebrow>
                 <h1 className="mt-6 text-h1 text-balance">
                   Tell us what you&apos;re{" "}
-                  <span className="text-primary">building.</span>
+                  <span className="text-lime-text">building.</span>
                 </h1>
                 <p className="mt-6 max-w-lg text-lg leading-relaxed text-body">
                   A rough brief, a half-formed idea, a complex system — start
@@ -42,7 +42,7 @@ export default function Contact() {
                     <dd className="mt-3">
                       <a
                         href={`mailto:${company.email}`}
-                        className="group/btn inline-flex items-center gap-3 font-display text-xl font-semibold text-ink transition-colors duration-150 hover:text-primary lg:text-2xl"
+                        className="group/btn inline-flex items-center gap-3 font-display text-xl font-semibold text-ink transition-colors duration-150 hover:text-lime-text lg:text-2xl"
                       >
                         {company.email}
                         <Arrow />
@@ -58,7 +58,7 @@ export default function Contact() {
                       <dd className="mt-3">
                         <a
                           href={`tel:${company.phone.replace(/\s+/g, "")}`}
-                          className="text-lg text-ink transition-colors duration-150 hover:text-primary"
+                          className="text-lg text-ink transition-colors duration-150 hover:text-lime-text"
                         >
                           {company.phone}
                         </a>
@@ -110,7 +110,7 @@ export default function Contact() {
               </div>
 
               <div className="rounded-card border border-line bg-paper p-7 shadow-card lg:p-9">
-                <p className="text-eyebrow font-semibold uppercase text-primary">
+                <p className="text-eyebrow font-semibold uppercase text-lime-text">
                   Project enquiry
                 </p>
                 <h2 className="mt-4 text-h3 font-semibold">

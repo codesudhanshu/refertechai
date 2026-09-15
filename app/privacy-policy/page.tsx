@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
               privacy question, email{" "}
               <a
                 href="mailto:sales@refertechai.com"
-                className="text-primary underline underline-offset-4 transition-colors duration-150 hover:text-primary-dark"
+                className="text-lime-text underline underline-offset-4 transition-colors duration-150 hover:text-lime-deep"
               >
                 sales@refertechai.com
               </a>
