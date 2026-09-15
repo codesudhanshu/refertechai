@@ -12,6 +12,14 @@ Nothing here was taken from a competitor's website. Reusing another company's
 photography is a copyright problem, and their images are usually licensed to
 them alone.
 
+## Which photo is which
+
+`SOURCES.txt` records the Pexels photo id behind every file. Check a new pick
+against it before committing: the same photo fetched at two different crops
+produces two different files with two different checksums, so a checksum
+comparison will not catch the same picture appearing twice on the site. The
+photo id will.
+
 ## Replacing them
 
 These are stock. Real photography of your own team and offices will always

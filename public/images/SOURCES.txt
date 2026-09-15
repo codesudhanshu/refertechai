@@ -1,0 +1,52 @@
+# Source photo ids
+#
+# One line per image: <path relative to public/images>  <pexels photo id>
+#
+# Why this exists: the same Pexels photo fetched at two different crops
+# produces two different files with two different checksums, so a checksum
+# comparison will not catch the same picture appearing twice on the site. The
+# photo id will. Check new picks against this list before committing them.
+#
+# All photos are Pexels (Pexels Licence — free commercial use, no attribution
+# required). engineering.jpg and network.jpg predate this file and are not
+# from Pexels.
+
+hero/recruitment.jpg                    1358534
+hero/contract.jpg                       1181471
+hero/executive.jpg                      11045731
+hero/candidates.jpg                     11507606
+
+pillars/search-shortlist.jpg            1181370
+pillars/verify-assess.jpg               11591912
+pillars/place-stay-close.jpg            12903192
+
+sections/why.jpg                        18848926
+sections/pillars-intro.jpg              18848929
+
+services/permanent-it-recruitment.jpg   30375847
+services/contract-staffing.jpg          12899140
+services/contract-to-hire.jpg           12903031
+services/executive-search.jpg           12437056
+services/rpo.jpg                        18848927
+services/staff-augmentation.jpg         12903168
+services/background-verification.jpg    27467772
+services/diversity-hiring.jpg           12903101
+services/hire-train-deploy.jpg          16007661
+
+industries/financial-services.jpg       13970482
+industries/healthcare.jpg               13176358
+industries/retail-ecommerce.jpg         13203129
+industries/logistics.jpg                11666903
+industries/manufacturing.jpg            11782636
+industries/real-estate.jpg              11576307
+industries/education.jpg                29555738
+industries/media.jpg                    1117132
+
+people/p1.jpg                           10657877
+people/p2.jpg                           11655430
+people/p3.jpg                           12245151
+people/p4.jpg                           13034000
+people/p5.jpg                           11800909
+people/p6.jpg                           10620268
+
+about.jpg                               23496863
