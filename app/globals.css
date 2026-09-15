@@ -80,6 +80,16 @@
     font-weight: 600;
   }
 
+  /* Tailwind v4's preflight sets `cursor: default` on buttons, so every
+     button on the site — carousel arrows and dots, the accordion, nav
+     toggles, filter chips — lost the pointer. Restore it, except when the
+     button is disabled. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary {
+    cursor: pointer;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-lime-text);
     outline-offset: 3px;

@@ -18,11 +18,13 @@
 #
 #   hero/recruitment.jpg
 #     https://www.bankequip.com/wp-content/uploads/2017/11/home_employment_pic20.jpg
+#   hero/contract.jpg
+#     https://cyntexa.com/wp-content/uploads/2024/10/Staff-Augmentation-companies.webp
 #   pillars/verify-assess.jpg
 #     https://framerusercontent.com/images/sLEnLeGQ6we4J8qh6reZMwhwKM.png
 
 hero/recruitment.jpg                    EXTERNAL  bankequip.com (see note)
-hero/contract.jpg                       1181471
+hero/contract.jpg                       EXTERNAL  cyntexa.com (see note)
 hero/executive.jpg                      11045731
 hero/candidates.jpg                     11507606
 
