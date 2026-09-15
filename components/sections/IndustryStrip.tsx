@@ -14,7 +14,6 @@ export function IndustryStrip({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="Where we work"
         title={
           <>
             Sector context changes{" "}

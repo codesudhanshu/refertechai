@@ -72,7 +72,6 @@ export default function Hire() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="Talent & staffing"
           title={
             <>
               Engineers screened by{" "}
@@ -86,11 +85,7 @@ export default function Hire() {
 
         <Section tone="teal">
           <div className="max-w-3xl">
-            <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-lime">
-              <span aria-hidden="true" className="h-px w-8 bg-lime" />
-              How it runs
-            </p>
-            <h2 className="mt-6 text-h2 text-balance text-paper">
+            <h2 className="text-h2 text-balance text-paper">
               Four steps, and you hear the bad news early.
             </h2>
           </div>
@@ -115,7 +110,6 @@ export default function Hire() {
         <Section tone="surface" bordered>
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
-              eyebrow="Build and staff"
               title={
                 <>
                   The combination most firms{" "}
@@ -145,7 +139,6 @@ export default function Hire() {
 
         <FAQ
           items={HIRE_FAQS}
-          eyebrow="Hiring questions"
           title={
             <>
               What employers ask{" "}
@@ -156,7 +149,6 @@ export default function Hire() {
         />
 
         <CtaBand
-          eyebrow="Need people?"
           title={
             <>
               Tell us the role.{" "}

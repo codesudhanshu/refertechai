@@ -21,7 +21,6 @@ export default function Work() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="Selected work"
           title={
             <>
               Problems worth{" "}
@@ -50,7 +49,6 @@ export default function Work() {
         </Section>
 
         <CtaBand
-          eyebrow="Have something like this?"
           title={
             <>
               Tell us the part that{" "}

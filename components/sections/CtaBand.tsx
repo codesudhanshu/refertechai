@@ -6,11 +6,9 @@ import { company } from "@/content/company";
 // The closing band is a full lime fill with teal text — 11.49:1, and the one
 // place the brand colour gets to dominate a whole section.
 export function CtaBand({
-  eyebrow = "Have a project in mind?",
   title,
   lead,
 }: {
-  eyebrow?: string;
   title?: ReactNode;
   lead?: string;
 }) {
@@ -24,12 +22,7 @@ export function CtaBand({
       <Container className="relative py-20 lg:py-28">
         <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-teal">
-              <span aria-hidden="true" className="h-px w-8 bg-teal" />
-              {eyebrow}
-            </p>
-
-            <h2 className="mt-6 text-h2 text-balance text-teal">
+            <h2 className="text-h2 text-balance text-teal">
               {title ?? (
                 <>
                   Let&apos;s make the next{" "}

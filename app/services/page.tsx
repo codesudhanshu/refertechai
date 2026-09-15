@@ -44,7 +44,6 @@ export default function Services() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="Our capabilities"
           title={
             <>
               Technology with <span className="text-lime-text">a job to do.</span>
@@ -108,7 +107,6 @@ export default function Services() {
 
         <Section tone="surface" bordered>
           <SectionHeading
-            eyebrow="Built around your business"
             title={
               <>
                 Not a menu of deliverables.{" "}

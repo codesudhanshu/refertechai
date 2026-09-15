@@ -4,7 +4,6 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 
 export function Hero({
-  eyebrow,
   title,
   lead,
   primary,
@@ -12,7 +11,6 @@ export function Hero({
   image,
   stats,
 }: {
-  eyebrow: string;
   title: ReactNode;
   lead: string;
   primary: { label: string; href: string };
@@ -32,12 +30,7 @@ export function Hero({
       <Container className="relative py-20 lg:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="reveal">
-            <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-lime">
-              <span aria-hidden="true" className="h-px w-8 bg-lime" />
-              {eyebrow}
-            </p>
-
-            <h1 className="mt-7 text-hero text-balance text-paper">{title}</h1>
+            <h1 className="text-hero text-balance text-paper">{title}</h1>
 
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-body-invert">
               {lead}

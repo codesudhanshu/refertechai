@@ -4,22 +4,16 @@ import type { Pillar } from "@/content/about";
 // Big numbered statements on a dark band — the differentiator block that
 // enterprise IT sites use between the services grid and the proof sections.
 export function WhyChooseUs({
-  eyebrow = "Why teams choose us",
   title,
   items,
 }: {
-  eyebrow?: string;
   title?: string;
   items: readonly Pillar[];
 }) {
   return (
     <Section tone="teal">
       <div className="max-w-3xl">
-        <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-lime">
-          <span aria-hidden="true" className="h-px w-8 bg-lime" />
-          {eyebrow}
-        </p>
-        <h2 className="mt-6 text-h2 text-balance text-paper">
+        <h2 className="text-h2 text-balance text-paper">
           {title ?? "One partner. Two disciplines. No handoff in between."}
         </h2>
       </div>

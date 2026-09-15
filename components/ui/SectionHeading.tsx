@@ -1,28 +1,20 @@
 import type { ReactNode } from "react";
 
-// A short accent rule sits before every eyebrow. It is the one repeated
-// ornament in the system and is what makes a section start read as deliberate.
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <p className="flex items-center gap-3 text-eyebrow font-semibold uppercase text-lime-text">
-      <span aria-hidden="true" className="h-px w-8 bg-lime" />
-      {children}
-    </p>
-  );
-}
-
+// No eyebrow / kicker above the heading — sections open with the heading and
+// then a paragraph. This is a standing rule, so the prop does not exist here
+// rather than defaulting to empty.
 export function SectionHeading({
-  eyebrow,
   title,
   lead,
   align = "left",
   action,
+  invert = false,
 }: {
-  eyebrow?: string;
   title: ReactNode;
   lead?: string;
   align?: "left" | "center";
   action?: ReactNode;
+  invert?: boolean;
 }) {
   const centered = align === "center";
 
@@ -37,14 +29,15 @@ export function SectionHeading({
         .join(" ")}
     >
       <div className={centered ? "max-w-2xl" : "max-w-3xl"}>
-        {eyebrow ? (
-          <div className={centered ? "flex justify-center" : ""}>
-            <Eyebrow>{eyebrow}</Eyebrow>
-          </div>
-        ) : null}
-        <h2 className="mt-5 text-h2 text-balance">{title}</h2>
+        <h2 className={`text-h2 text-balance ${invert ? "text-paper" : ""}`}>
+          {title}
+        </h2>
         {lead ? (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body">
+          <p
+            className={`mt-5 max-w-2xl text-lg leading-relaxed ${
+              invert ? "text-body-invert" : "text-body"
+            }`}
+          >
             {lead}
           </p>
         ) : null}

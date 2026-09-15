@@ -16,7 +16,6 @@ export function Leadership({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="Who you work with"
         title={
           <>
             The people scoping the work are{" "}

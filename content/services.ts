@@ -1,7 +1,6 @@
-// Capability descriptions. These describe what the team offers, not claims
-// about past engagements, so no placeholder banner is needed.
-//
-// `title` and `summary` are carried over verbatim from the previous site.
+// IT Consulting Solutions. These describe advisory, delivery and managed
+// service offerings — not claims about past engagements — so no placeholder
+// banner is needed.
 
 export interface ServiceFaq {
   q: string;
@@ -20,230 +19,268 @@ export interface Service {
 
 export const services: readonly Service[] = [
   {
-    slug: "ai-agents",
-    title: "AI Agents",
+    slug: "it-strategy-advisory",
+    title: "IT Strategy & Advisory",
     summary:
-      "Purpose-built agents that research, reason, act and hand off—with your data, tools and guardrails.",
+      "Independent technical direction for leadership teams making decisions they cannot easily reverse.",
     description:
-      "An agent is only useful when it can reach the systems where work actually happens. We build agents that read your data, call your tools, escalate when they are unsure, and leave a trail you can audit. Scoped narrowly, evaluated continuously, and shipped behind the controls your business already runs on.",
+      "Most costly technology decisions get made with incomplete information and a vendor in the room. We come in without a product to sell, assess what you actually have, and give you a written position you can act on — including the option of doing nothing.",
     includes: [
-      "Use-case scoping and feasibility review before a line of code is written",
-      "Retrieval over your own documents, tickets and databases",
-      "Tool and API integration so the agent can act, not just answer",
-      "Guardrails, escalation paths and human-in-the-loop checkpoints",
-      "Evaluation harness with regression tests on real prompts",
-      "Observability, cost tracking and per-request tracing",
+      "Current-state architecture and application portfolio review",
+      "Technology roadmap sequenced against business milestones",
+      "Build, buy or partner analysis with real cost modelling",
+      "Vendor and platform selection, run as a fair evaluation",
+      "IT budget review with the largest line items explained",
+      "Written report your team can execute without us",
     ],
     technologies: [
-      "Claude",
-      "Model Context Protocol",
-      "LangGraph",
-      "Vector search",
-      "Python",
-      "TypeScript",
+      "Architecture review",
+      "TCO modelling",
+      "Vendor evaluation",
+      "Roadmapping",
+      "Due diligence",
+      "Governance",
     ],
     faqs: [
       {
-        q: "How do you stop an agent from doing something it should not?",
-        a: "Two ways. The agent only gets the tools its task requires, so it cannot reach systems outside its scope. And any action with real consequences routes through an approval step before it executes.",
+        q: "How long does an advisory engagement take?",
+        a: "Most run two to six weeks depending on the size of the estate. Findings reach you as they emerge rather than only in a final presentation.",
       },
       {
-        q: "Can it work with our existing systems?",
-        a: "Yes. Most of the effort in an agent project is integration, not prompting. We connect to the APIs and databases you already run rather than asking you to move your data somewhere new.",
+        q: "Will you recommend your own delivery services?",
+        a: "Only where it is genuinely the right answer, and we will say so explicitly. The report is written so another vendor or your own team can execute it.",
       },
       {
-        q: "How do we know whether it is actually working?",
-        a: "Every build ships with an evaluation set drawn from your real cases. You get a pass rate you can track over time, not a demo that works once.",
+        q: "Do you work with our incumbent vendors?",
+        a: "Yes. Replacing a working vendor is expensive and disruptive, so it is a recommendation of last resort rather than an opening position.",
       },
     ],
   },
   {
-    slug: "ai-workflows",
-    title: "AI Workflows",
+    slug: "digital-transformation",
+    title: "Digital Transformation",
     summary:
-      "Connected automations that remove repetitive work across your business systems and teams.",
+      "Modernisation programmes that change how work actually happens, not just which software it happens in.",
     description:
-      "Most of the time lost inside a business is not lost to hard problems. It is lost to copying a number from one system into another. We map where that happens, then build the connective tissue that removes it — with the judgment calls handled by a model and the deterministic steps handled by code.",
+      "Transformation fails when it is treated as a software rollout. We start with the processes people actually follow, decide what should change and what should simply be automated, and sequence the work so the business keeps running while it happens.",
     includes: [
-      "Process mapping to find where manual handoffs actually cost time",
-      "Document extraction and classification from PDFs, email and forms",
-      "System-to-system sync across CRM, ERP, support and finance tools",
-      "Deterministic code for rule-based steps, models only where judgment is needed",
-      "Failure handling, retries and alerting when a run does not complete",
-      "A dashboard showing what ran, what it cost and what needed a human",
+      "Process discovery across the teams doing the work today",
+      "Legacy application assessment and modernisation sequencing",
+      "Target operating model and integration architecture",
+      "Phased migration plan with rollback at every stage",
+      "Change management, training and adoption tracking",
+      "Benefits measurement against the case that funded it",
     ],
     technologies: [
-      "Claude",
-      "Temporal",
-      "Node.js",
-      "Python",
-      "Postgres",
-      "Webhooks",
+      "Process mapping",
+      "Legacy modernisation",
+      "Integration architecture",
+      "Change management",
+      "Migration planning",
+      "Adoption analytics",
     ],
     faqs: [
       {
-        q: "Where does this usually pay off first?",
-        a: "Anywhere a person reads one screen and types into another. Invoice handling, support triage, onboarding paperwork and reporting are the four that come up most.",
+        q: "Can this happen without stopping the business?",
+        a: "That is the constraint every plan is built around. Work runs in phases with a rollback at each one, so a bad phase costs a sprint rather than a quarter.",
       },
       {
-        q: "What happens when the automation gets something wrong?",
-        a: "It stops and routes to a person rather than guessing. Every run is logged, so you can see exactly which step failed and why.",
+        q: "What usually goes wrong?",
+        a: "Adoption, not technology. Systems get delivered and people keep using the spreadsheet. That is why training and adoption tracking are part of the programme rather than an afterthought.",
       },
       {
-        q: "Do we need clean data before starting?",
-        a: "No. Messy input is the normal case and the extraction step is built to handle it. Waiting for clean data is usually how these projects stall.",
+        q: "How do we know it worked?",
+        a: "The measures are agreed before the work starts and reported against afterwards. If a phase does not move them, that is worth knowing early.",
       },
     ],
   },
   {
-    slug: "web-product",
-    title: "Web & Product",
+    slug: "cloud-infrastructure",
+    title: "Cloud & Infrastructure",
     summary:
-      "Fast, resilient web applications and platforms people actually enjoy using.",
+      "Cloud strategy, migration and infrastructure management built so the deploy is boring and the bill is predictable.",
     description:
-      "A product is judged on the third visit, not the first. We build web applications that stay fast as the data grows, stay clear as the feature set grows, and stay maintainable as the team changes. Design and engineering work from the same brief rather than handing files across a wall.",
+      "Cloud work is judged on the day something breaks and on the day the invoice arrives. We design foundations where environments are defined in code rather than remembered, rollback is one command, and the three largest cost lines are ones you can explain.",
     includes: [
-      "Product discovery, user flows and a clickable prototype before build",
-      "Design system with real components, not a static mockup",
-      "Accessible, responsive front end tested on real devices",
-      "API and data model designed for the queries you will actually run",
-      "Authentication, roles and permissions",
-      "Performance budget enforced in CI, not checked at the end",
-    ],
-    technologies: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Postgres",
-      "Tailwind CSS",
-      "Playwright",
-    ],
-    faqs: [
-      {
-        q: "Can you work with our existing design team?",
-        a: "Yes. We can take finished designs and build them, or run design ourselves. What we ask for either way is a shared component library so the handoff is code, not screenshots.",
-      },
-      {
-        q: "What about an existing codebase we already have?",
-        a: "We start by reading it and writing down what we found, including the parts we would change and the parts we would leave alone. Rewrites are a last resort, not an opening move.",
-      },
-      {
-        q: "How do you handle accessibility?",
-        a: "It is part of the component work rather than an audit at the end. Keyboard navigation, focus management and contrast are checked as each component is built.",
-      },
-    ],
-  },
-  {
-    slug: "cloud-devops",
-    title: "Cloud & DevOps",
-    summary:
-      "Secure cloud foundations, CI/CD and observability designed to grow without drama.",
-    description:
-      "Infrastructure work is judged on the day something breaks. We build cloud foundations where the deploy is boring, the rollback is one command, and the dashboard tells you what went wrong before a customer does. Everything is defined in code, so the environment can be rebuilt rather than remembered.",
-    includes: [
-      "Infrastructure as code, with staging that genuinely matches production",
+      "Cloud readiness assessment and migration strategy",
+      "Infrastructure as code, with staging that matches production",
       "CI/CD pipelines with automated checks and one-command rollback",
-      "Container orchestration and autoscaling sized to real traffic",
-      "Secrets management, network boundaries and least-privilege access",
-      "Logging, metrics, tracing and alerts that page on symptoms not noise",
-      "Cost review, with the three largest line items explained",
+      "Monitoring, logging and alerting that pages on symptoms not noise",
+      "Cost optimisation and ongoing FinOps review",
+      "Runbooks and handover so your team can operate it",
     ],
     technologies: [
       "AWS",
+      "Azure",
+      "Google Cloud",
       "Terraform",
-      "Docker",
       "Kubernetes",
-      "GitHub Actions",
       "OpenTelemetry",
     ],
     faqs: [
       {
-        q: "Do we have to move clouds?",
-        a: "No. We work in the cloud you already use. Migration is only worth proposing when there is a specific cost or capability reason, and we would show you the numbers first.",
+        q: "Do we have to move to the cloud?",
+        a: "No. Some workloads are cheaper and safer where they are. Migration is proposed only when there is a specific cost or capability reason, and we show the numbers first.",
       },
       {
         q: "Can you take over an environment nobody documented?",
         a: "That is a common starting point. The first deliverable is usually a written map of what exists and what is at risk, before anything is changed.",
       },
       {
-        q: "What does handover look like?",
-        a: "Runbooks, architecture diagrams and a working session with your team. The goal is that you can operate it without us.",
+        q: "Who runs it afterwards?",
+        a: "Whoever you want. We hand over with runbooks and working sessions, and can stay on for managed support if you would rather we did.",
       },
     ],
   },
   {
-    slug: "blockchain",
-    title: "Blockchain",
+    slug: "cybersecurity-consulting",
+    title: "Cybersecurity Consulting",
     summary:
-      "Useful Web3 products, smart contracts and decentralized experiences built for real adoption.",
+      "Risk assessment, compliance readiness and security architecture for teams that cannot afford to find out the hard way.",
     description:
-      "Most problems do not need a blockchain, and we will say so. When the problem genuinely calls for verifiable ownership or a shared ledger between parties who do not trust each other, we build it carefully — because contract code cannot be patched the way a web app can.",
+      "Security advice is only useful if it is specific. We assess your actual systems and your actual obligations, rank what we find by likelihood and cost rather than by severity label, and give you a remediation plan with an order of work.",
     includes: [
-      "Honest feasibility review, including whether a chain is needed at all",
-      "Smart contract design, implementation and gas optimisation",
-      "Test suite covering adversarial cases, not just the happy path",
-      "Third-party audit coordination and remediation",
-      "Wallet integration and a front end that non-crypto users can follow",
-      "Indexing and off-chain services for querying at speed",
+      "Security posture and vulnerability assessment",
+      "Threat modelling against your real architecture",
+      "Identity, access and least-privilege review",
+      "Compliance readiness for ISO 27001, SOC 2 and GDPR",
+      "Incident response planning and tabletop exercises",
+      "Remediation roadmap ranked by risk and cost to fix",
     ],
     technologies: [
-      "Solidity",
-      "Foundry",
-      "EVM chains",
-      "ethers.js",
-      "The Graph",
-      "IPFS",
-    ],
-    faqs: [
-      {
-        q: "Will you tell us if we do not need a blockchain?",
-        a: "Yes, and it happens often. If a database with signed audit logs solves the problem, that is the cheaper and safer answer and we will recommend it.",
-      },
-      {
-        q: "How do you handle contract security?",
-        a: "Adversarial tests during development, an external audit before mainnet, and a deliberate upgrade or pause strategy decided up front rather than after an incident.",
-      },
-      {
-        q: "Can regular users actually use it?",
-        a: "That is the design constraint. Wallet setup, gas and signing are the points where products lose people, so they get the most attention.",
-      },
-    ],
-  },
-  {
-    slug: "technology-consulting",
-    title: "Technology Consulting",
-    summary:
-      "Clear technical direction for ambitious products, complex systems and next-stage growth.",
-    description:
-      "Sometimes the useful deliverable is a decision, not a deployment. We come in to assess what you have, tell you plainly where the risk sits, and give you a sequenced plan your own team can execute. You get a document you can act on, not a slide deck.",
-    includes: [
-      "Architecture review with findings ranked by risk and cost to fix",
-      "Codebase and technical due diligence",
-      "Build, buy or partner analysis with real numbers",
-      "Sequenced technical roadmap tied to business milestones",
-      "Team structure and hiring recommendations",
-      "A written report your team can act on without us",
-    ],
-    technologies: [
-      "Architecture review",
-      "Due diligence",
-      "Roadmapping",
-      "Cost modelling",
       "Threat modelling",
-      "Team design",
+      "IAM review",
+      "Penetration testing",
+      "ISO 27001",
+      "SOC 2",
+      "GDPR",
     ],
     faqs: [
       {
-        q: "How long does a review take?",
-        a: "Most run two to four weeks depending on the size of the system. You get the findings as they emerge, not only at the end.",
+        q: "Do you do the remediation as well as the assessment?",
+        a: "We can, but the report is written to stand alone so your team or another provider can act on it. An assessment only we can fix is a sales document, not advice.",
       },
       {
-        q: "Do we have to hire you to build it afterwards?",
-        a: "No. The report is written so your own team or another vendor can execute it. That is the point of writing it down.",
+        q: "We need a certification for a client. Can you get us there?",
+        a: "We can run the readiness work — gap analysis, control design, evidence collection — up to the point of audit. The certificate itself comes from an accredited auditor, not from us.",
       },
       {
-        q: "Will you talk to our engineers directly?",
-        a: "Yes. The people maintaining the system usually know exactly where the problems are, and that is the fastest way to find them.",
+        q: "How disruptive is the assessment?",
+        a: "The review itself is mostly documentation and interviews. Anything that touches production is scheduled with you and scoped in writing first.",
+      },
+    ],
+  },
+  {
+    slug: "data-ai-analytics",
+    title: "Data, AI & Analytics",
+    summary:
+      "Data platforms, reporting and applied AI that answer questions the business is actually asking.",
+    description:
+      "Most organisations have more data than insight. We build the pipelines and models that turn it into something decisions can rest on — and we are direct about where AI genuinely helps versus where a well-built report would do the job for a fraction of the cost.",
+    includes: [
+      "Data platform and warehouse architecture",
+      "Pipeline engineering, quality checks and lineage",
+      "Reporting and self-service analytics for business teams",
+      "Applied AI and machine learning where it earns its cost",
+      "Document extraction and process automation",
+      "Model evaluation, monitoring and governance",
+    ],
+    technologies: [
+      "Snowflake",
+      "Postgres",
+      "dbt",
+      "Airflow",
+      "Power BI",
+      "Applied AI",
+    ],
+    faqs: [
+      {
+        q: "Do we need AI, or just better reporting?",
+        a: "Usually better reporting first. AI on top of unreliable data produces confident wrong answers, which is worse than no answer. We will tell you which one you need.",
+      },
+      {
+        q: "Does our data need cleaning before we start?",
+        a: "No. Messy input is the normal case and the pipeline is built to handle it. Waiting for clean data is how these projects stall indefinitely.",
+      },
+      {
+        q: "How do you keep a model honest over time?",
+        a: "Evaluation sets drawn from your real cases, plus monitoring on drift and cost. You get a pass rate you can track, not a demo that worked once.",
+      },
+    ],
+  },
+  {
+    slug: "system-integration",
+    title: "System Integration",
+    summary:
+      "Connecting the systems you already run so data stops being re-keyed between them.",
+    description:
+      "Most of the time lost inside a business goes to moving information from one screen into another. We build the connective tissue between your ERP, CRM, finance and support systems so records stay consistent without anyone maintaining them by hand.",
+    includes: [
+      "Integration architecture and middleware selection",
+      "API design, development and lifecycle management",
+      "ERP, CRM and finance system integration",
+      "Legacy system interfacing where no API exists",
+      "Error handling, retries and reconciliation reporting",
+      "Monitoring so a failed sync is noticed before month end",
+    ],
+    technologies: [
+      "REST",
+      "GraphQL",
+      "Message queues",
+      "ETL",
+      "Webhooks",
+      "Middleware",
+    ],
+    faqs: [
+      {
+        q: "Our legacy system has no API. Is it still possible?",
+        a: "Usually. Database-level integration, file exchange and screen-level automation are all options. Which one is right depends on how often the data changes and how much it matters if a sync fails.",
+      },
+      {
+        q: "What happens when an integration breaks?",
+        a: "It stops and alerts rather than silently writing bad data. Every run is logged, so you can see which step failed and what was left half-done.",
+      },
+      {
+        q: "Do you replace our existing systems?",
+        a: "No. The point of integration is to make what you have work together, which is nearly always cheaper than replacing any of it.",
+      },
+    ],
+  },
+  {
+    slug: "managed-it-support",
+    title: "Managed IT Support",
+    summary:
+      "Ongoing support, monitoring and optimisation for the systems that have to be up tomorrow morning.",
+    description:
+      "Once something is live it needs someone accountable for it at eight in the morning. We provide that cover with defined response times, proper escalation, and a monthly review that tells you what broke, what was fixed and what is likely to break next.",
+    includes: [
+      "Service desk with agreed response and resolution times",
+      "Proactive monitoring and patch management",
+      "Application and infrastructure support",
+      "Backup, disaster recovery and restore testing",
+      "Monthly service review with an actual trend line",
+      "Continuous improvement backlog, not just ticket closing",
+    ],
+    technologies: [
+      "Service desk",
+      "SLA management",
+      "Monitoring",
+      "Patch management",
+      "Backup & DR",
+      "ITIL practices",
+    ],
+    faqs: [
+      {
+        q: "What response times do you offer?",
+        a: "They are agreed per engagement against how much downtime actually costs you. We would rather commit to a time we can hold than quote one that looks good on a proposal.",
+      },
+      {
+        q: "Do you support systems you did not build?",
+        a: "Yes. That starts with a discovery period so we understand the estate before taking accountability for it.",
+      },
+      {
+        q: "Is this just ticket closing?",
+        a: "No. A support contract that only closes tickets guarantees the same tickets next month. The monthly review exists to reduce them.",
       },
     ],
   },
@@ -253,23 +290,16 @@ export const services: readonly Service[] = [
     summary:
       "Vetted engineers who join your team, work your process and ship in your codebase.",
     description:
-      "Sometimes you know exactly what to build and simply need more hands that are already good at it. We place engineers into your existing team — your standups, your repo, your review process — rather than running a parallel project on the side. You keep the roadmap; we keep the bench warm.",
+      "Sometimes you know exactly what needs building and simply need more hands that are already good at it. We place engineers into your existing team — your standups, your repo, your review process — rather than running a parallel project on the side. You keep the roadmap.",
     includes: [
       "Role scoping against your actual stack, not a generic JD",
-      "Technical screening by engineers who do the work themselves",
+      "Technical screening by people who do the work themselves",
       "Shortlist in days, not weeks, with honest notes on each candidate",
       "Trial period before anyone becomes a long-term commitment",
       "Direct reporting into your leads, no account-manager layer",
       "Replacement cover if a placement is not working out",
     ],
-    technologies: [
-      "React",
-      "Node.js",
-      "Python",
-      "Java",
-      "AWS",
-      "Kubernetes",
-    ],
+    technologies: ["React", "Node.js", "Python", "Java", "AWS", "Kubernetes"],
     faqs: [
       {
         q: "How fast can someone start?",
@@ -289,12 +319,12 @@ export const services: readonly Service[] = [
     slug: "tech-talent-staffing",
     title: "Tech Talent & Staffing",
     summary:
-      "Permanent, contract and leadership hiring for teams building technical products.",
+      "Permanent, contract and leadership hiring for teams that run technical systems.",
     description:
-      "Hiring engineers is hard because most recruiters cannot tell a good engineer from a good interviewee. We can, because we build software ourselves. That means fewer, better candidates and far less of your team's time spent screening people who were never going to make it.",
+      "Hiring for technology roles is hard because most recruiters cannot tell a strong engineer from a strong interviewee. We can, because we work in these systems ourselves. That means fewer, better candidates and far less of your team's time spent screening people who were never going to make it.",
     includes: [
       "Permanent, contract and contract-to-hire placements",
-      "Leadership and executive search for engineering and product roles",
+      "Leadership and executive search for technology roles",
       "Recruitment process outsourcing when hiring volume spikes",
       "Background and reference verification before an offer goes out",
       "Structured interview kits so your panel assesses consistently",
@@ -311,11 +341,11 @@ export const services: readonly Service[] = [
     faqs: [
       {
         q: "How is this different from a normal recruitment agency?",
-        a: "Our screening is done by people who write code. A candidate reaches your panel having already been assessed technically, so your engineers spend their time on the ones worth meeting.",
+        a: "Our screening is done by people who work in these systems. A candidate reaches your panel having already been assessed technically, so your team spends time only on the ones worth meeting.",
       },
       {
         q: "Do you handle volume hiring?",
-        a: "Yes, through RPO. We take on the sourcing, screening and coordination load and keep your team in the loop only where their judgment is needed.",
+        a: "Yes, through RPO. We take on the sourcing, screening and coordination load and keep your team involved only where their judgment is needed.",
       },
       {
         q: "Can you help us design the interview itself?",

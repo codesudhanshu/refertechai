@@ -19,7 +19,6 @@ export default function Technologies() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="What we build on"
           title={
             <>
               A stack chosen for the job,{" "}
@@ -32,7 +31,6 @@ export default function Technologies() {
         <TechStack groups={technologyGroups} tone="paper" heading={false} />
 
         <CtaBand
-          eyebrow="Using something else?"
           title={
             <>
               We work in{" "}

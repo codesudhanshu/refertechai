@@ -9,30 +9,30 @@ export interface Pillar {
 
 export const vision = {
   heading: "Our Vision",
-  body: "A market where the distance between a good technical idea and a working system is measured in weeks, not quarters — and where the team that built it can still explain every decision a year later.",
+  body: "A market where technology advice comes without a vendor agenda attached, and where the organisation receiving it is left more capable than it was — not more dependent on the consultancy that gave it.",
 };
 
 export const mission = {
   heading: "Our Mission",
-  body: "To give ambitious teams both halves of what they actually need: engineers who ship, and the people to keep shipping after we leave. Build the system, then build the team that owns it.",
+  body: "To give organisations both halves of what they actually need: advice that survives contact with implementation, and the people to keep it running after we leave. Recommend it, build it, then staff the team that owns it.",
 };
 
 // Four differentiators, written as flat statements rather than adjectives.
 export const differentiators: readonly Pillar[] = [
   {
-    title: "We build and we staff",
+    title: "We advise, deliver and staff",
     detail:
-      "Most firms do one. Doing both means we screen engineers the way we would hire our own, and we scope projects knowing what it actually takes to staff them.",
+      "Most consultancies stop at the recommendation. We implement what we advise and can staff the team that runs it afterwards, so nobody hands you a report and walks away.",
   },
   {
     title: "Senior people on the real work",
     detail:
-      "No account-manager layer between you and the engineers. The person who scoped the work is accountable for delivering it.",
+      "No account-manager layer between you and the consultants. The person who scoped the engagement is accountable for delivering it.",
   },
   {
-    title: "We say no to the wrong build",
+    title: "Independent of the vendors",
     detail:
-      "If a database solves it, we will not sell you a blockchain. Turning down bad-fit work is cheaper for everyone than delivering it badly.",
+      "We hold no reseller margin on any platform, so a recommendation is a recommendation. Where doing nothing is the right answer, we will say that too.",
   },
   {
     title: "Handover is the deliverable",

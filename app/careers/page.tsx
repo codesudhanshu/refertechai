@@ -45,7 +45,6 @@ export default function Careers() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="Careers"
           title={
             <>
               Work on problems that{" "}
@@ -58,7 +57,6 @@ export default function Careers() {
         <Section>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <SectionHeading
-              eyebrow="How we work"
               title={
                 <>
                   Fewer people,{" "}
@@ -85,7 +83,6 @@ export default function Careers() {
 
         <Section tone="surface" bordered>
           <SectionHeading
-            eyebrow="What we offer"
             title={
               <>
                 The things that{" "}
@@ -110,7 +107,6 @@ export default function Careers() {
 
         <Section bordered>
           <SectionHeading
-            eyebrow="Open roles"
             title={
               <>
                 Where we are{" "}
@@ -167,7 +163,6 @@ export default function Careers() {
         </Section>
 
         <CtaBand
-          eyebrow="Not seeing your role?"
           title={
             <>
               Tell us what you{" "}

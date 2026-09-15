@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
-import { Eyebrow } from "@/components/ui/SectionHeading";
 import { Arrow } from "@/components/ui/Button";
 import ContactForm from "./ContactForm";
 import { buildMetadata } from "@/lib/seo";
@@ -24,8 +23,7 @@ export default function Contact() {
           <Container className="py-16 lg:py-24">
             <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <div>
-                <Eyebrow>Start a conversation</Eyebrow>
-                <h1 className="mt-6 text-h1 text-balance">
+                <h1 className="text-h1 text-balance">
                   Tell us what you&apos;re{" "}
                   <span className="text-lime-text">building.</span>
                 </h1>
@@ -113,7 +111,7 @@ export default function Contact() {
                 <p className="text-eyebrow font-semibold uppercase text-lime-text">
                   Project enquiry
                 </p>
-                <h2 className="mt-4 text-h3 font-semibold">
+                <h2 className="text-h3 font-semibold">
                   We&apos;re ready when you are.
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-body">

@@ -18,7 +18,7 @@ export default function TermsAndConditions() {
     <>
       <Header />
       <main id="main">
-        <PageHero eyebrow="Legal / Terms" title="Terms & Conditions" />
+        <PageHero title="Terms & Conditions" />
 
         <Section>
           <article className="max-w-[68ch]">

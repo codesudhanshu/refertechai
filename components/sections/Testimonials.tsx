@@ -14,7 +14,6 @@ export function Testimonials({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="In their words"
         title={
           <>
             The measure of the work is{" "}

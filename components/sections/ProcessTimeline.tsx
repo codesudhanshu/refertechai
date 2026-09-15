@@ -11,7 +11,6 @@ export function ProcessTimeline({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="How we work"
         title={
           <>
             From signal to <span className="text-lime-text">scale.</span>

@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
     <>
       <Header />
       <main id="main">
-        <PageHero eyebrow="Legal / Privacy" title="Privacy Policy" />
+        <PageHero title="Privacy Policy" />
 
         <Section>
           <article className="max-w-[68ch]">

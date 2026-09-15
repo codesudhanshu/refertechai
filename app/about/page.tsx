@@ -39,7 +39,6 @@ export default function About() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="About ReferTech AI"
           title={
             <>
               Ambitious ideas need{" "}
@@ -52,7 +51,6 @@ export default function About() {
         <Section>
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
-              eyebrow="Our point of view"
               title={
                 <>
                   Great technology should feel{" "}
@@ -86,11 +84,10 @@ export default function About() {
 
         <VisionMission tone="surface" />
 
-        <StatsBand items={stats} tone="paper" eyebrow="Where we stand" />
+        <StatsBand items={stats} tone="paper" />
 
         <Section bordered>
           <SectionHeading
-            eyebrow="What guides us"
             title={
               <>
                 Three things we{" "}
@@ -119,7 +116,6 @@ export default function About() {
         <Section tone="surface" bordered>
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
-              eyebrow="How we are set up"
               title={
                 <>
                   Senior people,{" "}
@@ -147,7 +143,6 @@ export default function About() {
         <Leadership tone="paper" />
 
         <CtaBand
-          eyebrow="Have a hard problem?"
           title={
             <>
               Worth <span className="text-lime-text">solving properly?</span>

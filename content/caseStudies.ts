@@ -29,7 +29,7 @@ export const caseStudies: readonly CaseStudy[] = [
     solution:
       "An agent that gathers the context a reviewer would collect manually, drafts a recommendation with its reasoning, and escalates anything it is not confident about.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["ai-agents", "cloud-devops"],
+    services: ["data-ai-analytics", "cloud-infrastructure"],
   },
   {
     slug: "clinic-intake-automation",
@@ -40,7 +40,7 @@ export const caseStudies: readonly CaseStudy[] = [
     solution:
       "A document pipeline that extracts and validates each field, flags anything ambiguous for review, and writes clean records to the existing system.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["ai-workflows"],
+    services: ["system-integration"],
   },
   {
     slug: "commerce-replatform",
@@ -51,7 +51,7 @@ export const caseStudies: readonly CaseStudy[] = [
     solution:
       "A rebuilt storefront with a performance budget enforced in CI, plus merchandising tools the commercial team runs without engineering.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["web-product", "cloud-devops"],
+    services: ["digital-transformation", "cloud-infrastructure"],
   },
   {
     slug: "freight-visibility",
@@ -62,7 +62,7 @@ export const caseStudies: readonly CaseStudy[] = [
     solution:
       "A visibility platform that pulls partner feeds into one timeline and raises an exception alert before a delivery misses its window.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["ai-workflows", "web-product"],
+    services: ["system-integration", "digital-transformation"],
   },
   {
     slug: "line-quality-inspection",
@@ -73,7 +73,7 @@ export const caseStudies: readonly CaseStudy[] = [
     solution:
       "Camera-based inspection on the line itself, with borderline cases routed to an operator rather than auto-rejected.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["ai-agents", "cloud-devops"],
+    services: ["data-ai-analytics", "cloud-infrastructure"],
   },
   {
     slug: "archive-search",
@@ -84,6 +84,6 @@ export const caseStudies: readonly CaseStudy[] = [
     solution:
       "Automated transcription and tagging across the archive, behind a search interface producers can actually use.",
     metric: { value: "Example", label: "placeholder metric" },
-    services: ["ai-workflows", "web-product"],
+    services: ["system-integration", "digital-transformation"],
   },
 ];

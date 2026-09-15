@@ -5,12 +5,10 @@ import { Accordion } from "@/components/ui/Accordion";
 
 export function FAQ({
   items,
-  eyebrow = "Questions",
   title,
   tone = "surface",
 }: {
   items: readonly { q: string; a: string }[];
-  eyebrow?: string;
   title?: ReactNode;
   tone?: "paper" | "surface";
 }) {
@@ -20,7 +18,6 @@ export function FAQ({
     <Section tone={tone} bordered>
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <SectionHeading
-          eyebrow={eyebrow}
           title={
             title ?? (
               <>

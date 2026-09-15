@@ -33,7 +33,7 @@ import { differentiators, process } from "@/content/about";
 export const metadata = buildMetadata({
   title: "ReferTech AI — Technology that moves business forward",
   description:
-    "We build AI systems, software products and cloud platforms — and staff the teams that run them. Engineering and technical hiring from one accountable partner.",
+    "IT consulting, cloud, cybersecurity and data solutions — plus the technical staffing to run them. Independent advice and delivery from one accountable partner.",
   path: "/",
 });
 
@@ -44,14 +44,13 @@ export default function Home() {
       <main id="main">
         {/* 1 — hero, dark band, with the stats row folded in */}
         <Hero
-          eyebrow="Build · Ship · Staff"
           title={
             <>
-              We build the system.{" "}
-              <span className="text-lime">Then the team that runs it.</span>
+              IT consulting that ends in{" "}
+              <span className="text-lime">a working system.</span>
             </>
           }
-          lead="AI agents, software products and cloud platforms — engineered by people who also know how to hire the engineers who will own them."
+          lead="Strategy, cloud, security and data advisory — delivered by the same people who implement it, and staffed by the same people who assess the talent."
           primary={{ label: "Start a project", href: "/contact" }}
           secondary={{ label: "Hire talent", href: "/hire" }}
           image={{
@@ -64,7 +63,7 @@ export default function Home() {
         {/* 2 — client logo strip */}
         <TrustBar names={clientNames} />
 
-        {/* 3 — capabilities, now eight with staffing folded in */}
+        {/* 3 — consulting services, staffing folded in at the end */}
         <ServiceGrid items={services} tone="paper" />
 
         {/* 4 — differentiators on a dark band */}

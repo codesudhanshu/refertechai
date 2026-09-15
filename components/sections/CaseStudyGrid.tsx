@@ -19,7 +19,6 @@ export function CaseStudyGrid({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="Selected work"
         title={
           <>
             Problems worth <span className="text-lime-text">solving properly.</span>

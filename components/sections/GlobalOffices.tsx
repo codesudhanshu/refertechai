@@ -15,7 +15,6 @@ export function GlobalOffices({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="Where we are"
         title={
           <>
             Close enough to your timezone{" "}

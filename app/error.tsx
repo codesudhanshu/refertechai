@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/SectionHeading";
 import { company } from "@/content/company";
 
 export default function Error({
@@ -21,8 +20,7 @@ export default function Error({
     <main id="main" className="min-h-[70vh] bg-surface">
       <Container className="py-24 lg:py-32">
         <div className="max-w-2xl">
-          <Eyebrow>Something went wrong</Eyebrow>
-          <h1 className="mt-6 text-h1 text-balance">
+          <h1 className="text-h1 text-balance">
             This page didn&apos;t <span className="text-lime-text">load.</span>
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-body">

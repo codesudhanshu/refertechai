@@ -15,7 +15,6 @@ export function TechStack({
     <Section tone={tone} bordered>
       {heading ? (
         <SectionHeading
-          eyebrow="What we build on"
           title={
             <>
               A stack chosen for the job,{" "}

@@ -19,7 +19,6 @@ export default function Industries() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="Where we work"
           title={
             <>
               The engineering transfers.{" "}
@@ -80,7 +79,6 @@ export default function Industries() {
         </Section>
 
         <CtaBand
-          eyebrow="Not on the list?"
           title={
             <>
               The pattern usually{" "}

@@ -14,7 +14,6 @@ export function ServiceGrid({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="What we do"
         title={
           <>
             Deep expertise.{" "}

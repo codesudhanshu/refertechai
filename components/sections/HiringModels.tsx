@@ -17,7 +17,6 @@ export function HiringModels({
   return (
     <Section tone={tone} bordered>
       <SectionHeading
-        eyebrow="Talent & staffing"
         title={
           <>
             We hire engineers{" "}

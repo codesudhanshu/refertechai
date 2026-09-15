@@ -77,7 +77,6 @@ export default async function ServiceDetail({ params }: Params) {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow={`Services / ${service.title}`}
           title={service.title}
           lead={service.description}
         />
@@ -85,7 +84,6 @@ export default async function ServiceDetail({ params }: Params) {
         <Section>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
-              eyebrow="What it includes"
               title={
                 <>
                   What you actually{" "}
@@ -112,7 +110,6 @@ export default async function ServiceDetail({ params }: Params) {
         <Section tone="surface" bordered>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
-              eyebrow="Technologies"
               title={
                 <>
                   What we{" "}
@@ -135,7 +132,6 @@ export default async function ServiceDetail({ params }: Params) {
 
         <Section bordered>
           <SectionHeading
-            eyebrow="How we deliver"
             title={
               <>
                 Predictable process,{" "}
@@ -164,7 +160,6 @@ export default async function ServiceDetail({ params }: Params) {
 
         <FAQ
           items={service.faqs}
-          eyebrow={`${service.title} questions`}
           title={
             <>
               What people ask about{" "}

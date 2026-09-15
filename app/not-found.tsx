@@ -3,7 +3,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/SectionHeading";
 
 const DESTINATIONS = [
   { label: "Services", href: "/services", detail: "What we build" },
@@ -20,8 +19,7 @@ export default function NotFound() {
         <section className="border-b border-line bg-surface">
           <Container className="py-24 lg:py-32">
             <div className="max-w-2xl">
-              <Eyebrow>Error 404</Eyebrow>
-              <h1 className="mt-6 text-h1 text-balance">
+              <h1 className="text-h1 text-balance">
                 That page isn&apos;t{" "}
                 <span className="text-lime-text">here.</span>
               </h1>
