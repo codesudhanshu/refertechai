@@ -5,6 +5,15 @@ import { check } from "@/lib/rateLimit";
 const CAPS = { name: 120, email: 200, phone: 40, description: 5000 } as const;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Shown to the user beneath the field, so these read as sentences rather than
+// as the raw payload keys.
+const LABELS: Record<keyof typeof CAPS, string> = {
+  name: "Name",
+  email: "Email",
+  phone: "Phone number",
+  description: "Project description",
+};
+
 export async function POST(request: Request) {
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
@@ -34,17 +43,18 @@ export async function POST(request: Request) {
   const fields: Record<string, string> = {};
   for (const [key, cap] of Object.entries(CAPS)) {
     const value = payload[key];
+    const label = LABELS[key as keyof typeof CAPS];
 
     if (typeof value !== "string" || !value.trim()) {
       return NextResponse.json(
-        { error: `${key} is required.`, field: key },
+        { error: `${label} is required.`, field: key },
         { status: 400 },
       );
     }
 
     if (value.length > cap) {
       return NextResponse.json(
-        { error: `${key} must be ${cap} characters or fewer.`, field: key },
+        { error: `${label} must be ${cap} characters or fewer.`, field: key },
         { status: 400 },
       );
     }
