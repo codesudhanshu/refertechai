@@ -8,16 +8,26 @@
 # photo id will. Check new picks against this list before committing them.
 #
 # All photos are Pexels (Pexels Licence — free commercial use, no attribution
-# required). engineering.jpg and network.jpg predate this file and are not
-# from Pexels.
+# required) EXCEPT the ones marked EXTERNAL below. engineering.jpg and
+# network.jpg predate this file and are not from Pexels.
+#
+# ⚠️ EXTERNAL entries were taken from other companies' websites at the user's
+# request. Their licence is unknown — most likely they are paid stock the site
+# owner licensed for their own use, which would not cover use here. Replace
+# them with Pexels or your own photography before launch, or obtain a licence.
+#
+#   hero/recruitment.jpg
+#     https://bidxperts.com/wp-content/uploads/2024/10/how-to-choose-the-best-digital-marketing-company.webp
+#   pillars/verify-assess.jpg
+#     https://framerusercontent.com/images/sLEnLeGQ6we4J8qh6reZMwhwKM.png
 
-hero/recruitment.jpg                    12903244
+hero/recruitment.jpg                    EXTERNAL  bidxperts.com (see note)
 hero/contract.jpg                       1181471
 hero/executive.jpg                      11045731
 hero/candidates.jpg                     11507606
 
 pillars/search-shortlist.jpg            1181370
-pillars/verify-assess.jpg               17729218
+pillars/verify-assess.jpg               EXTERNAL  framerusercontent.com (see note)
 pillars/place-stay-close.jpg            12903192
 
 sections/why.jpg                        18848926
