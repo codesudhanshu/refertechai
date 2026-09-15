@@ -1,40 +1,91 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/ui/Section";
-import { Badge } from "@/components/ui/Badge";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import type { Industry } from "@/content/industries";
 
+// Sector cards: the photograph carries the card and the title sits on top of
+// it, over a gradient that runs from transparent to near-black at the bottom.
+//
+// The gradient is what makes this readable rather than decorative — white text
+// straight onto a photo depends entirely on which pixels happen to be behind
+// it. Over the gradient's dark end the title clears AA at any image.
 export function IndustryStrip({
   items,
-  tone = "surface",
+  tone = "paper",
+  limit,
+  showAction = true,
 }: {
   items: readonly Industry[];
   tone?: "paper" | "surface";
+  limit?: number;
+  showAction?: boolean;
 }) {
+  const shown = typeof limit === "number" ? items.slice(0, limit) : items;
+  if (shown.length === 0) return null;
+
   return (
     <Section tone={tone} bordered>
-      <SectionHeading
-        title={
-          <>
-            Sector context changes{" "}
-            <span className="text-lime-text">what good looks like.</span>
-          </>
-        }
-        lead="The engineering is transferable. The constraints are not — regulation, data shape and what breaking production actually costs differ by industry."
-        action={
-          <Button href="/industries" variant="ghost">
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <h2 className="max-w-xl text-h2 text-balance">
+          Sector context changes{" "}
+          <span className="text-lime-text">what good looks like.</span>
+        </h2>
+
+        <p className="max-w-md leading-relaxed text-body lg:pb-1">
+          Clearance requirements, domain knowledge and what a candidate has to
+          have touched before all differ by sector. These are the ones we know
+          well enough to be useful in from the first call.
+        </p>
+      </div>
+
+      <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {shown.map((industry) => (
+          <li key={industry.slug}>
+            <Link
+              href={`/industries#${industry.slug}`}
+              className="group/sector relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-card border border-line"
+            >
+              <Image
+                src={`/images/industries/${industry.slug}.jpg`}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                className="object-cover transition-transform duration-300 ease-out group-hover/sector:scale-[1.05]"
+              />
+
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"
+              />
+
+              <span className="relative p-6">
+                <span className="block font-display text-lg font-semibold leading-tight text-paper">
+                  {industry.name}
+                </span>
+
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-lime">
+                  View roles
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-150 ease-out group-hover/sector:translate-x-0.5"
+                  >
+                    &#8594;
+                  </span>
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {showAction ? (
+        <div className="mt-10">
+          <Button href="/industries" variant="outline">
             All industries
           </Button>
-        }
-      />
-
-      <div className="mt-12 flex flex-wrap gap-3">
-        {items.map((industry) => (
-          <Badge key={industry.slug} href={`/industries#${industry.slug}`}>
-            {industry.name}
-          </Badge>
-        ))}
-      </div>
+        </div>
+      ) : null}
     </Section>
   );
 }

@@ -2,7 +2,7 @@
 
 ## Licence
 
-Everything in `services/`, `pillars/`, `hero/` and `about.jpg` came from
+Everything in `services/`, `pillars/`, `hero/`, `industries/` and `about.jpg` came from
 **Pexels**. The Pexels Licence allows free use including commercial use,
 modification, and use without attribution.
 
@@ -23,5 +23,6 @@ nothing in the code needs to change.
 | `services/` | service cards and detail pages | must match the service `slug` in `content/services.ts` |
 | `pillars/` | the three cards under the split intro | referenced in `components/sections/ServicePillars.tsx` |
 | `hero/` | homepage carousel slides | referenced in `content/heroSlides.ts` |
+| `industries/` | sector cards on the home page and `/industries` | must match the industry `slug` in `content/industries.ts` |
 
 Recommended: 900×640 or larger, JPEG, under ~150 KB after compression.

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
@@ -36,18 +37,33 @@ export default function Industries() {
               <article
                 key={industry.slug}
                 id={industry.slug}
-                className="scroll-mt-28 rounded-card border border-line bg-paper p-7 lg:p-8"
+                className="scroll-mt-28 overflow-hidden rounded-card border border-line bg-paper"
               >
-                <div className="flex items-baseline gap-3">
-                  <span className="font-display text-sm font-semibold tabular-nums text-lime-text">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span aria-hidden="true" className="h-px flex-1 bg-line" />
+                <div className="relative aspect-[16/7] w-full overflow-hidden">
+                  <Image
+                    src={`/images/industries/${industry.slug}.jpg`}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 620px"
+                    className="object-cover"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-ink/85 to-transparent"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-6">
+                    <span className="font-display text-sm font-semibold tabular-nums text-lime">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h2 className="text-h3 font-semibold text-paper">
+                      {industry.name}
+                    </h2>
+                  </div>
                 </div>
 
-                <h2 className="mt-6 text-h3 font-semibold">{industry.name}</h2>
+                <div className="p-7 lg:p-8">
 
-                <dl className="mt-6 flex flex-col gap-5">
+                <dl className="flex flex-col gap-5">
                   <div>
                     <dt className="text-eyebrow font-semibold uppercase text-lime-text">
                       The challenge
@@ -73,6 +89,7 @@ export default function Industries() {
                     </dd>
                   </div>
                 </dl>
+                </div>
               </article>
             ))}
           </div>
