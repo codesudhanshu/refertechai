@@ -20,6 +20,9 @@ interface NavItem {
   href: string;
   children?: readonly NavLink[];
   columns?: 1 | 2;
+  // Overrides the default "All <label>" link at the top of the menu, for
+  // labels where that phrasing reads badly — "All company", for instance.
+  allLabel?: string;
 }
 
 const NAV: readonly NavItem[] = [
@@ -48,6 +51,7 @@ const NAV: readonly NavItem[] = [
     label: "Company",
     href: "/about",
     columns: 1,
+    allLabel: "About ReferTech AI",
     children: [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
@@ -67,6 +71,7 @@ export function Header() {
 
   const drawerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   const closeDrawer = useCallback(() => {
     setDrawerOpen(false);
@@ -141,6 +146,21 @@ export function Header() {
     first?.focus();
   }, [drawerOpen]);
 
+  // A click-opened menu has to close on an outside click, otherwise it stays
+  // open until the next navigation. Hover menus got this for free on mouseleave.
+  useEffect(() => {
+    if (!openMenu) return;
+
+    function onPointerDown(event: PointerEvent) {
+      if (!navRef.current?.contains(event.target as Node)) {
+        setOpenMenu(null);
+      }
+    }
+
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [openMenu]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
@@ -157,74 +177,106 @@ export function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav aria-label="Main" className="hidden lg:block">
+        <nav ref={navRef} aria-label="Main" className="hidden lg:block">
           <ul className="flex items-center gap-1">
-            {NAV.map((item) => (
-              <li
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => item.children && setOpenMenu(item.label)}
-                onMouseLeave={() => item.children && setOpenMenu(null)}
-                onFocus={() => item.children && setOpenMenu(item.label)}
-                onBlur={(event) => {
-                  if (!event.currentTarget.contains(event.relatedTarget)) {
-                    setOpenMenu(null);
-                  }
-                }}
-              >
-                <Link
-                  href={item.href}
-                  aria-haspopup={item.children ? "true" : undefined}
-                  aria-expanded={
-                    item.children ? openMenu === item.label : undefined
-                  }
-                  className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
-                    isActive(item.href)
-                      ? "text-primary"
-                      : "text-ink hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                  {item.children ? (
-                    <span aria-hidden="true" className="text-[10px] opacity-60">
+            {NAV.map((item) => {
+              const expanded = openMenu === item.label;
+
+              // Items with children render a toggle button, not a link. A link
+              // would navigate away on click and the menu would never be seen —
+              // and on a touch screen there is no hover to fall back on. The
+              // landing page is reachable from "All …" as the first entry.
+              if (!item.children) {
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className={`flex items-center rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
+                        isActive(item.href)
+                          ? "text-primary"
+                          : "text-ink hover:text-primary"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={item.label} className="relative">
+                  <button
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded={expanded}
+                    aria-controls={`menu-${item.label}`}
+                    onClick={() => setOpenMenu(expanded ? null : item.label)}
+                    className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
+                      expanded || isActive(item.href)
+                        ? "text-primary"
+                        : "text-ink hover:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className={`text-[10px] opacity-60 transition-transform duration-150 ${
+                        expanded ? "rotate-180" : ""
+                      }`}
+                    >
                       &#9662;
                     </span>
-                  ) : null}
-                </Link>
+                  </button>
 
-                {item.children && openMenu === item.label ? (
                   <div
+                    id={`menu-${item.label}`}
+                    hidden={!expanded}
                     className={`absolute left-0 top-full z-50 pt-3 ${
                       item.columns === 2 ? "w-[540px]" : "w-60"
                     }`}
                   >
-                    <ul
-                      className={`grid gap-1 rounded-card border border-line bg-paper p-3 shadow-card-hover ${
-                        item.columns === 2 ? "grid-cols-2" : "grid-cols-1"
-                      }`}
-                    >
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            className="block rounded-btn p-3 transition-colors duration-150 hover:bg-surface"
-                          >
-                            <span className="block text-sm font-medium text-ink">
-                              {child.label}
-                            </span>
-                            {child.hint ? (
-                              <span className="mt-1 block line-clamp-2 text-xs leading-relaxed text-body">
-                                {child.hint}
+                    <div className="rounded-card border border-line bg-paper p-3 shadow-card-hover">
+                      <Link
+                        href={item.href}
+                        className="group/all mb-1 flex items-center justify-between rounded-btn bg-surface px-3 py-2.5 text-sm font-medium text-primary transition-colors duration-150 hover:bg-primary hover:text-white"
+                      >
+                        {item.allLabel ?? `All ${item.label.toLowerCase()}`}
+                        <span
+                          aria-hidden="true"
+                          className="transition-transform duration-150 group-hover/all:translate-x-0.5"
+                        >
+                          &#8594;
+                        </span>
+                      </Link>
+
+                      <ul
+                        className={`grid gap-1 ${
+                          item.columns === 2 ? "grid-cols-2" : "grid-cols-1"
+                        }`}
+                      >
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="block rounded-btn p-3 transition-colors duration-150 hover:bg-surface"
+                            >
+                              <span className="block text-sm font-medium text-ink">
+                                {child.label}
                               </span>
-                            ) : null}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                              {child.hint ? (
+                                <span className="mt-1 block line-clamp-2 text-xs leading-relaxed text-body">
+                                  {child.hint}
+                                </span>
+                              ) : null}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                ) : null}
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -316,7 +368,7 @@ export function Header() {
                             href={item.href}
                             className="block py-2.5 text-sm text-primary"
                           >
-                            All {item.label.toLowerCase()}
+                            {item.allLabel ?? `All ${item.label.toLowerCase()}`}
                           </Link>
                         </li>
                         {item.children.map((child) => (
