@@ -23,8 +23,8 @@ export function CaseStudyCard({ item }: { item: CaseStudy }) {
       </p>
 
       <div className="mt-7 border-t border-line pt-5">
-        {/* 30px at weight 700 — above the 24px floor for accent text. */}
-        <p className="font-display text-3xl font-bold tabular-nums text-accent">
+        {/* accent-deep for text on a light card — see Stat.tsx. */}
+        <p className="font-display text-3xl font-bold tabular-nums text-accent-deep">
           {item.metric.value}
         </p>
         <p className="mt-1 text-sm text-body">{item.metric.label}</p>

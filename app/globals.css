@@ -6,7 +6,13 @@
   --color-muted: #94a3b8;
   --color-primary: #4f46e5;
   --color-primary-dark: #3730a3;
+  /* Bright accent is for non-text marks (rules, dots, the logo bar) and for
+     text on --color-ink, where it reaches 7.71:1. On white it is only 2.43:1,
+     which fails AA at every size — including the 3:1 large-text threshold. */
   --color-accent: #06b6d4;
+  /* Text-safe accent: 5.36:1 on paper, 5.12:1 on surface. Use this wherever
+     the accent colour carries words on a light background. */
+  --color-accent-deep: #0e7490;
   --color-surface: #f8fafc;
   --color-paper: #ffffff;
   --color-line: #e2e8f0;

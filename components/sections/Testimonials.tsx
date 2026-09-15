@@ -31,7 +31,7 @@ export function Testimonials({
           >
             <span
               aria-hidden="true"
-              className="font-display text-4xl leading-none font-bold text-accent"
+              className="font-display text-4xl leading-none font-bold text-accent-deep"
             >
               &ldquo;
             </span>

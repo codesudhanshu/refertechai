@@ -31,7 +31,7 @@ export function ServiceGrid({
       <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {items.map((service, index) => (
           <Card key={service.slug} href={`/services/${service.slug}`}>
-            <span className="font-display text-sm font-semibold tabular-nums text-accent">
+            <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="mt-5 text-h3 font-semibold">{service.title}</h3>

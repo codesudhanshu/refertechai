@@ -40,7 +40,7 @@ export default function Industries() {
                 className="scroll-mt-28 rounded-card border border-line bg-paper p-7 lg:p-8"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-display text-sm font-semibold tabular-nums text-accent">
+                  <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span aria-hidden="true" className="h-px flex-1 bg-line" />

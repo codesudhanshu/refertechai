@@ -61,7 +61,7 @@ export default function Services() {
                 className="grid gap-8 border-b border-line py-12 first:pt-0 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16"
               >
                 <div>
-                  <span className="font-display text-sm font-semibold tabular-nums text-accent">
+                  <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h2 className="mt-4 text-h2">{service.title}</h2>

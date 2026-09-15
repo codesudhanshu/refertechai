@@ -28,7 +28,7 @@ export function ProcessTimeline({
             }`}
           >
             <div className="flex items-baseline gap-3">
-              <span className="font-display text-sm font-semibold tabular-nums text-accent">
+              <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span aria-hidden="true" className="h-px flex-1 bg-line" />

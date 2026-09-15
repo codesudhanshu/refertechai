@@ -100,7 +100,7 @@ export default function About() {
                 key={value.name}
                 className="rounded-card border border-line bg-paper p-7"
               >
-                <span className="font-display text-sm font-semibold tabular-nums text-accent">
+                <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-h3 font-semibold">{value.name}</h3>

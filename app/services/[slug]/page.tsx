@@ -146,7 +146,7 @@ export default async function ServiceDetail({ params }: Params) {
           <ol className="mt-14 grid gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
             {DELIVERY.map((step, index) => (
               <li key={step.name} className="flex flex-col bg-paper p-7">
-                <span className="font-display text-sm font-semibold tabular-nums text-accent">
+                <span className="font-display text-sm font-semibold tabular-nums text-accent-deep">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-h3 font-semibold">{step.name}</h3>

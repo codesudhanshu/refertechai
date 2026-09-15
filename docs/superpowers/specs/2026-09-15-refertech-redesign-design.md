@@ -143,16 +143,32 @@ the Organization JSON-LD all read from it.
 | `--color-muted` | `#94A3B8` | Captions, eyebrows, meta |
 | `--color-primary` | `#4F46E5` | Buttons, links, active states |
 | `--color-primary-dark` | `#3730A3` | Hover, pressed, display headings |
-| `--color-accent` | `#06B6D4` | Underlines, stat figures, gradient stop |
+| `--color-accent` | `#06B6D4` | Non-text marks, gradient stop, accent text on ink |
+| `--color-accent-deep` | `#0E7490` | Accent-coloured **text** on light grounds |
 | `--color-surface` | `#F8FAFC` | Alternating section bands |
 | `--color-paper` | `#FFFFFF` | Page ground, cards |
 | `--color-line` | `#E2E8F0` | Borders, dividers |
 
-Contrast on white: ink 17.8:1, body 7.5:1, primary 7.4:1, primary-dark 10.3:1.
-All pass WCAG AA at every text size. `--color-accent` at 3.2:1 is reserved for
-large display figures (24px and above, bold) and non-text marks only — never body
-copy. `--color-muted` at 2.6:1 on white is used only on `--color-ink` backgrounds,
-where it reaches 6.8:1; it is never placed on white or on `--color-surface`.
+Contrast on white, measured: ink 18.72:1, body 7.58:1, primary 6.29:1,
+primary-dark 9.93:1. All pass WCAG AA at every text size.
+
+**Corrected during implementation.** An earlier draft of this spec put
+`--color-accent` at 3.2:1 on white and allowed it for text at 24px and above.
+Both were wrong: measured, `#06B6D4` on white is **2.43:1**, which fails even
+the 3:1 large-text threshold, so no size floor rescues it. The palette
+therefore carries two accents:
+
+- `--color-accent` `#06B6D4` — non-text marks only (rules, dots, the logo bar,
+  gradient stops), plus text on `--color-ink`, where it measures 7.71:1.
+- `--color-accent-deep` `#0E7490` — every accent-coloured word on a light
+  ground. 5.36:1 on paper, 5.12:1 on surface: AA at all sizes.
+
+`--color-muted` at 2.56:1 on white is used only on `--color-ink` backgrounds,
+where it reaches 7.30:1; it is never placed on white or on `--color-surface`.
+
+Measured ratios: ink/paper 18.72, ink/surface 17.89, body/paper 7.58,
+body/surface 7.24, primary/paper 6.29, primary/surface 6.01,
+primary-dark/paper 9.93, paper/primary 6.29, paper/ink 18.72.
 
 ### Typography
 

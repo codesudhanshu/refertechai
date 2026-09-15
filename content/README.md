@@ -25,11 +25,9 @@ Three further values need confirming rather than replacing:
 | `company.ts` | `responseTime` | Currently `within one business day`. This is a commitment — confirm the team can meet it. |
 | `faqs.ts` | engagement and ownership answers | Confirm they match how the business actually contracts. |
 
-One asset is missing:
-
-| Path | Note |
-|---|---|
-| `public/og-default.png` | 1200×630 social share image, referenced by `lib/seo.ts`. Until it exists, link previews fall back to no image. |
+No missing assets. The 1200×630 social share card is generated at build time
+by `app/opengraph-image.tsx` from the brand tokens, so there is no static
+image to supply or keep in sync.
 
 ## Files that need no review
 
