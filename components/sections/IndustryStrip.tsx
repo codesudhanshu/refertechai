@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import type { Industry } from "@/content/industries";
-import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
-import { SectionAction } from "@/components/ui/SectionAction";
+import { Stagger, StaggerItem } from "@/components/ui/Motion";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 // Sector cards: the photograph carries the card and the title sits on top of
 // it, over a gradient that runs from transparent to near-black at the bottom.
@@ -27,13 +27,22 @@ export function IndustryStrip({
   if (shown.length === 0) return null;
 
   return (
-    <Section tone={tone} bordered>
-      <Reveal>
-        <h2 className="max-w-2xl text-h2 text-balance">
-          Sector context changes{" "}
-          <span className="text-lime-text">what good looks like.</span>
-        </h2>
-      </Reveal>
+    <Section tone={tone}>
+      <SectionHeading
+        title={
+          <>
+            Sector context changes{" "}
+            <span className="text-lime-text">what good looks like.</span>
+          </>
+        }
+        action={
+          showAction ? (
+            <Button href="/industries" variant="outline">
+              All industries
+            </Button>
+          ) : undefined
+        }
+      />
 
       <Stagger as="ul" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {shown.map((industry) => (
@@ -75,13 +84,6 @@ export function IndustryStrip({
         ))}
       </Stagger>
 
-      {showAction ? (
-        <SectionAction>
-          <Button href="/industries" variant="outline">
-            All industries
-          </Button>
-        </SectionAction>
-      ) : null}
     </Section>
   );
 }

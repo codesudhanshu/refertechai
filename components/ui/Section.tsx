@@ -14,19 +14,16 @@ const TONES = {
 
 export type Tone = keyof typeof TONES;
 
-export function isDark(tone: Tone) {
-  return tone === "teal" || tone === "ink";
-}
-
+// No divider rule between sections — the alternating grounds (paper, surface,
+// teal, lime) already separate them, and a hairline on top of each section
+// reads as a stray line closing the one above it.
 export function Section({
   tone = "paper",
-  bordered = false,
   id,
   className = "",
   children,
 }: {
   tone?: Tone;
-  bordered?: boolean;
   id?: string;
   className?: string;
   children: ReactNode;
@@ -37,11 +34,6 @@ export function Section({
       className={[
         "py-20 lg:py-28",
         TONES[tone],
-        bordered
-          ? isDark(tone)
-            ? "border-t border-line-invert"
-            : "border-t border-line"
-          : "",
         className,
       ]
         .filter(Boolean)

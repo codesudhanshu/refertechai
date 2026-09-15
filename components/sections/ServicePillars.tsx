@@ -47,7 +47,7 @@ export function ServicePillars({
   image?: { src: string; alt: string };
 }) {
   return (
-    <Section tone={tone} bordered>
+    <Section tone={tone}>
       <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div>
           <h2 className="text-h2 text-balance">

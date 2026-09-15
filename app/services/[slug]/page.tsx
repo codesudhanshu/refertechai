@@ -107,7 +107,7 @@ export default async function ServiceDetail({ params }: Params) {
           </div>
         </Section>
 
-        <Section tone="surface" bordered>
+        <Section tone="surface">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               title={
@@ -130,7 +130,7 @@ export default async function ServiceDetail({ params }: Params) {
           </div>
         </Section>
 
-        <Section bordered>
+        <Section>
           <SectionHeading
             title={
               <>

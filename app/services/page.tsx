@@ -106,7 +106,7 @@ export default function Services() {
           </div>
         </Section>
 
-        <Section tone="surface" bordered>
+        <Section tone="surface">
           <SectionHeading
             title={
               <>

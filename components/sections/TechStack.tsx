@@ -12,7 +12,7 @@ export function TechStack({
   heading?: boolean;
 }) {
   return (
-    <Section tone={tone} bordered>
+    <Section tone={tone}>
       {heading ? (
         <SectionHeading
           title={

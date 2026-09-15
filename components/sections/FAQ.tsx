@@ -15,7 +15,7 @@ export function FAQ({
   if (items.length === 0) return null;
 
   return (
-    <Section tone={tone} bordered>
+    <Section tone={tone}>
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <SectionHeading
           title={

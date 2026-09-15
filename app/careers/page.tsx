@@ -81,7 +81,7 @@ export default function Careers() {
           </div>
         </Section>
 
-        <Section tone="surface" bordered>
+        <Section tone="surface">
           <SectionHeading
             title={
               <>
@@ -105,7 +105,7 @@ export default function Careers() {
           </div>
         </Section>
 
-        <Section bordered>
+        <Section>
           <SectionHeading
             title={
               <>

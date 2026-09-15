@@ -123,7 +123,7 @@ export default function Jobs() {
           </ol>
         </Section>
 
-        <Section tone="surface" bordered>
+        <Section tone="surface">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               title={

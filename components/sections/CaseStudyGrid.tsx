@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/Button";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import type { CaseStudy } from "@/content/caseStudies";
 import { Stagger, StaggerItem } from "@/components/ui/Motion";
-import { SectionAction } from "@/components/ui/SectionAction";
 
 export function CaseStudyGrid({
   items,
@@ -21,7 +20,7 @@ export function CaseStudyGrid({
   if (shown.length === 0) return null;
 
   return (
-    <Section tone={tone} bordered>
+    <Section tone={tone}>
       <SectionHeading
         title={
           <>
@@ -30,6 +29,13 @@ export function CaseStudyGrid({
           </>
         }
         lead="What was being hired, what made it hard, and what came out the other end."
+        action={
+          showAction ? (
+            <Button href="/work" variant="outline">
+              All mandates
+            </Button>
+          ) : undefined
+        }
       />
 
       <Stagger className="mt-14 grid gap-5 lg:grid-cols-3">
@@ -39,14 +45,6 @@ export function CaseStudyGrid({
           </StaggerItem>
         ))}
       </Stagger>
-
-      {showAction ? (
-        <SectionAction>
-          <Button href="/work" variant="outline">
-            All mandates
-          </Button>
-        </SectionAction>
-      ) : null}
     </Section>
   );
 }

@@ -17,7 +17,7 @@ export function Partners({
   if (partners.length === 0) return null;
 
   return (
-    <Section tone={tone} bordered>
+    <Section tone={tone}>
       <SectionHeading
         align="center"
         title={

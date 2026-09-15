@@ -14,7 +14,7 @@ export function Leadership({
   if (team.length === 0) return null;
 
   return (
-    <Section tone={tone} bordered>
+    <Section tone={tone}>
       <SectionHeading
         title={
           <>
