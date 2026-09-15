@@ -14,16 +14,30 @@ const TONES = {
 
 export type Tone = keyof typeof TONES;
 
+// Vertical rhythm. `tight` is half the default, for bands that carry a single
+// row of content rather than a full block. Kept as a prop rather than passed
+// through className: two padding utilities of equal specificity resolve by
+// their order in the compiled stylesheet, not by the order they appear in the
+// class attribute, so an override there is not reliable.
+const SPACE = {
+  default: "py-20 lg:py-28",
+  tight: "py-10 lg:py-14",
+} as const;
+
+export type Space = keyof typeof SPACE;
+
 // No divider rule between sections — the alternating grounds (paper, surface,
 // teal, lime) already separate them, and a hairline on top of each section
 // reads as a stray line closing the one above it.
 export function Section({
   tone = "paper",
+  space = "default",
   id,
   className = "",
   children,
 }: {
   tone?: Tone;
+  space?: Space;
   id?: string;
   className?: string;
   children: ReactNode;
@@ -32,7 +46,7 @@ export function Section({
     <section
       id={id}
       className={[
-        "py-20 lg:py-28",
+        SPACE[space],
         TONES[tone],
         className,
       ]
