@@ -72,7 +72,7 @@ Replaces the broken font pipeline (defect #1), removes the dead lint script (def
 
 ```bash
 npm install tailwindcss@^4 @tailwindcss/postcss@^4
-npm install -D eslint@^9 eslint-config-next@^16 @eslint/eslintrc@^3
+npm install -D eslint@^9 eslint-config-next@^16
 ```
 
 - [ ] **Step 2: Fix the scripts block**
@@ -94,21 +94,23 @@ export default config;
 - [ ] **Step 4: Create `eslint.config.mjs`**
 
 ```js
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import coreWebVitals from "eslint-config-next/core-web-vitals";
+import typescript from "eslint-config-next/typescript";
 
-const compat = new FlatCompat({
-  baseDirectory: dirname(fileURLToPath(import.meta.url)),
-});
-
+// eslint-config-next v16 ships native flat configs, so FlatCompat is not
+// needed here — routing them through it throws on a circular plugin object.
 const config = [
   { ignores: [".next/**", "node_modules/**", "next-env.d.ts"] },
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...coreWebVitals,
+  ...typescript,
 ];
 
 export default config;
 ```
+
+Do **not** install `@eslint/eslintrc` or use `FlatCompat`. The v16 configs are
+already flat arrays; passing them through `FlatCompat.extends()` fails with
+`TypeError: Converting circular structure to JSON`.
 
 - [ ] **Step 5: Create `next.config.ts`**
 
