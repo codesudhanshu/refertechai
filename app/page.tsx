@@ -21,8 +21,12 @@ import { generalFaqs } from "@/content/faqs";
 import { stats } from "@/content/stats";
 import { clientNames } from "@/content/clients";
 
+// The brand is written in here rather than left to the layout's title
+// template: the template applies only to child route segments, and this page
+// shares the root segment with app/layout.tsx. Every other route gets the
+// suffix from the template and must not repeat it.
 export const metadata = buildMetadata({
-  title: "Technology that moves business forward",
+  title: "ReferTech AI — Technology that moves business forward",
   description:
     "We design and engineer AI systems, software products, cloud infrastructure and blockchain applications for teams building what's next.",
   path: "/",

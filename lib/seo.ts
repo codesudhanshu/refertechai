@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import { company } from "@/content/company";
 
-// metadataBase is set once in app/layout.tsx rather than here — setting it per
-// page would duplicate it into every route's metadata.
+// metadataBase and the `%s — ReferTech AI` title template are set once in
+// app/layout.tsx. Pages pass the bare page name as `title` and the template
+// appends the brand, so nothing here should include it.
+//
+// Open Graph and Twitter do not go through the template, so the branded title
+// is composed explicitly for those.
 export function buildMetadata(input: {
   title: string;
   description: string;
   path: string;
 }): Metadata {
   const url = `${company.url}${input.path === "/" ? "" : input.path}`;
+  const socialTitle = input.title.includes(company.name)
+    ? input.title
+    : `${input.title} — ${company.name}`;
 
   return {
     title: input.title,
@@ -17,16 +24,14 @@ export function buildMetadata(input: {
     openGraph: {
       type: "website",
       siteName: company.name,
-      title: input.title,
+      title: socialTitle,
       description: input.description,
       url,
-      images: [{ url: "/og-default.png", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
-      title: input.title,
+      title: socialTitle,
       description: input.description,
-      images: ["/og-default.png"],
     },
   };
 }
