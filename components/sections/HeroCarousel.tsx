@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import type { HeroSlide } from "@/content/heroSlides";
 
-const INTERVAL_MS = 7000;
+const INTERVAL_MS = 5000;
 
 // Left half carries the copy on the teal ground; the right half is the image,
 // bleeding to the top, right and bottom edges of the section with no gutter,
