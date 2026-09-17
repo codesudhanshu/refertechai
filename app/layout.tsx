@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   },
   description:
     "ReferTech AI is an IT recruitment and staffing firm — permanent, contract and executive hiring for technology teams.",
+  // Icons are served from /public rather than the app/ file convention so the
+  // brand mark lives beside the full logo lockup in /public/logos.
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logos/refertech-mark.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: {
+      url: "/logos/refertech-apple-icon.png",
+      type: "image/png",
+      sizes: "180x180",
+    },
+  },
 };
 
 const organizationLd = {

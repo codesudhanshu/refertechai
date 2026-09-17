@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Mark, Wordmark } from "@/components/layout/Mark";
+import { Logo } from "@/components/layout/Logo";
 import { Button } from "@/components/ui/Button";
 import { services } from "@/content/services";
 import { industries } from "@/content/industries";
@@ -198,8 +198,7 @@ export function Header() {
           className="flex items-center gap-2.5"
           aria-label="ReferTech AI home"
         >
-          <Mark />
-          <Wordmark />
+          <Logo height={40} priority />
         </Link>
 
         {/* Desktop navigation */}
@@ -379,8 +378,7 @@ export function Header() {
                 className="flex items-center gap-2.5"
                 aria-label="ReferTech AI home"
               >
-                <Mark />
-                <Wordmark />
+                <Logo height={36} />
               </Link>
 
               <button

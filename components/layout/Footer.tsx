@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { Mark, Wordmark } from "@/components/layout/Mark";
+import { Logo } from "@/components/layout/Logo";
 import { Arrow } from "@/components/ui/Button";
 import { company } from "@/content/company";
 import { services } from "@/content/services";
@@ -48,12 +48,18 @@ export function Footer() {
       <Container className="py-16 lg:py-20">
         <div className="flex flex-col gap-10 border-b border-paper/10 pb-12 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-sm">
-            <div className="flex items-center gap-2.5">
-              <Mark invert />
-              <Wordmark invert />
-            </div>
+            {/* The logo file is a JPEG on a white ground, so on the teal band
+                it sits in a white plate rather than directly on the dark. */}
+            <Link
+              href="/"
+              className="inline-flex rounded-btn bg-paper px-4 py-3"
+              aria-label={`${company.name} — home`}
+            >
+              <Logo height={34} />
+            </Link>
             <p className="mt-5 text-sm leading-relaxed text-paper/70">
-              Technology partners for teams building what&apos;s next.
+              We are one of the fastest growing digital transformation partners
+              helping enterprises scale in an AI-focused world.
             </p>
           </div>
 
