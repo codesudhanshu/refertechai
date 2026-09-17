@@ -27,6 +27,8 @@ interface NavItem {
 }
 
 const NAV: readonly NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   {
     label: "Services",
     href: "/services",
@@ -46,20 +48,10 @@ const NAV: readonly NavItem[] = [
       href: `/industries#${industry.slug}`,
     })),
   },
-  { label: "For Employers", href: "/hire" },
-  { label: "For Candidates", href: "/jobs" },
-  { label: "Work", href: "/work" },
-  {
-    label: "Company",
-    href: "/about",
-    columns: 1,
-    allLabel: "About ReferTech AI",
-    children: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
+  // The standalone /careers page is kept as its own page; this slot points at
+  // the candidate-facing jobs listing.
+  { label: "Careers", href: "/jobs" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const FOCUSABLE =
