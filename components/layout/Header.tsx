@@ -209,7 +209,9 @@ export function Header() {
           of the viewport and collapsed to no height. The blur is gone (the bar
           is opaque now) but the drawer stays outside so re-adding any filter,
           transform or will-change here cannot break it again. */}
-      <header className="sticky top-0 z-50 border-b border-line bg-paper">
+      {/* The logo carries the brand navy as its own ground, so the bar is
+          that same navy and the logo sits in it rather than on a plate. */}
+      <header className="on-dark sticky top-0 z-50 border-b border-line-invert bg-teal">
       <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
         <Link
           href="/"
@@ -236,8 +238,8 @@ export function Header() {
                       href={item.href}
                       className={`flex items-center rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
                         isActive(item.href)
-                          ? "text-lime-text"
-                          : "text-ink hover:text-lime-text"
+                          ? "text-lime"
+                          : "text-paper hover:text-lime"
                       }`}
                     >
                       {item.label}
@@ -261,8 +263,8 @@ export function Header() {
                     onClick={() => setOpenMenu(expanded ? null : item.label)}
                     className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
                       expanded || isActive(item.href)
-                        ? "text-lime-text"
-                        : "text-ink hover:text-lime-text"
+                        ? "text-lime"
+                        : "text-paper hover:text-lime"
                     }`}
                   >
                     {item.label}
@@ -347,7 +349,7 @@ export function Header() {
           aria-controls="mobile-nav"
           aria-label={drawerOpen ? "Close menu" : "Open menu"}
           onClick={() => setDrawerOpen((value) => !value)}
-          className="flex h-11 w-11 items-center justify-center rounded-btn border border-line text-ink lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-btn border border-line-invert text-paper lg:hidden"
         >
           <span aria-hidden="true" className="relative block h-3 w-5">
             <span
@@ -388,9 +390,9 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={reduce ? undefined : { opacity: 0, x: "100%" }}
             transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}
-            className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-paper"
+            className="on-dark fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-teal"
           >
-            <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-line bg-paper px-6">
+            <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-line-invert bg-teal px-6">
               <Link
                 href="/"
                 className="flex items-center gap-2.5"
@@ -406,7 +408,7 @@ export function Header() {
                   closeDrawer();
                   triggerRef.current?.focus();
                 }}
-                className="flex h-11 w-11 items-center justify-center rounded-btn border border-line text-ink"
+                className="flex h-11 w-11 items-center justify-center rounded-btn border border-line-invert text-paper"
               >
                 <span aria-hidden="true" className="relative block h-3 w-5">
                   <span className="absolute left-0 top-[5px] block h-[2px] w-5 rotate-45 bg-current" />
@@ -418,7 +420,7 @@ export function Header() {
             <div className="px-6 py-6">
             <ul className="flex flex-col">
               {NAV.map((item) => (
-                <li key={item.label} className="border-b border-line">
+                <li key={item.label} className="border-b border-line-invert">
                   {item.children ? (
                     <>
                       <button
@@ -430,12 +432,12 @@ export function Header() {
                             openGroup === item.label ? null : item.label,
                           )
                         }
-                        className="flex w-full items-center justify-between py-4 text-left font-display text-base font-semibold text-ink"
+                        className="flex w-full items-center justify-between py-4 text-left font-display text-base font-semibold text-paper"
                       >
                         {item.label}
                         <span
                           aria-hidden="true"
-                          className={`text-lime-text transition-transform duration-150 ${
+                          className={`text-lime transition-transform duration-150 ${
                             openGroup === item.label ? "rotate-180" : ""
                           }`}
                         >
@@ -450,7 +452,7 @@ export function Header() {
                         <li>
                           <Link
                             href={item.href}
-                            className="block py-2.5 text-sm text-lime-text"
+                            className="block py-2.5 text-sm text-lime"
                           >
                             {item.allLabel ?? `All ${item.label.toLowerCase()}`}
                           </Link>
@@ -459,7 +461,7 @@ export function Header() {
                           <li key={child.href}>
                             <Link
                               href={child.href}
-                              className="block py-2.5 text-sm text-body"
+                              className="block py-2.5 text-sm text-body-invert"
                             >
                               {child.label}
                             </Link>
@@ -470,7 +472,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block py-4 font-display text-base font-semibold text-ink"
+                      className="block py-4 font-display text-base font-semibold text-paper"
                     >
                       {item.label}
                     </Link>
@@ -485,7 +487,7 @@ export function Header() {
               </Button>
               <a
                 href={`mailto:${company.email}`}
-                className="text-center text-sm text-body"
+                className="text-center text-sm text-body-invert"
               >
                 {company.email}
               </a>

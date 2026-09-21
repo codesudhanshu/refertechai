@@ -8,9 +8,10 @@ import type { HeroSlide } from "@/content/heroSlides";
 
 const INTERVAL_MS = 5000;
 
-// Left half carries the copy on the teal ground; the right half is the image,
-// bleeding to the top, right and bottom edges of the section with no gutter,
-// border or corner radius.
+// One full-bleed image across the whole band, with the brand navy laid over
+// it as a gradient that is opaque on the left and clear on the right. The copy
+// sits on the opaque end, so the photograph reads as one picture rather than a
+// panel butted against a colour block.
 //
 // The copy column's left padding tracks the 1280px container gutter so the
 // headline still lines up with every other section on the page, while the
@@ -82,15 +83,39 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
       aria-label="What we do"
       className="on-dark relative isolate overflow-hidden bg-teal"
     >
-      <div className="grid lg:grid-cols-[1fr_1fr]">
-        {/* Copy */}
-        <div className={`relative z-10 py-16 lg:py-24 ${COPY_PADDING}`}>
-          <div
-            aria-hidden="true"
-            className="grid-lines pointer-events-none absolute inset-0 -z-10 text-paper"
-          />
+      {/* Image, full bleed behind everything. */}
+      <div className="absolute inset-0 -z-20">
+        <AnimatePresence initial={false}>
+          <motion.span
+            key={slide.id}
+            className="absolute inset-0"
+            initial={reduce ? false : { opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={reduce ? undefined : { opacity: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+          >
+            <Image
+              src={slide.image.src}
+              alt={slide.image.alt}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.span>
+        </AnimatePresence>
+      </div>
 
-          <AnimatePresence mode="wait" initial={false}>
+      {/* Navy over the image. Left to right on a wide screen, where the copy
+          sits beside the picture; top to bottom below that, where the copy
+          sits on top of it and needs cover across the full width. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-teal via-teal/90 to-teal/75 lg:bg-gradient-to-r lg:from-teal lg:from-30% lg:via-teal/85 lg:via-55% lg:to-transparent lg:to-85%"
+      />
+
+      <div className={`relative py-16 lg:min-h-[520px] lg:py-24 ${COPY_PADDING}`}>
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={slide.id}
             className="max-w-xl"
@@ -103,7 +128,7 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
               {slide.title} <span className="text-lime">{slide.highlight}</span>
             </h1>
 
-            <p className="mt-7 text-lg leading-relaxed text-body-invert">
+            <p className="mt-7 max-w-md text-lg leading-relaxed text-body-invert">
               {slide.lead}
             </p>
 
@@ -120,59 +145,34 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
               </Button>
             </div>
           </motion.div>
-          </AnimatePresence>
+        </AnimatePresence>
 
-          {slides.length > 1 ? (
-            <div className="mt-12 flex items-center gap-3">
-              {slides.map((s, i) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  aria-label={`Go to slide ${i + 1}: ${s.title} ${s.highlight}`}
-                  aria-current={i === index}
-                  onClick={() => go(i)}
-                  className="group/dot py-2"
-                >
-                  <span
-                    className={`block h-[3px] rounded-full transition-all duration-300 ${
-                      i === index
-                        ? "w-12 bg-lime"
-                        : "w-6 bg-paper/30 group-hover/dot:bg-paper/60"
-                    }`}
-                  />
-                </button>
-              ))}
+        {slides.length > 1 ? (
+          <div className="mt-12 flex items-center gap-3">
+            {slides.map((s, i) => (
+              <button
+                key={s.id}
+                type="button"
+                aria-label={`Go to slide ${i + 1}: ${s.title} ${s.highlight}`}
+                aria-current={i === index}
+                onClick={() => go(i)}
+                className="group/dot py-2"
+              >
+                <span
+                  className={`block h-[3px] rounded-full transition-all duration-300 ${
+                    i === index
+                      ? "w-12 bg-lime"
+                      : "w-6 bg-paper/30 group-hover/dot:bg-paper/60"
+                  }`}
+                />
+              </button>
+            ))}
 
-              <p aria-live="polite" className="sr-only">
-                Slide {index + 1} of {slides.length}
-              </p>
-            </div>
-          ) : null}
-        </div>
-
-        {/* Image — full bleed to top, right and bottom. No padding, no radius,
-            no border. On mobile it stacks underneath at a fixed height. */}
-        <div className="relative order-first h-64 w-full sm:h-80 lg:order-none lg:h-auto lg:min-h-[560px]">
-          <AnimatePresence initial={false}>
-            <motion.span
-              key={slide.id}
-              className="absolute inset-0"
-              initial={reduce ? false : { opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={reduce ? undefined : { opacity: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
-            >
-              <Image
-                src={slide.image.src}
-                alt={slide.image.alt}
-                fill
-                priority={index === 0}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </motion.span>
-          </AnimatePresence>
-        </div>
+            <p aria-live="polite" className="sr-only">
+              Slide {index + 1} of {slides.length}
+            </p>
+          </div>
+        ) : null}
       </div>
     </section>
   );

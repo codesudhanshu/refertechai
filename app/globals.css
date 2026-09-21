@@ -34,7 +34,7 @@
   --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --text-hero: clamp(2.5rem, 6.5vw, 5rem);
+  --text-hero: clamp(2.125rem, 4.6vw, 3.5rem);
   --text-hero--line-height: 1;
   --text-hero--letter-spacing: -0.035em;
   --text-h1: clamp(2.25rem, 5vw, 3.75rem);
