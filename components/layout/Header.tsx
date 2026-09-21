@@ -48,9 +48,27 @@ const NAV: readonly NavItem[] = [
       href: `/industries#${industry.slug}`,
     })),
   },
-  // The standalone /careers page is kept as its own page; this slot points at
-  // the candidate-facing jobs listing.
-  { label: "Careers", href: "/jobs" },
+  // The standalone /careers page is kept as its own page; this slot opens to
+  // the two sides of the business, since "Careers" is the word both an
+  // employer filling a role and a candidate looking for one will reach for.
+  {
+    label: "Careers",
+    href: "/careers",
+    // "All careers" reads as a listing this menu does not point at.
+    allLabel: "Working at ReferTech",
+    children: [
+      {
+        label: "For Employers",
+        href: "/hire",
+        hint: "Hiring for your own team — permanent, contract and executive.",
+      },
+      {
+        label: "For Candidates",
+        href: "/jobs",
+        hint: "Open roles across engineering, cloud, data and security.",
+      },
+    ],
+  },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -318,7 +336,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/contact">Start a project</Button>
+          <Button href="/contact">Get in Touch</Button>
         </div>
 
         {/* Mobile trigger */}
@@ -463,7 +481,7 @@ export function Header() {
 
             <div className="mt-8 flex flex-col gap-4">
               <Button href="/contact" size="lg" className="w-full">
-                Start a project
+                Get in Touch
               </Button>
               <a
                 href={`mailto:${company.email}`}

@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -162,15 +162,16 @@ export default function Careers() {
           )}
         </Section>
 
-        <CtaBand
-          title={
-            <>
-              Tell us what you{" "}
-              <span className="text-lime-text">would want to build.</span>
-            </>
-          }
-          lead="We open roles when we meet someone worth opening one for. If that might be you, write to us."
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 Tell us what you{" "}
+                 <span className="text-lime-text">would want to build.</span>
+               </>
+             }
+             lead="We open roles when we meet someone worth opening one for. If that might be you, write to us."
+           /> */}
       </main>
       <Footer />
     </>

@@ -2,7 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Leadership } from "@/components/sections/Leadership";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -137,13 +137,14 @@ export default function About() {
 
         <Leadership tone="paper" />
 
-        <CtaBand
-          title={
-            <>
-              Worth <span className="text-lime-text">solving properly?</span>
-            </>
-          }
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 Worth <span className="text-lime-text">solving properly?</span>
+               </>
+             }
+           /> */}
       </main>
       <Footer />
     </>

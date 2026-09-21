@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
@@ -135,7 +135,8 @@ export default function Services() {
           </div>
         </Section>
 
-        <CtaBand />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand /> */}
       </main>
       <Footer />
     </>

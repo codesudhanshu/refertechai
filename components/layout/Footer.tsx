@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Logo } from "@/components/layout/Logo";
-import { Arrow } from "@/components/ui/Button";
 import { company } from "@/content/company";
 import { services } from "@/content/services";
 import { industries } from "@/content/industries";
@@ -46,81 +45,78 @@ export function Footer() {
   return (
     <footer className="on-dark bg-teal text-paper">
       <Container className="py-16 lg:py-20">
-        <div className="flex flex-col gap-10 border-b border-paper/10 pb-12 lg:flex-row lg:items-start lg:justify-between">
+        {/* Brand block on the left, link columns to the right of it. The
+            logo carries the brand navy as its own ground, so on this band it
+            needs no plate behind it. */}
+        <div className="grid gap-12 pb-12 lg:grid-cols-[1fr_1.9fr] lg:gap-16">
           <div className="max-w-sm">
-            {/* The logo file is a JPEG on a white ground, so on the teal band
-                it sits in a white plate rather than directly on the dark. */}
             <Link
               href="/"
-              className="inline-flex rounded-btn bg-paper px-4 py-3"
+              className="inline-flex"
               aria-label={`${company.name} — home`}
             >
-              <Logo height={34} />
+              <Logo height={56} />
             </Link>
-            <p className="mt-5 text-sm leading-relaxed text-paper/70">
+            <p className="mt-6 text-sm leading-relaxed text-paper/70">
               We are one of the fastest growing digital transformation partners
               helping enterprises scale in an AI-focused world.
             </p>
           </div>
 
-          <a
-            href={`mailto:${company.email}`}
-            className="group/btn inline-flex items-center gap-3 self-start font-display text-xl font-semibold text-paper transition-colors duration-150 hover:text-lime lg:text-2xl"
-          >
-            {company.email}
-            <Arrow />
-          </a>
-        </div>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            <Column
+              title="Services"
+              links={services.map((service) => ({
+                label: service.title,
+                href: `/services/${service.slug}`,
+              }))}
+            />
+            <Column
+              title="Industries"
+              links={industries.slice(0, 6).map((industry) => ({
+                label: industry.name,
+                href: `/industries#${industry.slug}`,
+              }))}
+            />
 
-        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
-          <Column
-            title="Services"
-            links={services.map((service) => ({
-              label: service.title,
-              href: `/services/${service.slug}`,
-            }))}
-          />
-          <Column
-            title="Industries"
-            links={industries.slice(0, 6).map((industry) => ({
-              label: industry.name,
-              href: `/industries#${industry.slug}`,
-            }))}
-          />
-          <Column title="Company" links={COMPANY_LINKS} />
+            {/* Company and Get in touch share a column, stacked. */}
+            <div className="flex flex-col gap-10">
+              <Column title="Company" links={COMPANY_LINKS} />
 
-          <div>
-            <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
-              Get in touch
-            </h3>
-            <ul className="mt-5 flex flex-col gap-3 text-sm text-paper/75">
-              <li>
-                <a
-                  href={`mailto:${company.email}`}
-                  className="transition-colors duration-150 hover:text-paper"
-                >
-                  {company.email}
-                </a>
-              </li>
-              {company.phone ? (
-                <li>
-                  <a
-                    href={`tel:${company.phone.replace(/\s+/g, "")}`}
-                    className="transition-colors duration-150 hover:text-paper"
-                  >
-                    {company.phone}
-                  </a>
-                </li>
-              ) : null}
-              {company.offices.map((office) => (
-                <li key={`${office.city}-${office.country}`}>
-                  {office.city}, {office.country}
-                </li>
-              ))}
-              <li className="pt-1 text-paper/50">
-                We reply {company.responseTime}.
-              </li>
-            </ul>
+              <div>
+                <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
+                  Get in touch
+                </h3>
+                <ul className="mt-5 flex flex-col gap-3 text-sm text-paper/75">
+                  <li>
+                    <a
+                      href={`mailto:${company.email}`}
+                      className="transition-colors duration-150 hover:text-paper"
+                    >
+                      {company.email}
+                    </a>
+                  </li>
+                  {company.phone ? (
+                    <li>
+                      <a
+                        href={`tel:${company.phone.replace(/\s+/g, "")}`}
+                        className="transition-colors duration-150 hover:text-paper"
+                      >
+                        {company.phone}
+                      </a>
+                    </li>
+                  ) : null}
+                  {company.offices.map((office) => (
+                    <li key={`${office.city}-${office.country}`}>
+                      {office.city}, {office.country}
+                    </li>
+                  ))}
+                  <li className="pt-1 text-paper/50">
+                    We reply {company.responseTime}.
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 

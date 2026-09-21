@@ -1,8 +1,8 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { CtaBand } from "@/components/sections/CtaBand";
-import { FAQ } from "@/components/sections/FAQ";
+// import { CtaBand } from "@/components/sections/CtaBand";
+// import { FAQ } from "@/components/sections/FAQ";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
@@ -130,28 +130,30 @@ export default function Hire() {
           </div>
         </Section>
 
-        <FAQ
-          items={HIRE_FAQS}
-          title={
-            <>
-              What employers ask{" "}
-              <span className="text-lime-text">before the first brief.</span>
-            </>
-          }
-          tone="surface"
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <FAQ
+             items={HIRE_FAQS}
+             title={
+               <>
+                 What employers ask{" "}
+                 <span className="text-lime-text">before the first brief.</span>
+               </>
+             }
+             tone="surface"
+           /> */}
 
-        <CtaBand
-          title={
-            <>
-              Tell us the role.{" "}
-              <em className="not-italic underline decoration-2 underline-offset-8">
-                We&apos;ll tell you honestly.
-              </em>
-            </>
-          }
-          lead="If we are not the right fit for a role, we will say so rather than send you a shortlist to justify the call."
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 Tell us the role.{" "}
+                 <em className="not-italic underline decoration-2 underline-offset-8">
+                   We&apos;ll tell you honestly.
+                 </em>
+               </>
+             }
+             lead="If we are not the right fit for a role, we will say so rather than send you a shortlist to justify the call."
+           /> */}
       </main>
       <Footer />
     </>

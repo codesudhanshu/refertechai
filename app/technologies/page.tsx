@@ -2,7 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { TechStack } from "@/components/sections/TechStack";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { buildMetadata } from "@/lib/seo";
 import { technologyGroups } from "@/content/technologies";
 
@@ -30,15 +30,16 @@ export default function Technologies() {
 
         <TechStack groups={technologyGroups} tone="paper" heading={false} />
 
-        <CtaBand
-          title={
-            <>
-              We work in{" "}
-              <span className="text-lime-text">your stack, not ours.</span>
-            </>
-          }
-          lead="This is what we reach for on a clean slate. On an existing system we work with what is already there, and only propose a change when there is a specific reason."
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 We work in{" "}
+                 <span className="text-lime-text">your stack, not ours.</span>
+               </>
+             }
+             lead="This is what we reach for on a clean slate. On an existing system we work with what is already there, and only propose a change when there is a specific reason."
+           /> */}
       </main>
       <Footer />
     </>

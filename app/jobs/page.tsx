@@ -2,8 +2,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { RoleFilter } from "@/components/sections/RoleFilter";
-import { FAQ } from "@/components/sections/FAQ";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { FAQ } from "@/components/sections/FAQ";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
@@ -149,28 +149,30 @@ export default function Jobs() {
           </div>
         </Section>
 
-        <FAQ
-          items={CANDIDATE_FAQS}
-          title={
-            <>
-              What candidates ask{" "}
-              <span className="text-lime-text">before the first call.</span>
-            </>
-          }
-          tone="paper"
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <FAQ
+             items={CANDIDATE_FAQS}
+             title={
+               <>
+                 What candidates ask{" "}
+                 <span className="text-lime-text">before the first call.</span>
+               </>
+             }
+             tone="paper"
+           /> */}
 
-        <CtaBand
-          title={
-            <>
-              Send us your CV.{" "}
-              <em className="not-italic underline decoration-2 underline-offset-8">
-                We&apos;ll be straight with you.
-              </em>
-            </>
-          }
-          lead="Tell us what you want next and what you would rather avoid. We will tell you honestly whether we have anything worth your time."
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 Send us your CV.{" "}
+                 <em className="not-italic underline decoration-2 underline-offset-8">
+                   We&apos;ll be straight with you.
+                 </em>
+               </>
+             }
+             lead="Tell us what you want next and what you would rather avoid. We will tell you honestly whether we have anything worth your time."
+           /> */}
       </main>
       <Footer />
     </>

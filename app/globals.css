@@ -2,16 +2,20 @@
 
 @theme {
   /* Page grounds. White is the dominant ground; teal and lime are full-bleed
-     section bands, the way NLB Services alternates them. */
+     section bands, the way NLB Services alternates them.
+
+     `teal` is the brand navy taken from the logo artwork, so the logo sits on
+     a dark band without a visible plate behind it. The token keeps its name
+     because every dark band in the app already refers to it. */
   --color-paper: #ffffff;
   --color-surface: #f4f7f2;
-  --color-teal: #0e2a2e;
-  --color-teal-soft: #16413f;
-  --color-ink: #0a1416;
+  --color-teal: #01203d;
+  --color-teal-soft: #073156;
+  --color-ink: #01152a;
 
   /* Text */
   --color-body: #4a5a53;
-  --color-body-invert: #b8ccc4;
+  --color-body-invert: #9fb3c8;
 
   /* Accent.
      MEASURED: lime on white is 1.32:1 and white on lime is 1.32:1. Both fail
@@ -25,7 +29,7 @@
   --color-lime-deep: #3f6212;
 
   --color-line: #e3e8e1;
-  --color-line-invert: #2a4a47;
+  --color-line-invert: #1a3a5c;
 
   --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

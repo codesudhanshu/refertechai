@@ -2,7 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { WorkFilter } from "@/components/sections/WorkFilter";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { buildMetadata } from "@/lib/seo";
 import { caseStudies } from "@/content/caseStudies";
@@ -48,14 +48,15 @@ export default function Work() {
           <WorkFilter items={caseStudies} industries={industries} />
         </Section>
 
-        <CtaBand
-          title={
-            <>
-              Tell us the part that{" "}
-              <span className="text-lime-text">is not working.</span>
-            </>
-          }
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 Tell us the part that{" "}
+                 <span className="text-lime-text">is not working.</span>
+               </>
+             }
+           /> */}
       </main>
       <Footer />
     </>

@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
-import { FAQ } from "@/components/sections/FAQ";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
+// import { FAQ } from "@/components/sections/FAQ";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
@@ -154,22 +154,25 @@ export default async function ServiceDetail({ params }: Params) {
           </ol>
         </Section>
 
-        {related.length > 0 ? (
-          <CaseStudyGrid items={related} tone="surface" />
-        ) : null}
+        {/* Commented out on request — restore by removing this wrapper.
+            {related.length > 0 ? (
+              <CaseStudyGrid items={related} tone="surface" />
+            ) : null} */}
 
-        <FAQ
-          items={service.faqs}
-          title={
-            <>
-              What people ask about{" "}
-              <span className="text-lime-text">this work.</span>
-            </>
-          }
-          tone={related.length > 0 ? "paper" : "surface"}
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <FAQ
+             items={service.faqs}
+             title={
+               <>
+                 What people ask about{" "}
+                 <span className="text-lime-text">this work.</span>
+               </>
+             }
+             tone={related.length > 0 ? "paper" : "surface"}
+           /> */}
 
-        <CtaBand />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand /> */}
       </main>
       <Footer />
       <script

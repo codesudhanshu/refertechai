@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-import { CtaBand } from "@/components/sections/CtaBand";
+// import { CtaBand } from "@/components/sections/CtaBand";
 import { Section } from "@/components/ui/Section";
 import { buildMetadata } from "@/lib/seo";
 import { industries } from "@/content/industries";
@@ -95,15 +95,16 @@ export default function Industries() {
           </div>
         </Section>
 
-        <CtaBand
-          title={
-            <>
-              The pattern usually{" "}
-              <span className="text-lime-text">still applies.</span>
-            </>
-          }
-          lead="Sector experience helps, but most of what makes a system work is not sector-specific. Tell us the problem and we will say honestly whether we are the right team."
-        />
+        {/* Commented out on request — restore by removing this wrapper.
+            <CtaBand
+             title={
+               <>
+                 The pattern usually{" "}
+                 <span className="text-lime-text">still applies.</span>
+               </>
+             }
+             lead="Sector experience helps, but most of what makes a system work is not sector-specific. Tell us the problem and we will say honestly whether we are the right team."
+           /> */}
       </main>
       <Footer />
     </>
