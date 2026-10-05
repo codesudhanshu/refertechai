@@ -46,9 +46,10 @@ export default function Home() {
             src="/images/value-band.jpg"
             alt="Recruitment Solutions, HR Consulting Services, Talent Advisory, Global Talent Pool. Better People, Better Business — ReferTech Solution, your trusted recruitment and HR consulting partner."
             width={1080}
-            height={235}
+            height={180}
+            style={{ height: "auto" }}
             priority
-            className="h-auto w-full"
+            className="mx-auto max-w-5lg"
           />
         </section>
 

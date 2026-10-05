@@ -212,290 +212,281 @@ export function Header() {
       {/* The logo carries the brand navy as its own ground, so the bar is
           that same navy and the logo sits in it rather than on a plate. */}
       <header className="on-dark sticky top-0 z-50 border-b border-line-invert bg-teal">
-      <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5"
-          aria-label="ReferTech AI home"
-        >
-          <Logo height={40} priority />
-        </Link>
+        <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5"
+            aria-label="ReferTech AI home"
+          >
+            <Logo priority />
+          </Link>
 
-        {/* Desktop navigation */}
-        <nav ref={navRef} aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {NAV.map((item) => {
-              const expanded = openMenu === item.label;
+          {/* Desktop navigation */}
+          <nav ref={navRef} aria-label="Main" className="hidden lg:block">
+            <ul className="flex items-center gap-1">
+              {NAV.map((item) => {
+                const expanded = openMenu === item.label;
 
-              // Items with children render a toggle button, not a link. A link
-              // would navigate away on click and the menu would never be seen —
-              // and on a touch screen there is no hover to fall back on. The
-              // landing page is reachable from "All …" as the first entry.
-              if (!item.children) {
-                return (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      className={`flex items-center rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
-                        isActive(item.href)
-                          ? "text-lime"
-                          : "text-paper hover:text-lime"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              }
-
-              return (
-                <li
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => setOpenMenu(item.label)}
-                  onMouseLeave={() => setOpenMenu(null)}
-                >
-                  <button
-                    type="button"
-                    aria-haspopup="true"
-                    aria-expanded={expanded}
-                    aria-controls={`menu-${item.label}`}
-                    onClick={() => setOpenMenu(expanded ? null : item.label)}
-                    className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${
-                      expanded || isActive(item.href)
-                        ? "text-lime"
-                        : "text-paper hover:text-lime"
-                    }`}
-                  >
-                    {item.label}
-                    <span
-                      aria-hidden="true"
-                      className={`text-[10px] opacity-60 transition-transform duration-150 ${
-                        expanded ? "rotate-180" : ""
-                      }`}
-                    >
-                      &#9662;
-                    </span>
-                  </button>
-
-                  <AnimatePresence>
-                    {expanded ? (
-                  <motion.div
-                    id={`menu-${item.label}`}
-                    initial={reduce ? false : { opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduce ? undefined : { opacity: 0, y: -6 }}
-                    transition={{ duration: 0.16, ease: [0.22, 0.61, 0.36, 1] }}
-                    className={`absolute left-0 top-full z-50 pt-2 ${
-                      item.columns === 2 ? "w-[540px]" : "w-60"
-                    }`}
-                  >
-                    <div className="rounded-card border border-line bg-paper p-3 shadow-card-hover">
+                // Items with children render a toggle button, not a link. A link
+                // would navigate away on click and the menu would never be seen —
+                // and on a touch screen there is no hover to fall back on. The
+                // landing page is reachable from "All …" as the first entry.
+                if (!item.children) {
+                  return (
+                    <li key={item.label}>
                       <Link
                         href={item.href}
-                        className="group/all mb-1 flex items-center justify-between rounded-btn bg-surface px-3 py-2.5 text-sm font-medium text-lime-text transition-colors duration-150 hover:bg-lime hover:text-white"
+                        className={`flex items-center rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${isActive(item.href)
+                          ? "text-lime"
+                          : "text-paper hover:text-lime"
+                          }`}
                       >
-                        {item.allLabel ?? `All ${item.label.toLowerCase()}`}
-                        <span
-                          aria-hidden="true"
-                          className="transition-transform duration-150 group-hover/all:translate-x-0.5"
-                        >
-                          &#8594;
-                        </span>
+                        {item.label}
                       </Link>
+                    </li>
+                  );
+                }
 
-                      <ul
-                        className={`grid gap-1 ${
-                          item.columns === 2 ? "grid-cols-2" : "grid-cols-1"
+                return (
+                  <li
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenMenu(item.label)}
+                    onMouseLeave={() => setOpenMenu(null)}
+                  >
+                    <button
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded={expanded}
+                      aria-controls={`menu-${item.label}`}
+                      onClick={() => setOpenMenu(expanded ? null : item.label)}
+                      className={`flex items-center gap-1.5 rounded-btn px-3 py-2 text-sm transition-colors duration-150 ${expanded || isActive(item.href)
+                        ? "text-lime"
+                        : "text-paper hover:text-lime"
                         }`}
+                    >
+                      {item.label}
+                      <span
+                        aria-hidden="true"
+                        className={`text-[10px] opacity-60 transition-transform duration-150 ${expanded ? "rotate-180" : ""
+                          }`}
                       >
-                        {item.children.map((child) => (
-                          <li key={child.href}>
+                        &#9662;
+                      </span>
+                    </button>
+
+                    <AnimatePresence>
+                      {expanded ? (
+                        <motion.div
+                          id={`menu-${item.label}`}
+                          initial={reduce ? false : { opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                          transition={{ duration: 0.16, ease: [0.22, 0.61, 0.36, 1] }}
+                          className={`absolute left-0 top-full z-50 pt-2 ${item.columns === 2 ? "w-[540px]" : "w-60"
+                            }`}
+                        >
+                          <div className="rounded-card border border-line bg-paper p-3 shadow-card-hover">
                             <Link
-                              href={child.href}
-                              className="block rounded-btn p-3 transition-colors duration-150 hover:bg-surface"
+                              href={item.href}
+                              className="group/all mb-1 flex items-center justify-between rounded-btn bg-surface px-3 py-2.5 text-sm font-medium text-lime-text transition-colors duration-150 hover:bg-lime hover:text-white"
                             >
-                              <span className="block text-sm font-medium text-ink">
-                                {child.label}
+                              {item.allLabel ?? `All ${item.label.toLowerCase()}`}
+                              <span
+                                aria-hidden="true"
+                                className="transition-transform duration-150 group-hover/all:translate-x-0.5"
+                              >
+                                &#8594;
                               </span>
-                              {child.hint ? (
-                                <span className="mt-1 block line-clamp-2 text-xs leading-relaxed text-body">
-                                  {child.hint}
-                                </span>
-                              ) : null}
                             </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                    ) : null}
-                  </AnimatePresence>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
 
-        <div className="hidden lg:block">
-          <Button href="/contact">Get in Touch</Button>
+                            <ul
+                              className={`grid gap-1 ${item.columns === 2 ? "grid-cols-2" : "grid-cols-1"
+                                }`}
+                            >
+                              {item.children.map((child) => (
+                                <li key={child.href}>
+                                  <Link
+                                    href={child.href}
+                                    className="block rounded-btn p-3 transition-colors duration-150 hover:bg-surface"
+                                  >
+                                    <span className="block text-sm font-medium text-ink">
+                                      {child.label}
+                                    </span>
+                                    {child.hint ? (
+                                      <span className="mt-1 block line-clamp-2 text-xs leading-relaxed text-body">
+                                        {child.hint}
+                                      </span>
+                                    ) : null}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          <div className="hidden lg:block">
+            <Button href="/contact">Get in Touch</Button>
+          </div>
+
+          {/* Mobile trigger */}
+          <button
+            ref={triggerRef}
+            type="button"
+            aria-expanded={drawerOpen}
+            aria-controls="mobile-nav"
+            aria-label={drawerOpen ? "Close menu" : "Open menu"}
+            onClick={() => setDrawerOpen((value) => !value)}
+            className="flex h-11 w-11 items-center justify-center rounded-btn border border-line-invert text-paper lg:hidden"
+          >
+            <span aria-hidden="true" className="relative block h-3 w-5">
+              <span
+                className={`absolute left-0 block h-[2px] w-5 bg-current transition-transform duration-150 ${drawerOpen ? "top-[5px] rotate-45" : "top-0"
+                  }`}
+              />
+              <span
+                className={`absolute left-0 top-[5px] block h-[2px] w-5 bg-current transition-opacity duration-150 ${drawerOpen ? "opacity-0" : "opacity-100"
+                  }`}
+              />
+              <span
+                className={`absolute left-0 block h-[2px] w-5 bg-current transition-transform duration-150 ${drawerOpen ? "top-[5px] -rotate-45" : "top-[10px]"
+                  }`}
+              />
+            </span>
+          </button>
         </div>
-
-        {/* Mobile trigger */}
-        <button
-          ref={triggerRef}
-          type="button"
-          aria-expanded={drawerOpen}
-          aria-controls="mobile-nav"
-          aria-label={drawerOpen ? "Close menu" : "Open menu"}
-          onClick={() => setDrawerOpen((value) => !value)}
-          className="flex h-11 w-11 items-center justify-center rounded-btn border border-line-invert text-paper lg:hidden"
-        >
-          <span aria-hidden="true" className="relative block h-3 w-5">
-            <span
-              className={`absolute left-0 block h-[2px] w-5 bg-current transition-transform duration-150 ${
-                drawerOpen ? "top-[5px] rotate-45" : "top-0"
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-[5px] block h-[2px] w-5 bg-current transition-opacity duration-150 ${
-                drawerOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute left-0 block h-[2px] w-5 bg-current transition-transform duration-150 ${
-                drawerOpen ? "top-[5px] -rotate-45" : "top-[10px]"
-              }`}
-            />
-          </span>
-        </button>
-      </div>
 
       </header>
 
       {/* Mobile drawer — sibling of <header>, see note above */}
       <AnimatePresence>
-      {drawerOpen ? (
-        <div className="lg:hidden">
-          {/* Covers the whole viewport, including behind the header. The drawer
+        {drawerOpen ? (
+          <div className="lg:hidden">
+            {/* Covers the whole viewport, including behind the header. The drawer
               carries its own brand row and close button, so it does not depend
               on the sticky header staying put underneath it. */}
-          <motion.div
-            ref={drawerRef}
-            id="mobile-nav"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Main navigation"
-            initial={reduce ? false : { opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={reduce ? undefined : { opacity: 0, x: "100%" }}
-            transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}
-            className="on-dark fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-teal"
-          >
-            <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-line-invert bg-teal px-6">
-              <Link
-                href="/"
-                className="flex items-center gap-2.5"
-                aria-label="ReferTech AI home"
-              >
-                <Logo height={36} />
-              </Link>
+            <motion.div
+              ref={drawerRef}
+              id="mobile-nav"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Main navigation"
+              initial={reduce ? false : { opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={reduce ? undefined : { opacity: 0, x: "100%" }}
+              transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}
+              className="on-dark fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-teal"
+            >
+              <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-line-invert bg-teal px-6">
+                <Link
+                  href="/"
+                  className="flex items-center gap-2.5"
+                  aria-label="ReferTech AI home"
+                >
+                  <Logo height={36} />
+                </Link>
 
-              <button
-                type="button"
-                aria-label="Close menu"
-                onClick={() => {
-                  closeDrawer();
-                  triggerRef.current?.focus();
-                }}
-                className="flex h-11 w-11 items-center justify-center rounded-btn border border-line-invert text-paper"
-              >
-                <span aria-hidden="true" className="relative block h-3 w-5">
-                  <span className="absolute left-0 top-[5px] block h-[2px] w-5 rotate-45 bg-current" />
-                  <span className="absolute left-0 top-[5px] block h-[2px] w-5 -rotate-45 bg-current" />
-                </span>
-              </button>
-            </div>
+                <button
+                  type="button"
+                  aria-label="Close menu"
+                  onClick={() => {
+                    closeDrawer();
+                    triggerRef.current?.focus();
+                  }}
+                  className="flex h-11 w-11 items-center justify-center rounded-btn border border-line-invert text-paper"
+                >
+                  <span aria-hidden="true" className="relative block h-3 w-5">
+                    <span className="absolute left-0 top-[5px] block h-[2px] w-5 rotate-45 bg-current" />
+                    <span className="absolute left-0 top-[5px] block h-[2px] w-5 -rotate-45 bg-current" />
+                  </span>
+                </button>
+              </div>
 
-            <div className="px-6 py-6">
-            <ul className="flex flex-col">
-              {NAV.map((item) => (
-                <li key={item.label} className="border-b border-line-invert">
-                  {item.children ? (
-                    <>
-                      <button
-                        type="button"
-                        aria-expanded={openGroup === item.label}
-                        aria-controls={`group-${item.label}`}
-                        onClick={() =>
-                          setOpenGroup(
-                            openGroup === item.label ? null : item.label,
-                          )
-                        }
-                        className="flex w-full items-center justify-between py-4 text-left font-display text-base font-semibold text-paper"
-                      >
-                        {item.label}
-                        <span
-                          aria-hidden="true"
-                          className={`text-lime transition-transform duration-150 ${
-                            openGroup === item.label ? "rotate-180" : ""
-                          }`}
-                        >
-                          &#9662;
-                        </span>
-                      </button>
-                      <ul
-                        id={`group-${item.label}`}
-                        hidden={openGroup !== item.label}
-                        className="pb-4"
-                      >
-                        <li>
-                          <Link
-                            href={item.href}
-                            className="block py-2.5 text-sm text-lime"
+              <div className="px-6 py-6">
+                <ul className="flex flex-col">
+                  {NAV.map((item) => (
+                    <li key={item.label} className="border-b border-line-invert">
+                      {item.children ? (
+                        <>
+                          <button
+                            type="button"
+                            aria-expanded={openGroup === item.label}
+                            aria-controls={`group-${item.label}`}
+                            onClick={() =>
+                              setOpenGroup(
+                                openGroup === item.label ? null : item.label,
+                              )
+                            }
+                            className="flex w-full items-center justify-between py-4 text-left font-display text-base font-semibold text-paper"
                           >
-                            {item.allLabel ?? `All ${item.label.toLowerCase()}`}
-                          </Link>
-                        </li>
-                        {item.children.map((child) => (
-                          <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              className="block py-2.5 text-sm text-body-invert"
+                            {item.label}
+                            <span
+                              aria-hidden="true"
+                              className={`text-lime transition-transform duration-150 ${openGroup === item.label ? "rotate-180" : ""
+                                }`}
                             >
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="block py-4 font-display text-base font-semibold text-paper"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+                              &#9662;
+                            </span>
+                          </button>
+                          <ul
+                            id={`group-${item.label}`}
+                            hidden={openGroup !== item.label}
+                            className="pb-4"
+                          >
+                            <li>
+                              <Link
+                                href={item.href}
+                                className="block py-2.5 text-sm text-lime"
+                              >
+                                {item.allLabel ?? `All ${item.label.toLowerCase()}`}
+                              </Link>
+                            </li>
+                            {item.children.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  className="block py-2.5 text-sm text-body-invert"
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="block py-4 font-display text-base font-semibold text-paper"
+                        >
+                          {item.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
 
-            <div className="mt-8 flex flex-col gap-4">
-              <Button href="/contact" size="lg" className="w-full">
-                Get in Touch
-              </Button>
-              <a
-                href={`mailto:${company.email}`}
-                className="text-center text-sm text-body-invert"
-              >
-                {company.email}
-              </a>
-            </div>
-            </div>
-          </motion.div>
-        </div>
-      ) : null}
+                <div className="mt-8 flex flex-col gap-4">
+                  <Button href="/contact" size="lg" className="w-full">
+                    Get in Touch
+                  </Button>
+                  <a
+                    href={`mailto:${company.email}`}
+                    className="text-center text-sm text-body-invert"
+                  >
+                    {company.email}
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        ) : null}
       </AnimatePresence>
     </>
   );

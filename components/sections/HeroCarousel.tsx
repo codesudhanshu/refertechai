@@ -114,11 +114,11 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
         className="absolute inset-0 -z-10 bg-gradient-to-b from-teal via-teal/90 to-teal/75 lg:bg-gradient-to-r lg:from-teal lg:from-30% lg:via-teal/85 lg:via-55% lg:to-transparent lg:to-85%"
       />
 
-      <div className={`relative py-16 lg:min-h-[520px] lg:py-24 ${COPY_PADDING}`}>
+      <div className={`relative py-12 lg:min-h-[300px] lg:py-14 ${COPY_PADDING}`}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={slide.id}
-            className="max-w-xl"
+            className="max-w-4xl"
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, y: -12 }}
@@ -128,7 +128,7 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
               {slide.title} <span className="text-lime">{slide.highlight}</span>
             </h1>
 
-            <p className="mt-7 max-w-md text-lg leading-relaxed text-body-invert">
+            <p className="mt-7 max-w-md text-md leading-relaxed text-body-invert">
               {slide.lead}
             </p>
 
@@ -159,11 +159,10 @@ export function HeroCarousel({ slides }: { slides: readonly HeroSlide[] }) {
                 className="group/dot py-2"
               >
                 <span
-                  className={`block h-[3px] rounded-full transition-all duration-300 ${
-                    i === index
-                      ? "w-12 bg-lime"
-                      : "w-6 bg-paper/30 group-hover/dot:bg-paper/60"
-                  }`}
+                  className={`block h-[3px] rounded-full transition-all duration-300 ${i === index
+                    ? "w-12 bg-lime"
+                    : "w-6 bg-paper/30 group-hover/dot:bg-paper/60"
+                    }`}
                 />
               </button>
             ))}
