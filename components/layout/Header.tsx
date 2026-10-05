@@ -390,7 +390,7 @@ export function Header() {
                   className="flex items-center gap-2.5"
                   aria-label="ReferTech AI home"
                 >
-                  <Logo height={36} />
+                  <Logo width={117} />
                 </Link>
 
                 <button

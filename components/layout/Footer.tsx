@@ -55,7 +55,7 @@ export function Footer() {
               className="inline-flex"
               aria-label={`${company.name} — home`}
             >
-              <Logo height={56} />
+              <Logo width={181} />
             </Link>
             <p className="mt-6 text-sm leading-relaxed text-paper/70">
               We are a fast-growing HR solutions partner, combining AI-powered hiring with human expertise to help businesses find the right talent faster.
