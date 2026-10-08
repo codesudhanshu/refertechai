@@ -61,15 +61,39 @@ export function Footer() {
               We are a fast-growing HR solutions partner, combining AI-powered hiring with human expertise to help businesses find the right talent faster.
             </p>
             <div className="mt-6 text-sm leading-relaxed text-paper/70">
-              <p>
-                <a
-                  href="mailto:info@refertechsolution.com"
-                  className="transition-colors duration-150 hover:text-paper"
-                >
-                  info@refertechsolution.com
-                </a>
-              </p>
-              <p className="mt-4">Follow us on social media:</p>
+              <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
+                Get in touch
+              </h3>
+              <ul className="mt-5 flex flex-col gap-1 text-sm text-paper/75">
+                <li>
+                  <a
+                    href="mailto:info@refertechsolution.com"
+                    className="transition-colors duration-150 hover:text-paper"
+                  >
+                    info@refertechsolution.com
+                  </a>
+                </li>
+                {company.phone ? (
+                  <li>
+                    <a
+                      href={`tel:${company.phone.replace(/\s+/g, "")}`}
+                      className="transition-colors duration-150 hover:text-paper"
+                    >
+                      {company.phone}
+                    </a>
+                  </li>
+                ) : null}
+                {company.offices.map((office) => (
+                  <li key={`${office.city}-${office.country}`}>
+                    {office.city}, {office.country}
+                  </li>
+                ))}
+                <li className="pt-1 text-paper/50">
+                  We reply {company.responseTime}.
+                </li>
+              </ul>
+
+              <p className="mt-6">Follow us on social media:</p>
               <ul className="flex gap-4 mt-4">
                 <li>
                   <a href="">
@@ -120,44 +144,7 @@ export function Footer() {
               }))}
             />
 
-            {/* Company and Get in touch share a column, stacked. */}
-            <div className="flex flex-col gap-10">
-              <Column title="Company" links={COMPANY_LINKS} />
-
-              <div>
-                <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
-                  Get in touch
-                </h3>
-                <ul className="mt-5 flex flex-col gap-1 text-sm text-paper/75">
-                  <li>
-                    <a
-                      href={`mailto:${company.email}`}
-                      className="transition-colors duration-150 hover:text-paper"
-                    >
-                      {company.email}
-                    </a>
-                  </li>
-                  {company.phone ? (
-                    <li>
-                      <a
-                        href={`tel:${company.phone.replace(/\s+/g, "")}`}
-                        className="transition-colors duration-150 hover:text-paper"
-                      >
-                        {company.phone}
-                      </a>
-                    </li>
-                  ) : null}
-                  {company.offices.map((office) => (
-                    <li key={`${office.city}-${office.country}`}>
-                      {office.city}, {office.country}
-                    </li>
-                  ))}
-                  <li className="pt-1 text-paper/50">
-                    We reply {company.responseTime}.
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <Column title="Company" links={COMPANY_LINKS} />
           </div>
         </div>
 

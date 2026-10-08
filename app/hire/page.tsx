@@ -151,7 +151,7 @@ export default function Hire() {
           lead="Permanent, contract and executive IT recruitment — plus RPO, background verification and hire-train-deploy when the volume or the risk justifies it."
         />
 
-        <Section>
+        <Section image="/images/employers/offerings.jpg">
           <SectionHeading
             title={
               <>
@@ -202,7 +202,7 @@ export default function Hire() {
           </div>
         </Section>
 
-        <Section>
+        <Section image="/images/employers/reasons.jpg">
           <SectionHeading
             title={
               <>
@@ -226,7 +226,7 @@ export default function Hire() {
           </div>
         </Section>
 
-        <Section tone="teal">
+        <Section tone="teal" image="/images/employers/process.jpg">
           <div className="max-w-3xl">
             <h2 className="text-h2 text-balance text-paper">
               Eight steps, and you hear the bad news early.
@@ -252,7 +252,7 @@ export default function Hire() {
 
         {/* The form is the one on /contact rather than a second one with its
             own shape, so every enquiry lands in the same place. */}
-        <Section tone="surface" id="enquiry">
+        <Section tone="surface" id="enquiry" image="/images/employers/enquiry.jpg">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               title={

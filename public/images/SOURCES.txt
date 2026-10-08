@@ -35,6 +35,11 @@ pillars/place-stay-close.jpg            12903192
 sections/why.jpg                        18848926
 sections/pillars-intro.jpg              18848929
 
+employers/offerings.jpg                 3184357
+employers/reasons.jpg                   7414038
+employers/process.jpg                   3182763
+employers/enquiry.jpg                   5668839
+
 services/permanent-it-recruitment.jpg   30375847
 services/contract-staffing.jpg          12899140
 services/contract-to-hire.jpg           12903031
