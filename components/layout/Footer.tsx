@@ -61,7 +61,15 @@ export function Footer() {
               We are a fast-growing HR solutions partner, combining AI-powered hiring with human expertise to help businesses find the right talent faster.
             </p>
             <div className="mt-6 text-sm leading-relaxed text-paper/70">
-              <p>Follow us on social media:</p>
+              <p>
+                <a
+                  href="mailto:info@refertechsolution.com"
+                  className="transition-colors duration-150 hover:text-paper"
+                >
+                  info@refertechsolution.com
+                </a>
+              </p>
+              <p className="mt-4">Follow us on social media:</p>
               <ul className="flex gap-4 mt-4">
                 <li>
                   <a href="">

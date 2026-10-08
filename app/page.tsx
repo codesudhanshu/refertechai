@@ -56,7 +56,7 @@ export default function Home() {
         {/* recruitment services */}
         <ServiceGrid items={services} tone="paper" />
 
-        <ServicePillars tone="surface" />
+        {/* <ServicePillars tone="surface" /> */}
 
 
         {/* 4 — differentiators on a dark band */}

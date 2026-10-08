@@ -1,39 +1,111 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
-// import { CtaBand } from "@/components/sections/CtaBand";
 // import { FAQ } from "@/components/sections/FAQ";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import ContactForm from "@/app/contact/ContactForm";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Hire Talent",
+  title: "For Employers",
   description:
-    "Permanent, contract and executive IT recruitment, plus RPO, background verification and hire-train-deploy — screened by specialist recruiters, not keyword matchers.",
+    "Talent sourcing, screening, executive search, onboarding and outsourcing — permanent, contract and executive IT recruitment screened by specialist recruiters.",
   path: "/hire",
 });
 
-const STEPS = [
+// What an employer is actually buying, named the way they would ask for it.
+const OFFERINGS = [
   {
-    name: "Brief",
+    name: "Talent Sourcing",
     detail:
-      "A call with a recruiter who knows the technology, not a form. We want the stack, the team shape and what the person will actually be doing in month one.",
+      "Targeted search against your stack and your market, not a keyword sweep of a CV database.",
   },
   {
-    name: "Screen",
+    name: "Candidate Screening",
     detail:
-      "Targeted sourcing and technical screening by a specialist in that area. Candidates who cannot do the work do not reach your panel.",
+      "Technical screening by a recruiter who specialises in that area, before anyone reaches your panel.",
   },
   {
-    name: "Shortlist",
+    name: "Executive Search",
     detail:
-      "A short list with honest notes on each person, including the reservations. Usually within a week for common stacks.",
+      "Confidential search for leadership roles, where the shortlist matters more than the response rate.",
   },
   {
-    name: "Onboard",
+    name: "Negotiating & Onboarding",
     detail:
-      "Offer support, notice-period management and a check-in after the first month. Replacement cover if the fit is wrong.",
+      "Offer support, notice periods and counter-offers handled, with a check-in after the first month.",
+  },
+  {
+    name: "Consulting & Outsourcing",
+    detail:
+      "RPO, staff augmentation and hire-train-deploy when the volume or the risk justifies it.",
+  },
+];
+
+const REASONS = [
+  {
+    name: "Industry Expertise",
+    detail:
+      "Recruiters specialise by technology area instead of covering the whole market. That is what separates a candidate who has used a technology from one who is genuinely good at it.",
+  },
+  {
+    name: "Extensive Talent Network",
+    detail:
+      "Most of what we place is never advertised. Relationships built over years reach people who are not answering job ads this month.",
+  },
+  {
+    name: "Efficiency and Speed",
+    detail:
+      "For common stacks a shortlist usually reaches you inside a week. For narrow specialisms we say so up front rather than sending near-misses to look busy.",
+  },
+  {
+    name: "Long-Term Partnership",
+    detail:
+      "We would rather tell you a role is priced or scoped wrong than fill it twice. Replacement cover is agreed in writing, not improvised.",
+  },
+];
+
+const PROCESS = [
+  {
+    name: "Consultation",
+    detail:
+      "A call with a recruiter who knows the technology, not a form. The stack, the team shape, and what the person will actually do in month one.",
+  },
+  {
+    name: "Talent Sourcing",
+    detail:
+      "Targeted search across our network and the open market, scoped to the brief rather than to whoever is easiest to reach.",
+  },
+  {
+    name: "Screening",
+    detail:
+      "Technical and cultural screening by a specialist in that area. Candidates who cannot do the work do not reach your panel.",
+  },
+  {
+    name: "Candidate Presentation",
+    detail:
+      "Three or four names with honest notes on each, including the reservations. Shorter, because someone already did the filtering.",
+  },
+  {
+    name: "Interview Coordination",
+    detail:
+      "Scheduling, briefing and panel logistics handled, so your engineers spend their time interviewing rather than arranging it.",
+  },
+  {
+    name: "Selection & Onboarding",
+    detail:
+      "Offer framing, notice-period management and start-date confirmation, through to the first day.",
+  },
+  {
+    name: "Follow-Up",
+    detail:
+      "A check-in after the first month with both sides, while a wrong fit is still cheap to correct.",
+  },
+  {
+    name: "Feedback",
+    detail:
+      "What the market told us about the role — pay, availability, how your process reads from the outside. Useful whether or not you hire.",
   },
 ];
 
@@ -72,35 +144,35 @@ export default function Hire() {
         <PageHero
           title={
             <>
-              A shortlist of three,{" "}
-              <span className="text-lime-text">not a stack of thirty.</span>
+              Committed to deliver the{" "}
+              <span className="text-lime-text">right fit for the right job.</span>
             </>
           }
           lead="Permanent, contract and executive IT recruitment — plus RPO, background verification and hire-train-deploy when the volume or the risk justifies it."
         />
 
-        <Section tone="teal">
-          <div className="max-w-3xl">
-            <h2 className="text-h2 text-balance text-paper">
-              Four steps, and you hear the bad news early.
-            </h2>
-          </div>
-
-          <ol className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
-            {STEPS.map((step, index) => (
-              <li key={step.name} className="border-t border-line-invert pt-7">
-                <span className="font-display text-sm font-semibold tabular-nums text-lime">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-h3 font-semibold text-paper">
-                  {step.name}
-                </h3>
-                <p className="mt-3 leading-relaxed text-body-invert">
-                  {step.detail}
+        <Section>
+          <SectionHeading
+            title={
+              <>
+                What we take{" "}
+                <span className="text-lime-text">off your desk.</span>
+              </>
+            }
+          />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {OFFERINGS.map((offering) => (
+              <div
+                key={offering.name}
+                className="rounded-card border border-line bg-paper p-7"
+              >
+                <h3 className="text-h3 font-semibold">{offering.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-body">
+                  {offering.detail}
                 </p>
-              </li>
+              </div>
             ))}
-          </ol>
+          </div>
         </Section>
 
         <Section tone="surface">
@@ -130,6 +202,73 @@ export default function Hire() {
           </div>
         </Section>
 
+        <Section>
+          <SectionHeading
+            title={
+              <>
+                Why employers{" "}
+                <span className="text-lime-text">partner with us.</span>
+              </>
+            }
+          />
+          <div className="mt-14 grid gap-5 md:grid-cols-2">
+            {REASONS.map((reason) => (
+              <div
+                key={reason.name}
+                className="rounded-card border border-line bg-paper p-8"
+              >
+                <h3 className="text-h3 font-semibold">{reason.name}</h3>
+                <p className="mt-3 leading-relaxed text-body">
+                  {reason.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        <Section tone="teal">
+          <div className="max-w-3xl">
+            <h2 className="text-h2 text-balance text-paper">
+              Eight steps, and you hear the bad news early.
+            </h2>
+          </div>
+
+          <ol className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+            {PROCESS.map((step, index) => (
+              <li key={step.name} className="border-t border-line-invert pt-7">
+                <span className="font-display text-sm font-semibold tabular-nums text-lime">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-4 text-h3 font-semibold text-paper">
+                  {step.name}
+                </h3>
+                <p className="mt-3 leading-relaxed text-body-invert">
+                  {step.detail}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </Section>
+
+        {/* The form is the one on /contact rather than a second one with its
+            own shape, so every enquiry lands in the same place. */}
+        <Section tone="surface" id="enquiry">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <SectionHeading
+              title={
+                <>
+                  Looking for{" "}
+                  <span className="text-lime-text">talent?</span>
+                </>
+              }
+              lead="Tell us the role. If we are not the right fit for it, we will say so rather than send you a shortlist to justify the call."
+            />
+            <div className="rounded-card border border-line bg-paper p-7 lg:p-9">
+              <ContactForm />
+            </div>
+          </div>
+        </Section>
+
         {/* Commented out on request — restore by removing this wrapper.
             <FAQ
              items={HIRE_FAQS}
@@ -140,19 +279,6 @@ export default function Hire() {
                </>
              }
              tone="surface"
-           /> */}
-
-        {/* Commented out on request — restore by removing this wrapper.
-            <CtaBand
-             title={
-               <>
-                 Tell us the role.{" "}
-                 <em className="not-italic underline decoration-2 underline-offset-8">
-                   We&apos;ll tell you honestly.
-                 </em>
-               </>
-             }
-             lead="If we are not the right fit for a role, we will say so rather than send you a shortlist to justify the call."
            /> */}
       </main>
       <Footer />
