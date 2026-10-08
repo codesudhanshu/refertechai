@@ -142,6 +142,7 @@ export default function Hire() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/hire.jpg"
           title={
             <>
               Committed to deliver the{" "}

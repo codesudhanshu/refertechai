@@ -44,6 +44,7 @@ export default function Services() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/services.jpg"
           title={
             <>
               Every way we{" "}

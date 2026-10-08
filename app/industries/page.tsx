@@ -20,6 +20,7 @@ export default function Industries() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/industries.jpg"
           title={
             <>
               The roles transfer.{" "}

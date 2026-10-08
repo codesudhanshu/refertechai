@@ -45,6 +45,7 @@ export default function Careers() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/careers.jpg"
           title={
             <>
               Work on problems that{" "}

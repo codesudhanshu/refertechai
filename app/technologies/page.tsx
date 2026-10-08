@@ -19,6 +19,7 @@ export default function Technologies() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/technologies.jpg"
           title={
             <>
               The roles we{" "}

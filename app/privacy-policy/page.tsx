@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
     <>
       <Header />
       <main id="main">
-        <PageHero title="Privacy Policy" />
+        <PageHero image="/images/page-heroes/privacy-policy.jpg" title="Privacy Policy" />
 
         <Section>
           <article className="max-w-[68ch]">

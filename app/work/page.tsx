@@ -21,6 +21,7 @@ export default function Work() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/work.jpg"
           title={
             <>
               Problems worth{" "}

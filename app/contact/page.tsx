@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
+import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Button";
 import ContactForm from "./ContactForm";
 import { buildMetadata } from "@/lib/seo";
@@ -19,20 +20,22 @@ export default function Contact() {
     <>
       <Header />
       <main id="main">
+        <PageHero
+          image="/images/page-heroes/contact.jpg"
+          title={
+            <>
+              Tell us what you&apos;re{" "}
+              <span className="text-lime-text">building.</span>
+            </>
+          }
+          lead="A rough brief, a half-formed idea, a complex system — start wherever you are. We'll help find the next right move."
+        />
+
         <section className="border-b border-line bg-surface">
           <Container className="py-16 lg:py-24">
             <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <div>
-                <h1 className="text-h1 text-balance">
-                  Tell us what you&apos;re{" "}
-                  <span className="text-lime-text">building.</span>
-                </h1>
-                <p className="mt-6 max-w-lg text-lg leading-relaxed text-body">
-                  A rough brief, a half-formed idea, a complex system — start
-                  wherever you are. We&apos;ll help find the next right move.
-                </p>
-
-                <dl className="mt-12 flex flex-col gap-8 border-t border-line pt-10">
+                <dl className="flex flex-col gap-8">
                   <div>
                     <dt className="text-eyebrow font-semibold uppercase text-body">
                       Email us

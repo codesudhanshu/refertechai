@@ -39,6 +39,7 @@ export default function About() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/about.jpg"
           title={
             <>
               A shortlist is only useful{" "}

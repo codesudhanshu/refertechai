@@ -51,6 +51,7 @@ export default function Jobs() {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/jobs.jpg"
           title={
             <>
               Technology roles,{" "}

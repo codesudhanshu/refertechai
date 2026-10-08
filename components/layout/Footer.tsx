@@ -62,7 +62,7 @@ export function Footer() {
             </p>
             <div className="mt-6 text-sm leading-relaxed text-paper/70">
               <h3 className="text-eyebrow font-semibold uppercase text-body-invert">
-                Get in touch
+                Contact us
               </h3>
               <ul className="mt-5 flex flex-col gap-1 text-sm text-paper/75">
                 <li>
@@ -88,9 +88,6 @@ export function Footer() {
                     {office.city}, {office.country}
                   </li>
                 ))}
-                <li className="pt-1 text-paper/50">
-                  We reply {company.responseTime}.
-                </li>
               </ul>
 
               <p className="mt-6">Follow us on social media:</p>

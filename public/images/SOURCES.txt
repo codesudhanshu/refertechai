@@ -40,6 +40,19 @@ employers/reasons.jpg                   7414038
 employers/process.jpg                   3182763
 employers/enquiry.jpg                   5668839
 
+page-heroes/about.jpg                   6248974
+page-heroes/careers.jpg                 6592694
+page-heroes/contact.jpg                 6931199
+page-heroes/hire.jpg                    7794049
+page-heroes/industries.jpg              16370932
+page-heroes/jobs.jpg                    5439143
+page-heroes/privacy-policy.jpg          35074089
+page-heroes/service-detail.jpg          7688435
+page-heroes/services.jpg                6476254
+page-heroes/technologies.jpg            33349204
+page-heroes/terms.jpg                   31709069
+page-heroes/work.jpg                    7964253
+
 services/permanent-it-recruitment.jpg   30375847
 services/contract-staffing.jpg          12899140
 services/contract-to-hire.jpg           12903031

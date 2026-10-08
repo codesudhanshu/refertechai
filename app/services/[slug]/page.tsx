@@ -77,6 +77,7 @@ export default async function ServiceDetail({ params }: Params) {
       <Header />
       <main id="main">
         <PageHero
+          image="/images/page-heroes/service-detail.jpg"
           title={service.title}
           lead={service.description}
         />

@@ -18,7 +18,7 @@ export default function TermsAndConditions() {
     <>
       <Header />
       <main id="main">
-        <PageHero title="Terms & Conditions" />
+        <PageHero image="/images/page-heroes/terms.jpg" title="Terms & Conditions" />
 
         <Section>
           <article className="max-w-[68ch]">
