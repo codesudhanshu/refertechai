@@ -70,10 +70,10 @@ export default function TermsAndConditions() {
             <p className="mt-4 leading-relaxed text-body">
               For questions about these terms, contact{" "}
               <a
-                href="mailto:sales@refertechai.com"
+                href="mailto:info@refertechsolution.com"
                 className="text-lime-text underline underline-offset-4 transition-colors duration-150 hover:text-lime-deep"
               >
-                sales@refertechai.com
+                info@refertechsolution.com
               </a>
               .
             </p>

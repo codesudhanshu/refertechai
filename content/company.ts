@@ -35,7 +35,7 @@ export const company: Company = {
   name: "ReferTech AI",
   legalName: "ReferTech AI",
   tagline: "Technology that moves business forward",
-  email: "sales@refertechai.com",
+  email: "info@refertechsolution.com",
   phone: "",
   url: "https://refertechai.com",
   responseTime: "within one business day",

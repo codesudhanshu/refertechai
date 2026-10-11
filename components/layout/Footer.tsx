@@ -67,10 +67,10 @@ export function Footer() {
               <ul className="mt-5 flex flex-col gap-1 text-sm text-paper/75">
                 <li>
                   <a
-                    href="mailto:info@refertechsolution.com"
+                    href={`mailto:${company.email}`}
                     className="transition-colors duration-150 hover:text-paper"
                   >
-                    info@refertechsolution.com
+                    {company.email}
                   </a>
                 </li>
                 {company.phone ? (

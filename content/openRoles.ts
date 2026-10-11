@@ -93,6 +93,16 @@ export const openRoles: readonly OpenRole[] = [
     verified: false,
   },
   {
+    id: "fullstack-developer",
+    title: "Fullstack Developer",
+    discipline: "Software Engineering",
+    location: "Remote · India",
+    type: "Permanent",
+    experience: "4–8 years",
+    skills: ["React", "Node.js", "TypeScript", "PostgreSQL"],
+    verified: false,
+  },
+  {
     id: "dotnet-developer",
     title: ".NET Developer",
     discipline: "Software Engineering",

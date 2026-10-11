@@ -68,10 +68,10 @@ export default function PrivacyPolicy() {
               information, subject to applicable law. To make a request or ask a
               privacy question, email{" "}
               <a
-                href="mailto:sales@refertechai.com"
+                href="mailto:info@refertechsolution.com"
                 className="text-lime-text underline underline-offset-4 transition-colors duration-150 hover:text-lime-deep"
               >
-                sales@refertechai.com
+                info@refertechsolution.com
               </a>
               .
             </p>
