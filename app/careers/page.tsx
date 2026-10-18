@@ -12,7 +12,7 @@ import { company } from "@/content/company";
 export const metadata = buildMetadata({
   title: "Careers",
   description:
-    "Open roles in AI, product engineering, infrastructure and design at ReferTech AI.",
+    "Open roles in AI, product engineering, infrastructure and design at ReferTech Solution.",
   path: "/careers",
 });
 

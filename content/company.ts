@@ -32,8 +32,8 @@ export interface Company {
 // to the literal type `""`, and every `company.phone ? ...` branch in the UI
 // collapses to `never`.
 export const company: Company = {
-  name: "ReferTech AI",
-  legalName: "ReferTech AI",
+  name: "ReferTech Solution",
+  legalName: "ReferTech Solution",
   tagline: "Technology that moves business forward",
   email: "info@refertechsolution.com",
   phone: "",

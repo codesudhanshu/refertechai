@@ -25,7 +25,7 @@ import { differentiators } from "@/content/about";
 // shares the root segment with app/layout.tsx. Every other route gets the
 // suffix from the template and must not repeat it.
 export const metadata = buildMetadata({
-  title: "ReferTech AI — Technology that moves business forward",
+  title: "ReferTech Solution — Technology that moves business forward",
   description:
     "IT recruitment and staffing — permanent, contract and executive hiring for technology teams, plus RPO, background verification and hire-train-deploy.",
   path: "/",

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: `%s — ${company.name}`,
   },
   description:
-    "ReferTech AI is an IT recruitment and staffing firm — permanent, contract and executive hiring for technology teams.",
+    "ReferTech Solution is an IT recruitment and staffing firm — permanent, contract and executive hiring for technology teams.",
   // Icons are served from /public rather than the app/ file convention so the
   // brand mark lives beside the full logo lockup in /public/logos.
   icons: {

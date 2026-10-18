@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { company } from "@/content/company";
 
-// metadataBase and the `%s — ReferTech AI` title template are set once in
+// metadataBase and the `%s — ReferTech Solution` title template are set once in
 // app/layout.tsx. Pages pass the bare page name as `title` and the template
 // appends the brand, so nothing here should include it.
 //

@@ -216,9 +216,11 @@ export function Header() {
           <Link
             href="/"
             className="flex items-center gap-2.5"
-            aria-label="ReferTech AI home"
+            aria-label="ReferTech Solution home"
           >
-            <Logo priority />
+            {/* 225px is the old 250 less 10%; 188 is it less 25% on mobile,
+                where the bar also carries the menu trigger. */}
+            <Logo priority width={225} sizeClassName="w-[188px] lg:w-[225px]" />
           </Link>
 
           {/* Desktop navigation */}
@@ -388,7 +390,7 @@ export function Header() {
                 <Link
                   href="/"
                   className="flex items-center gap-2.5"
-                  aria-label="ReferTech AI home"
+                  aria-label="ReferTech Solution home"
                 >
                   <Logo width={117} />
                 </Link>

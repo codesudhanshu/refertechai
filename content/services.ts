@@ -1,4 +1,4 @@
-// IT recruitment services. ReferTech AI places technology talent — it does
+// IT recruitment services. ReferTech Solution places technology talent — it does
 // not build software, run migrations or deliver IT projects. Nothing here
 // should describe technical delivery work.
 //

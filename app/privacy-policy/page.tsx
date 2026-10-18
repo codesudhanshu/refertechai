@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "How ReferTech AI collects, uses and protects information when you visit refertechai.com or contact us about our services.",
+    "How ReferTech Solution collects, uses and protects information when you visit refertechai.com or contact us about our services.",
   path: "/privacy-policy",
 });
 
@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
             </p>
 
             <p className="mt-8 text-lg leading-relaxed text-body">
-              ReferTech AI respects your privacy. This policy explains how we
+              ReferTech Solution respects your privacy. This policy explains how we
               collect, use and protect information when you visit
               refertechai.com or contact us about our services.
             </p>

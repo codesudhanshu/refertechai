@@ -1,4 +1,4 @@
-// Roles and skill areas ReferTech AI recruits for. This is a statement of
+// Roles and skill areas ReferTech Solution recruits for. This is a statement of
 // recruiting coverage, not a claim that the company builds in these
 // technologies — it places the people who do.
 

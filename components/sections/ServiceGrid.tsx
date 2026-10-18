@@ -14,7 +14,7 @@ export function ServiceGrid({
   tone?: "paper" | "surface";
 }) {
   return (
-    <Section tone={tone}>
+    <Section tone={tone} space="tight">
       <SectionHeading
         title={
           <>

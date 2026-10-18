@@ -3,7 +3,7 @@
 // Every entry below is an INVENTED brand. No real company logo or trademark
 // appears on this site. Putting another company's logo here — including one
 // lifted from a competitor's partner wall — would be both trademark misuse
-// and a false claim about who ReferTech AI works with.
+// and a false claim about who ReferTech Solution works with.
 //
 // TO ADD A REAL PARTNER:
 //   1. Get written permission from that company to display their logo.

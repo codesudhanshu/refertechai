@@ -1,6 +1,6 @@
 // PLACEHOLDER DATA — REPLACE BEFORE LAUNCH
 //
-// These are CLIENT mandates shown to candidates, not internal ReferTech AI
+// These are CLIENT mandates shown to candidates, not internal ReferTech Solution
 // openings — those live in content/jobs.ts and appear on /careers.
 //
 // Every role below is illustrative. Advertising a role that is not open wastes

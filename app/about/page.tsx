@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "ReferTech AI is an IT recruitment and staffing firm placing permanent, contract and executive technology talent.",
+    "ReferTech Solution is an IT recruitment and staffing firm placing permanent, contract and executive technology talent.",
   path: "/about",
 });
 
@@ -46,7 +46,7 @@ export default function About() {
               <span className="text-lime-text">if it is short.</span>
             </>
           }
-          lead="ReferTech AI is an IT recruitment and staffing firm. We place technology talent — permanent, contract and executive — for companies that need the hire to be right the first time."
+          lead="ReferTech Solution is an IT recruitment and staffing firm. We place technology talent — permanent, contract and executive — for companies that need the hire to be right the first time."
         />
 
         <Section>
