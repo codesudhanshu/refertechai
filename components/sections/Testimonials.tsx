@@ -40,7 +40,7 @@ export function Testimonials({
   if (items.length === 0) return null;
 
   return (
-    <Section tone={tone} space="tighterTop">
+    <Section tone={tone} space="tightest">
       <SectionHeading
         title={
           <>

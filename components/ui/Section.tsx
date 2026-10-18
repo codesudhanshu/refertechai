@@ -42,6 +42,9 @@ const SPACE = {
   // Half of `tight` above, `tight` below — the closest a band sits to the one
   // before it while still closing properly into the one after.
   tighterTop: "pt-5 pb-10 lg:pt-7 lg:pb-14",
+  // Half of `tighterTop` again. This is as close as the scale goes: below it
+  // the band stops reading as its own section and runs into its neighbours.
+  tightest: "pt-2.5 pb-5 lg:pt-3.5 lg:pb-7",
 } as const;
 
 export type Space = keyof typeof SPACE;
