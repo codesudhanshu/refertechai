@@ -27,7 +27,7 @@ export function IndustryStrip({
   if (shown.length === 0) return null;
 
   return (
-    <Section tone={tone} space="tightTop">
+    <Section tone={tone} space="tighterTop">
       <SectionHeading
         title={
           <>

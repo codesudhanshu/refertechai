@@ -39,9 +39,9 @@ const SCRIMS = {
 const SPACE = {
   default: "py-20 lg:py-28",
   tight: "py-10 lg:py-14",
-  // Half the default above, full below, for a section that should sit close
-  // to the one before it without closing up the gap to the one after.
-  tightTop: "pt-10 pb-20 lg:pt-14 lg:pb-28",
+  // Half of `tight` above, `tight` below — the closest a band sits to the one
+  // before it while still closing properly into the one after.
+  tighterTop: "pt-5 pb-10 lg:pt-7 lg:pb-14",
 } as const;
 
 export type Space = keyof typeof SPACE;
